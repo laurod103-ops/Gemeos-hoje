@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarot do Dia – Gêmeos</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .voltar {
+      display: block;
+      margin-top: 20px;
+      padding: 12px;
+      background: #6a5acd;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🔮 Tarot do Dia</h1>
+
+<div class="card">
+  <h2 id="carta"></h2>
+  <p id="mensagem"></p>
+</div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+const tarot = [
+  { nome: "O Louco", msg: "Hoje pede liberdade e novos caminhos." },
+  { nome: "O Mago", msg: "Você tem o poder de criar sua realidade." },
+  { nome: "A Sacerdotisa", msg: "Confie na sua intuição hoje." },
+  { nome: "A Imperatriz", msg: "Momento de crescimento e abundância." },
+  { nome: "O Imperador", msg: "Organize e assuma o controle." },
+  { nome: "Os Enamorados", msg: "Escolhas importantes no amor." },
+  { nome: "A Roda da Fortuna", msg: "Mudanças inesperadas estão chegando." }
+];
+
+const hoje = new Date().getDate();
+const carta = tarot[hoje % tarot.length];
+
+document.getElementById("carta").innerText = carta.nome;
+document.getElementById("mensagem").innerText = carta.msg;
+</script>
+
+</body>
+</html>
