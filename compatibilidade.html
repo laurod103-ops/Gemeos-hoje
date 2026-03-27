@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compatibilidade de Gêmeos</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+select {
+  padding:10px;
+  border-radius:8px;
+  margin:10px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+  text-align:left;
+}
+
+.voltar {
+  display:block;
+  margin-top:20px;
+  padding:12px;
+  background:#6a5acd;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>💞 Compatibilidade de Gêmeos</h1>
+
+<p>Escolha um signo:</p>
+
+<select onchange="mostrar(this.value)">
+  <option value="">Selecione</option>
+  <option value="libra">Libra</option>
+  <option value="aquario">Aquário</option>
+  <option value="aries">Áries</option>
+  <option value="touro">Touro</option>
+  <option value="cancer">Câncer</option>
+  <option value="escorpiao">Escorpião</option>
+</select>
+
+<div id="resultado"></div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+const dados = {
+
+libra: `
+<h3>Gêmeos + Libra</h3>
+<p>Essa é uma das combinações mais naturais do zodíaco. Existe leveza, troca intelectual e sintonia emocional equilibrada. 
+Libra entende o jeito mutável de Gêmeos e não tenta prender, o que mantém a relação saudável e fluida.</p>
+`,
+
+aquario: `
+<h3>Gêmeos + Aquário</h3>
+<p>Uma conexão baseada em liberdade e inteligência. Ambos valorizam independência e ideias. 
+É uma relação moderna, sem pressão, onde o vínculo cresce naturalmente.</p>
+`,
+
+aries: `
+<h3>Gêmeos + Áries</h3>
+<p>Relação intensa e cheia de movimento. Áries traz ação, Gêmeos traz ideias. 
+Existe muita química, mas precisa de equilíbrio para não virar impulsividade.</p>
+`,
+
+touro: `
+<h3>Gêmeos + Touro</h3>
+<p>Diferença de ritmo clara. Touro busca estabilidade, Gêmeos mudança. 
+Pode funcionar com esforço, mas tende a gerar frustração.</p>
+`,
+
+cancer: `
+<h3>Gêmeos + Câncer</h3>
+<p>Câncer sente profundamente, Gêmeos racionaliza. 
+Essa diferença pode criar desconexão emocional.</p>
+`,
+
+escorpiao: `
+<h3>Gêmeos + Escorpião</h3>
+<p>Escorpião é intenso e profundo, Gêmeos leve e mutável. 
+A relação pode se tornar pesada rapidamente.</p>
+`
+
+};
+
+function mostrar(signo){
+  document.getElementById("resultado").innerHTML = dados[signo] || "";
+}
+</script>
+
+</body>
+</html>
