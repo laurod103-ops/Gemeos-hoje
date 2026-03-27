@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Significado dos Sonhos</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(180deg,#0f0c29,#302b63,#24243e);
+  color:white;
+  padding:20px;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  margin-bottom:10px;
+}
+
+.card {
+  background:rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+.voltar {
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  padding:12px;
+  background:#6a5acd;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌙 Significado dos Sonhos</h1>
+
+<input type="text" placeholder="Digite um sonho..." oninput="buscar(this.value)">
+
+<div id="resultado"></div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+
+const sonhos = {
+queda: "Sonhar com queda indica perda de controle ou insegurança. Esse sonho aparece quando você sente que algo na sua vida está instável ou fora do seu domínio.",
+
+agua: "Sonhar com água representa suas emoções. Água calma mostra equilíbrio, enquanto água agitada indica ansiedade ou conflito emocional.",
+
+chave: "Sonhar com chave indica solução ou desbloqueio. Pode significar que você está prestes a encontrar uma resposta importante.",
+
+porta: "Sonhar com porta representa oportunidades. Porta aberta indica novos caminhos, enquanto fechada mostra bloqueios.",
+
+cobra: "Sonhar com cobra representa transformação, alerta ou energia interna. Pode indicar mudança ou necessidade de atenção.",
+
+voar: "Sonhar que está voando indica liberdade, crescimento e superação de limites.",
+
+dente: "Sonhar com dente caindo está ligado à insegurança, medo de julgamento ou perda de confiança.",
+
+morte: "Sonhar com morte representa fim de ciclo e transformação, não morte real.",
+
+perseguicao: "Sonhar que está sendo perseguido indica que você está evitando algo na vida real.",
+
+fogo: "Sonhar com fogo representa transformação intensa. Pode ser destruição ou renovação."
+};
+
+function buscar(valor){
+  const r = document.getElementById("resultado");
+  r.innerHTML = "";
+
+  valor = valor.toLowerCase();
+
+  for(let chave in sonhos){
+    if(chave.includes(valor)){
+      r.innerHTML += `
+        <div class="card">
+          <h3>${chave}</h3>
+          <p>${sonhos[chave]}</p>
+        </div>
+      `;
+    }
+  }
+}
+
+</script>
+
+</body>
+</html>
