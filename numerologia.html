@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerologia de Hoje – Gêmeos</title>
+
+  <meta name="description" content="Veja a numerologia do dia para Gêmeos e descubra as energias que influenciam sua vida hoje.">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .numero {
+      font-size: 60px;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .voltar {
+      display: block;
+      margin-top: 20px;
+      padding: 12px;
+      background: #6a5acd;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🔢 Numerologia de Hoje – Gêmeos</h1>
+
+<div class="numero" id="numero"></div>
+
+<div class="card">
+  <p id="mensagem"></p>
+</div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+const mensagens = {
+  1: "Dia de liderança e iniciativa. Tome decisões com confiança.",
+  2: "Momento de equilíbrio e parceria. Evite conflitos.",
+  3: "Criatividade em alta. Expresse suas ideias.",
+  4: "Foque na disciplina e organização.",
+  5: "Mudanças e liberdade. Aproveite novas oportunidades.",
+  6: "Dia voltado para família e responsabilidades.",
+  7: "Reflexão e espiritualidade em destaque.",
+  8: "Energia de poder e conquistas materiais.",
+  9: "Finalizações e encerramentos importantes."
+};
+
+function calcularNumero() {
+  const hoje = new Date();
+  let soma = hoje.getDate() + (hoje.getMonth() + 1) + hoje.getFullYear();
+
+  while (soma > 9) {
+    soma = soma.toString().split('').reduce((a,b) => a + parseInt(b), 0);
+  }
+
+  return soma;
+}
+
+const numero = calcularNumero();
+
+document.getElementById("numero").innerText = numero;
+document.getElementById("mensagem").innerText = mensagens[numero];
+</script>
+
+</body>
+</html>
