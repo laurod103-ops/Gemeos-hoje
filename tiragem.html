@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiragem de Tarot</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px;
+      margin: 5px;
+      background: #6a5acd;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .voltar {
+      display: block;
+      margin-top: 20px;
+      padding: 12px;
+      background: #6a5acd;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🃏 Tiragem de Tarot</h1>
+
+<div>
+  <button class="btn" onclick="tirar(1)">1 Carta</button>
+  <button class="btn" onclick="tirar(2)">2 Cartas</button>
+  <button class="btn" onclick="tirar(3)">3 Cartas</button>
+  <button class="btn" onclick="tirar(5)">5 Cartas</button>
+</div>
+
+<div id="resultado"></div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+const cartas = [
+  { nome: "O Louco", msg: "Novos começos e liberdade." },
+  { nome: "O Mago", msg: "Poder de ação e criação." },
+  { nome: "A Sacerdotisa", msg: "Intuição e mistério." },
+  { nome: "A Imperatriz", msg: "Crescimento e abundância." },
+  { nome: "O Imperador", msg: "Controle e estabilidade." },
+  { nome: "Os Enamorados", msg: "Escolhas no amor." },
+  { nome: "A Roda da Fortuna", msg: "Mudanças e ciclos." },
+  { nome: "A Força", msg: "Coragem interior." },
+  { nome: "O Eremita", msg: "Reflexão e sabedoria." },
+  { nome: "A Justiça", msg: "Equilíbrio e verdade." }
+];
+
+function tirar(qtd) {
+  let html = "";
+
+  for (let i = 0; i < qtd; i++) {
+    const index = Math.floor(Math.random() * cartas.length);
+
+    html += `
+      <div class="card">
+        <strong>${cartas[index].nome}</strong><br>
+        ${cartas[index].msg}
+      </div>
+    `;
+  }
+
+  document.getElementById("resultado").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
