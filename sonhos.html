@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Significado dos Sonhos</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(180deg,#0f0c29,#302b63,#24243e);
+  color:white;
+  padding:20px;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+.card {
+  background:rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+.voltar {
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  padding:12px;
+  background:#6a5acd;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌙 Significado dos Sonhos</h1>
+
+<input type="text" placeholder="Digite um sonho..." oninput="buscar(this.value)">
+
+<div id="resultado"></div>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<script>
+
+const sonhos = {
+queda: "Sonhar com queda indica perda de controle ou insegurança.",
+agua: "Sonhar com água representa emoções.",
+chave: "Sonhar com chave indica solução ou desbloqueio.",
+porta: "Sonhar com porta indica oportunidades.",
+cobra: "Sonhar com cobra representa transformação.",
+voar: "Sonhar que está voando indica liberdade."
+};
+
+function buscar(valor){
+  const r = document.getElementById("resultado");
+  r.innerHTML = "";
+
+  valor = valor.toLowerCase();
+
+  for(let chave in sonhos){
+    if(chave.includes(valor)){
+      r.innerHTML += `
+        <div class="card">
+          <h3>${chave}</h3>
+          <p>${sonhos[chave]}</p>
+        </div>
+      `;
+    }
+  }
+}
+
+</script>
+
+</body>
+</html>
