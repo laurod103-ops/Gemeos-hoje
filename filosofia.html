@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Gêmeos Hoje — Gêmeos & Filosofia</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020408">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gêmeos Hoje">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6690267592043012" crossorigin="anonymous"></script>
+<style>
+:root{
+  --deep:#020408;
+  --deep2:#060c14;
+  --deep3:#0a1420;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --gold3:#f5dfa0;
+  --goldl:rgba(201,168,76,.15);
+  --goldm:rgba(201,168,76,.3);
+  --cream:#ece2c8;
+  --cream2:#d4c9a8;
+  --silver:#8a9ab5;
+  --sidebar:280px;
+  --top:62px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;outline:none;line-height:1.5;}
+html{font-size:15px;}html,body{height:100%;background:var(--deep);color:var(--cream);font-family:'EB Garamond',serif;overflow-x:hidden;max-width:100vw;}
+img,table,video,iframe,canvas{max-width:100%;}
+.card,.chk-bloco,.chk-visao-geral,.chk-hero,.chk-gem-box,.chk-kundalini,.chk-pratica-card{overflow-wrap:break-word;word-break:break-word;}
+canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+.app{display:flex;min-height:100vh;position:relative;z-index:2;overflow-x:hidden;max-width:100vw;}
+
+
+
+
+/* DECANATOS */
+.dec-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.dec-btn{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:.9rem .5rem;cursor:pointer;text-align:center;transition:all .3s;color:var(--cream);}
+.dec-btn.active{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(6,12,20,.95));}
+.dec-btn .dec-num{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold2);display:block;margin-bottom:.3rem;}
+.dec-btn .dec-per{font-size:.7rem;color:var(--silver);}
+.dec-info-card{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:14px;padding:1.2rem;margin-bottom:1.2rem;}
+.dec-info-card h3{font-family:'Cinzel',serif;color:var(--gold2);font-size:.95rem;margin-bottom:.4rem;}
+.dec-reg{font-size:.78rem;color:var(--silver);margin-bottom:.8rem;letter-spacing:.05em;}
+.dec-ess{color:var(--cream);font-size:.88rem;line-height:1.7;margin-bottom:.8rem;}
+.dec-dons{font-size:.8rem;color:var(--cream2);line-height:1.6;padding:.6rem;background:rgba(201,168,76,.06);border-left:2px solid var(--gold);border-radius:0 6px 6px 0;}
+.dec-des{font-size:.8rem;color:var(--silver);line-height:1.6;padding:.6rem;background:rgba(138,154,181,.06);border-left:2px solid var(--silver);border-radius:0 6px 6px 0;margin-top:.5rem;}
+.dec-leitura-card{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:14px;padding:1.2rem;margin-bottom:1rem;}
+.dec-leitura-card .leitura-titulo{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold2);margin-bottom:.2rem;}
+.dec-leitura-card .leitura-sub{font-size:.78rem;color:var(--silver);font-style:italic;margin-bottom:.8rem;}
+.dec-leitura-card .leitura-texto p{margin-bottom:.7rem;line-height:1.75;font-size:.88rem;}
+
+/* BOTÕES COMPARTILHAR */
+.share-bar{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+.share-btn{display:inline-flex;align-items:center;gap:.45rem;background:none;border:1px solid var(--goldm);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.06em;padding:.45rem .9rem;border-radius:20px;cursor:pointer;transition:all .25s;white-space:nowrap;}
+.share-btn:hover{background:var(--goldl);border-color:var(--gold);}
+.share-btn .s-ico{font-size:.9rem;}
+
+/* BANNER INSTALAR APP */
+#installBanner{display:none;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0a1420,#060c14);border:1px solid var(--gold);border-radius:14px;padding:.9rem 1.2rem;align-items:center;gap:1rem;box-shadow:0 8px 32px rgba(0,0,0,.6);max-width:340px;width:90%;}
+#installBanner .ib-text{flex:1;}
+#installBanner .ib-title{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.06em;}
+#installBanner .ib-sub{font-size:.68rem;color:var(--silver);margin-top:.2rem;}
+#installBanner .ib-btn{background:var(--gold);color:#020408;border:none;padding:.5rem 1rem;border-radius:8px;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+#installBanner .ib-close{background:none;border:none;color:var(--silver);cursor:pointer;font-size:1rem;padding:.2rem;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:var(--sidebar);right:0;height:var(--top);background:rgba(2,4,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--goldm);display:flex;align-items:center;padding:0 .8rem;z-index:100;gap:.5rem;overflow:hidden;}
+.hbg{display:none;background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:.3rem;}
+.tb-back{background:none;border:none;color:var(--gold);font-family:'Cinzel',serif;font-size:.72rem;cursor:pointer;letter-spacing:.06em;padding:.3rem .6rem;border:1px solid var(--goldm);border-radius:6px;transition:all .2s;}
+.tb-back:hover{background:var(--goldl);}
+.tb-title{font-family:'Cinzel',serif;color:var(--gold2);font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;max-width:140px;}
+.tb-date{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);font-size:.72rem;white-space:nowrap;flex-shrink:0;}
+
+/* SIDEBAR */
+.sidebar{width:var(--sidebar);height:100vh;background:linear-gradient(180deg,var(--deep2) 0%,var(--deep3) 100%);border-right:1px solid var(--goldm);position:fixed;top:0;left:0;z-index:150;display:flex;flex-direction:column;transition:transform .3s ease;overflow-y:scroll;overflow-x:hidden;}
+.sb-logo{padding:1.5rem 1.2rem 1rem;text-align:center;border-bottom:1px solid var(--goldl);cursor:pointer;}
+.sb-sym{font-size:3rem;display:block;margin-bottom:.4rem;filter:drop-shadow(0 0 12px var(--gold));}
+.sb-logo h1{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);letter-spacing:.08em;line-height:1.3;}
+.sb-logo small{color:var(--silver);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;}
+.sb-sec{padding:.6rem 0 .3rem;}
+.sb-sec-t{padding:.4rem 1.2rem .6rem;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);opacity:.7;}
+.ni{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.2rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative;}
+.ni:hover{background:var(--goldl);border-left-color:var(--gold);}
+.ni.active{background:var(--goldm);border-left-color:var(--gold2);}
+.ni .ico{font-size:1.3rem;width:1.6rem;text-align:center;flex-shrink:0;}
+.ni .tx .lbl{font-family:'Cinzel',serif;font-size:.9rem;color:var(--cream);letter-spacing:.04em;}
+.ni .tx .sub{font-size:.78rem;color:var(--silver);margin-top:.2rem;}
+
+/* MAIN */
+.main{margin-left:var(--sidebar);padding-top:var(--top);flex:1;min-width:0;overflow-x:hidden;}
+.page{display:none;padding:2rem 1.5rem;min-height:calc(100vh - var(--top));overflow-x:hidden;word-break:break-word;max-width:100%;box-sizing:border-box;}
+.page.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PAGE HEADER */
+.ph{text-align:center;margin-bottom:2.5rem;padding-bottom:1.8rem;border-bottom:1px solid var(--goldl);overflow-wrap:break-word;word-break:break-word;max-width:100%;}
+.ph .orn{color:var(--gold);letter-spacing:.3em;font-size:.7rem;margin-bottom:.5rem;}
+.ph h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.4rem;word-break:break-word;overflow-wrap:break-word;}
+.ph p{color:var(--silver);font-size:.9rem;font-style:italic;word-break:break-word;overflow-wrap:break-word;white-space:normal;max-width:100%;}
+
+/* CARDS */
+.card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;padding:1.6rem;margin-bottom:1.2rem;}
+.card-gold{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(6,12,20,.95));}
+.card h3{font-family:'Cinzel',serif;color:var(--gold2);font-size:.9rem;letter-spacing:.08em;margin-bottom:.6rem;}
+.card p{color:var(--cream2);line-height:2;font-size:.95rem;}
+
+/* HOME */
+.home-hero{text-align:center;padding:.8rem 1rem 1.2rem;margin-bottom:1rem;}
+.home-hero h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.3rem;}
+.home-hero .sub{color:var(--silver);font-style:italic;font-size:1rem;margin-bottom:1rem;}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.hcard{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;padding:1.1rem .8rem;cursor:pointer;transition:all .3s;text-align:center;}
+.hcard:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.15);}
+.hcard .ico{font-size:1.6rem;margin-bottom:.4rem;}
+.hcard .ttl{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.04em;}
+.hcard .dsc{font-size:.78rem;color:var(--silver);margin-top:.35rem;}
+
+/* LEITURA DIÁRIA */
+.leitura-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--gold);border-radius:16px;padding:2.2rem;margin-bottom:1.8rem;}
+.leitura-titulo{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--gold2);margin-bottom:.3rem;}
+.leitura-sub{color:var(--silver);font-style:italic;font-size:.85rem;margin-bottom:1.2rem;}
+.leitura-texto{color:var(--cream2);line-height:2;font-size:1rem;}
+.leitura-reflexao{margin-top:1.5rem;padding:1rem 1.2rem;background:var(--goldl);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.leitura-reflexao .label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem;}
+.leitura-reflexao p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+
+/* TAROT */
+.tarot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.tc{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;text-align:center;transition:all .3s;}
+.tc:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,168,76,.2);}
+.tc .t-sym{font-size:2rem;margin-bottom:.4rem;}
+.tc .t-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
+.tc .t-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin-top:.2rem;}
+.tc .t-elem{font-size:.62rem;color:var(--silver);margin-top:.2rem;}
+
+/* LEIS */
+.lei-acc{margin-bottom:1.1rem;border:1px solid var(--goldm);border-radius:10px;overflow:hidden;}
+.lei-hd{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;cursor:pointer;background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));transition:all .2s;}
+.lei-hd:hover{background:var(--goldl);}
+.lei-hd .l-ico{font-size:1.4rem;}
+.lei-hd .l-num{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);letter-spacing:.1em;}
+.lei-hd .l-nome{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream);}
+.lei-hd .l-latin{font-size:.68rem;color:var(--silver);font-style:italic;}
+.lei-hd .l-arr{margin-left:auto;color:var(--gold);transition:transform .3s;font-size:.8rem;}
+.lei-hd.open .l-arr{transform:rotate(180deg);}
+.lei-bd{display:none;padding:1.4rem 1.6rem;background:rgba(6,12,20,.98);border-top:1px solid var(--goldl);}
+.lei-bd.show{display:block;}
+.lei-bd h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.lei-bd h4:first-child{margin-top:0;}
+.lei-bd p{color:var(--cream2);line-height:2;font-size:.93rem;margin-bottom:.5rem;}
+.lei-mantra{margin-top:1rem;padding:.8rem 1rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:8px;font-style:italic;color:var(--gold3);text-align:center;font-size:.88rem;}
+
+/* NUMEROLOGIA */
+.num-regente{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.95));border:2px solid var(--gold);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;text-align:center;}
+.num-regente .n-big{font-family:'Cinzel Decorative',serif;font-size:4rem;color:var(--gold2);line-height:1;margin-bottom:.3rem;filter:drop-shadow(0 0 15px var(--gold));}
+.num-regente .n-label{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.num-regente p{color:var(--cream2);line-height:1.85;font-size:.95rem;}
+.num-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.num-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;cursor:pointer;transition:all .3s;}
+.num-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.15);}
+.num-card .n-num{font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold2);line-height:1;}
+.num-card .n-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin:.3rem 0 .4rem;}
+.num-card .n-prev{font-size:.78rem;color:var(--silver);line-height:1.5;}
+
+/* NUMEROLOGIA PESSOAL */
+.num-pessoal-box{background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.35);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.num-pessoal-box h3{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:#c4b5fd;margin-bottom:.4rem;text-align:center;}
+.num-pessoal-box .np-sub{font-size:.78rem;color:var(--silver);text-align:center;font-style:italic;margin-bottom:1.2rem;}
+.np-form{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;}
+.np-form label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.3rem;}
+.np-form input[type=date]{background:rgba(10,20,32,.9);border:1px solid var(--goldm);color:var(--cream);font-family:'EB Garamond',serif;font-size:.9rem;padding:.5rem .8rem;border-radius:8px;outline:none;flex:1;min-width:160px;color-scheme:dark;}
+.np-form input[type=date]:focus{border-color:var(--gold);}
+.np-calcular{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#020408;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;border:none;padding:.55rem 1.2rem;border-radius:8px;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.np-calcular:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.np-resultado{margin-top:1.4rem;display:none;}
+.np-resultado.show{display:block;animation:fadeIn .4s ease;}
+.np-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.np-num-destaque{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.97));border:2px solid var(--gold);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-destaque .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:var(--gold2);line-height:1;filter:drop-shadow(0 0 12px var(--gold));}
+.np-num-destaque .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-destaque .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-destaque .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-num-idade{background:linear-gradient(135deg,rgba(147,112,219,.12),rgba(6,12,20,.97));border:2px solid rgba(147,112,219,.5);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-idade .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:#c4b5fd;line-height:1;filter:drop-shadow(0 0 12px rgba(147,112,219,.6));}
+.np-num-idade .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:#c4b5fd;text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-idade .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-idade .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-leitura-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.np-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.05em;transition:all .2s;}
+.np-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.np-panel{display:none;}
+.np-panel.active{display:block;}
+.np-leitura-bloco{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;margin-bottom:.8rem;}
+.np-leitura-bloco .npb-titulo{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem;}
+.np-leitura-bloco p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-afirmacao{text-align:center;padding:1.2rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:10px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin-top:.5rem;}
+.np-sintegia{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(147,112,219,.05));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:1rem;}
+.np-sintegia .nps-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;text-align:center;}
+.np-sintegia p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-ciclo-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem;}
+.np-ciclo-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.8rem;text-align:center;}
+.np-ciclo-item .npc-num{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.np-ciclo-item .npc-label{font-size:.6rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;margin-top:.2rem;}
+.np-ciclo-item .npc-anos{font-size:.65rem;color:var(--gold);margin-top:.15rem;}
+
+/* PALPITES */
+.pal-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.pal-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.pal-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.pal-panel{display:none;}
+.pal-panel.active{display:block;animation:fadeIn .3s ease;}
+.pal-hero{text-align:center;padding:1.4rem 1rem 1.6rem;margin-bottom:1.2rem;border:1px solid;border-radius:14px;}
+.palh-sym{font-size:3rem;margin-bottom:.4rem;filter:drop-shadow(0 0 16px currentColor);}
+.palh-titulo{font-family:'Cinzel Decorative',serif;font-size:1rem;margin-bottom:.4rem;}
+.palh-sub{color:var(--silver);font-size:.82rem;font-style:italic;line-height:1.6;}
+.pal-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.pal-info-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.8rem;text-align:center;}
+.pic-n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.pic-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.06em;margin-top:.3rem;}
+.pal-boloes-wrap{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.2rem;}
+.pal-bolao{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;}
+.pbal-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;}
+.pbal-nums{display:flex;flex-wrap:wrap;gap:.45rem;}
+.pbal-num{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:50%;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;border:2px solid;transition:all .3s;}
+.pbal-num.mega{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.6);color:#4ade80;}
+.pbal-num.loto{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.6);color:#60a5fa;}
+.pbal-num.quina{background:rgba(147,51,234,.15);border-color:rgba(147,51,234,.6);color:#c084fc;}
+.pbal-num.extra{background:rgba(147,112,219,.15);border-color:rgba(147,112,219,.6);color:#c4b5fd;}
+.pbal-num.gold{background:var(--goldl);border-color:var(--gold);color:var(--gold2);}
+.pbal-num.dia{background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.5);color:#fbbf24;}
+.pal-leitura-box{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;}
+.pal-leitura-box .plb-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.pal-leitura-box p{color:var(--cream2);line-height:1.85;font-size:.92rem;}
+.pal-gerar-btn{width:100%;padding:.8rem;border:none;border-radius:10px;color:#fff;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .25s;margin-bottom:1rem;}
+.pal-gerar-btn:hover{filter:brightness(1.12);transform:translateY(-1px);}
+
+/* BICHO */
+.bicho-destaque{background:linear-gradient(135deg,rgba(234,179,8,.12),rgba(6,12,20,.97));border:2px solid rgba(234,179,8,.5);border-radius:16px;padding:1.6rem;text-align:center;margin-bottom:1.2rem;}
+.bd-sym{font-size:4rem;line-height:1;margin-bottom:.4rem;filter:drop-shadow(0 0 20px rgba(234,179,8,.5));}
+.bd-nome{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:#facc15;margin-bottom:.2rem;}
+.bd-grupo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:rgba(234,179,8,.7);text-transform:uppercase;margin-bottom:.6rem;}
+.bd-desc{color:var(--cream2);font-size:.88rem;line-height:1.7;font-style:italic;}
+.bicho-numeros{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem;}
+.bnum-card{border-radius:12px;padding:1rem;text-align:center;border:1px solid;}
+.bnum-milhar{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.4);}
+.bnum-centena{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.4);}
+.bnum-dezena{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.4);}
+.bnum-unidade{background:rgba(147,112,219,.1);border-color:rgba(147,112,219,.4);}
+.bnum-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;color:var(--silver);text-transform:uppercase;margin-bottom:.4rem;}
+.bnum-val{font-family:'Cinzel Decorative',serif;font-size:2.4rem;color:var(--gold2);line-height:1;}
+.bnum-sub{font-size:.58rem;color:var(--silver);margin-top:.2rem;}
+.bicho-variacoes{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;margin-bottom:1.2rem;}
+.bvar-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.bvar-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.bvar-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.6rem .8rem;display:flex;align-items:center;gap:.6rem;}
+.bvar-ico{font-size:1.1rem;flex-shrink:0;}
+.bvar-info .bvi-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;}
+.bvar-info .bvi-v{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);}
+.bicho-ranking{margin-bottom:1.2rem;}
+.brank-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.brank-item{display:flex;align-items:center;gap:.8rem;padding:.55rem .7rem;background:rgba(10,20,32,.7);border:1px solid var(--goldl);border-radius:8px;margin-bottom:.4rem;transition:all .2s;}
+.brank-item:hover{border-color:var(--goldm);background:rgba(10,20,32,.9);}
+.brank-pos{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold);width:1.6rem;text-align:center;flex-shrink:0;}
+.brank-sym{font-size:1.4rem;flex-shrink:0;}
+.brank-info{flex:1;}
+.brank-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);}
+.brank-nums{font-size:.65rem;color:var(--silver);margin-top:.1rem;}
+.brank-stars{color:var(--gold);font-size:.75rem;flex-shrink:0;}
+
+/* EXTRAS */
+.extra-sorte-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.esg-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.esg-ico{font-size:1.4rem;margin-bottom:.3rem;}
+.esg-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.esg-val{font-family:'Cinzel',serif;font-size:.9rem;color:var(--cream2);}
+
+/* MEDITAÇÕES */
+.med-grid{display:grid;gap:1rem;}
+.med-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.med-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.med-ico{font-size:2rem;flex-shrink:0;}
+.med-card .m-tipo{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem;}
+.med-card .m-titulo{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream2);margin-bottom:.3rem;}
+.med-card .m-dur{font-size:.72rem;color:var(--silver);}
+.med-card .m-intro{font-size:.78rem;color:var(--silver);line-height:1.5;margin-top:.4rem;}
+
+/* SONHOS */
+.son-cat-header{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin:1.5rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.son-cats{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.son-cat-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.son-cat-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.son-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.25);border-radius:14px;}
+.son-hero .s-sym{font-size:3.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.5));margin-bottom:.5rem;}
+.son-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.son-hero p{color:var(--silver);font-size:.85rem;font-style:italic;line-height:1.6;}
+.son-num-dia{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.son-num-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.son-num-card .n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.son-num-card .label{font-size:.62rem;color:var(--silver);margin-top:.2rem;font-family:'Cinzel',serif;letter-spacing:.05em;}
+.son-grid{display:grid;gap:.8rem;margin-bottom:1.5rem;}
+.son-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.son-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,181,253,.12);}
+.son-card .s-ico{font-size:1.8rem;flex-shrink:0;}
+.son-card .s-cat{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.2rem;}
+.son-card .s-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.2rem;}
+.son-card .s-desc{font-size:.72rem;color:var(--silver);line-height:1.5;}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;z-index:300;background:rgba(2,4,8,.95);backdrop-filter:blur(12px);align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto;}
+.mo.open{display:flex;}
+.mb{background:linear-gradient(135deg,var(--deep2),var(--deep3));border:1px solid var(--gold);border-radius:16px;width:100%;max-width:680px;margin:auto;max-height:90vh;overflow-y:auto;}
+.m-hd{display:flex;justify-content:space-between;align-items:flex-start;padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--goldl);position:sticky;top:0;background:var(--deep2);z-index:5;border-radius:16px 16px 0 0;}
+.m-num{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.m-ti{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--gold2);}
+.m-cl{background:none;border:1px solid var(--goldm);color:var(--gold);width:2rem;height:2rem;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.m-cl:hover{background:var(--goldl);border-color:var(--gold);}
+.m-bd{padding:1.2rem 1.5rem 1.5rem;}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.06em;transition:all .2s;}
+.tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.tab-panel p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.tab-panel h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:1rem 0 .5rem;}
+
+/* CONHECIMENTO */
+.con-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.con-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.con-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tipo-positivo{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.tipo-negativo{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.tipo-familia{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.tipo-social{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.tipo-emocional{background:rgba(196,181,253,.15);color:#c4b5fd;border:1px solid rgba(196,181,253,.3);}
+.con-section{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
+.con-section h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.8rem;}
+.con-section p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.con-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.filt-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.filt-btn.active{border-color:var(--gold);color:var(--gold2);background:var(--goldl);}
+
+/* COMPATIBILIDADE */
+.compat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;}
+.compat-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;transition:all .3s;text-align:center;}
+.compat-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.compat-card .c-sym{font-size:1.8rem;}
+.compat-card .c-nome{font-family:'Cinzel',serif;font-size:.72rem;color:var(--cream);margin:.2rem 0;}
+.compat-card .c-nivel{display:flex;justify-content:center;gap:.2rem;margin-top:.4rem;}
+.compat-card .c-tipo{font-size:.6rem;padding:.2rem .5rem;border-radius:8px;margin-top:.3rem;display:inline-block;}
+.compat-alta{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.compat-media{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.compat-desafiadora{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.star-on{color:var(--gold);}
+.star-off{color:rgba(201,168,76,.2);}
+
+/* ARQUÉTIPOS */
+.arq-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.3);border-radius:14px;}
+.arq-hero .arq-sym{font-size:4rem;margin-bottom:.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.6));}
+.arq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.arq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.7;}
+.arq-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.arq-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.arq-btn.active{border-color:#c4b5fd;color:#c4b5fd;background:rgba(196,181,253,.1);}
+.arq-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:13px;padding:1.4rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.arq-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,181,253,.12);}
+.arq-card-hd{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;}
+.arq-ico{font-size:2.2rem;flex-shrink:0;}
+.arq-card-hd .arq-tipo{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;}
+.arq-tipo-luz{color:#4ade80;}
+.arq-tipo-sombra{color:#f87171;}
+.arq-tipo-integrado{color:#c4b5fd;}
+.arq-card-hd .arq-nome{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);}
+.arq-card-hd .arq-sub{font-size:.75rem;color:var(--silver);font-style:italic;}
+.arq-card p{color:var(--cream2);line-height:1.85;font-size:.93rem;}
+.arq-sombra-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);border-radius:8px;}
+.arq-sombra-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#f87171;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-sombra-box p{color:rgba(248,113,113,.85);font-size:.88rem;line-height:1.7;}
+.arq-luz-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:8px;}
+.arq-luz-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#4ade80;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-luz-box p{color:rgba(74,222,128,.9);font-size:.88rem;line-height:1.7;}
+.arq-integracao{margin-top:1rem;padding:.9rem 1.2rem;background:rgba(196,181,253,.08);border-left:3px solid #c4b5fd;border-radius:0 8px 8px 0;}
+.arq-integracao .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-integracao p{color:rgba(196,181,253,.9);font-style:italic;font-size:.88rem;line-height:1.7;}
+
+/* OVERLAY */
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:140;}
+
+/* AD BANNER */
+.ad-banner{display:none;}
+
+/* TAROT TABS */
+.tarot-main-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tmt{flex:1;padding:.7rem 1rem;background:none;border:1px solid var(--goldm);color:var(--silver);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.08em;border-radius:10px;cursor:pointer;transition:all .3s;min-width:140px;}
+.tmt:hover{border-color:var(--gold);color:var(--gold2);}
+.tmt.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+
+/* TIRAGEM */
+.tiragem-hero{text-align:center;padding:1.5rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;}
+.tiragem-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.5rem;}
+.tiragem-hero p{color:var(--silver);font-size:.88rem;line-height:1.6;}
+.tiragem-modos{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.modo-btn{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);color:var(--silver);padding:.8rem .5rem;border-radius:10px;cursor:pointer;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.05em;transition:all .3s;display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.modo-btn span{font-family:'EB Garamond',serif;font-size:.65rem;color:var(--silver);opacity:.7;letter-spacing:.02em;}
+.modo-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active span{opacity:1;color:var(--cream2);}
+.baralho-area{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:1.2rem;min-height:120px;align-items:center;}
+.carta-verso{width:62px;height:96px;border-radius:8px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);border:1px solid var(--goldm);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all .3s;position:relative;overflow:hidden;}
+.carta-verso::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(201,168,76,.04) 4px,rgba(201,168,76,.04) 5px);}
+.carta-verso:hover{transform:translateY(-6px) scale(1.04);border-color:var(--gold);box-shadow:0 12px 28px rgba(201,168,76,.25);}
+.carta-verso.selecionada{border-color:var(--gold2);box-shadow:0 0 0 2px var(--gold),0 10px 28px rgba(201,168,76,.35);transform:translateY(-10px) scale(1.06);background:linear-gradient(135deg,rgba(201,168,76,.18),#1a2d4a);}
+.carta-verso.desabilitada{opacity:.35;cursor:default;transform:none;}
+.tirag-resultado{margin-top:1.2rem;}
+.tirag-posicao-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:.4rem;}
+.tirag-cards-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
+.tirag-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--gold);border-radius:14px;padding:1.3rem;flex:1;min-width:240px;max-width:380px;}
+.tirag-card-top{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;padding-bottom:.7rem;border-bottom:1px solid var(--goldl);}
+.tirag-card-sym{font-size:2rem;}
+.tirag-card-nome{font-family:'Cinzel Decorative',serif;font-size:.9rem;color:var(--gold2);}
+.tirag-card-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-top:.1rem;}
+.tirag-card-pos{font-size:.6rem;padding:.2rem .6rem;border-radius:8px;background:var(--goldl);color:var(--gold);font-family:'Cinzel',serif;letter-spacing:.06em;border:1px solid var(--goldm);margin-left:auto;white-space:nowrap;}
+.tirag-card-texto{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.tirag-sintese{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:.8rem;}
+.tirag-sintese-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.tirag-sintese p{color:var(--cream2);line-height:1.9;font-size:.93rem;font-style:italic;}
+.btn-nova-tiragem{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.08));border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;padding:.8rem 2rem;border-radius:10px;cursor:pointer;transition:all .3s;}
+.btn-nova-tiragem:hover{background:linear-gradient(135deg,rgba(201,168,76,.35),rgba(201,168,76,.15));}
+
+/* ALQUIMIA */
+.alq-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.alq-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.alq-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.alq-panel{display:none;}
+.alq-panel.active{display:block;animation:fadeIn .3s ease;}
+.alq-hero{text-align:center;padding:1.6rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(80,20,120,.1));border:1px solid var(--gold);border-radius:16px;}
+.alq-hero-sym{font-size:3.5rem;margin-bottom:.5rem;filter:drop-shadow(0 0 20px var(--gold));}
+.alq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:.4rem;}
+.alq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.65;}
+.alq-etapa{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.alq-etapa:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.alq-etapa-hd{display:flex;align-items:center;gap:.9rem;}
+.alq-etapa-sym{font-size:1.8rem;flex-shrink:0;}
+.alq-etapa-info{flex:1;}
+.alq-etapa-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.06em;}
+.alq-etapa-latin{font-size:.68rem;color:var(--silver);font-style:italic;margin:.1rem 0;}
+.alq-etapa-arr{color:var(--gold);font-size:.8rem;transition:transform .3s;}
+.alq-etapa.open .alq-etapa-arr{transform:rotate(180deg);}
+.alq-etapa-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.alq-etapa-body.show{display:block;}
+.alq-etapa-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.alq-etapa-body h4:first-child{margin-top:0;}
+.alq-etapa-body p{color:var(--cream2);line-height:1.9;font-size:.93rem;margin-bottom:.5rem;}
+.alq-pratica{margin-top:.8rem;padding:.9rem 1rem;background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.alq-pratica .prt-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.35rem;}
+.alq-pratica p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+.alq-metal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.2rem;}
+.alq-metal{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.alq-metal:hover{border-color:var(--gold);}
+.alq-metal-sym{font-size:2rem;margin-bottom:.3rem;}
+.alq-metal-nome{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.05em;}
+.alq-metal-body{font-size:.82rem;color:var(--cream2);line-height:1.7;margin-top:.5rem;text-align:left;}
+.alq-gem-card{background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.3);border-radius:12px;padding:1.2rem;margin-bottom:.9rem;}
+.alq-gem-card h3{font-family:'Cinzel',serif;font-size:.85rem;color:#c4b5fd;letter-spacing:.06em;margin-bottom:.5rem;}
+.alq-gem-card p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.alq-consciencia-bloco{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;}
+.alq-consciencia-bloco h3{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold2);margin-bottom:.6rem;}
+.alq-consciencia-bloco p{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.alq-mantra{text-align:center;padding:1.2rem;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(80,20,120,.08));border:1px solid var(--gold);border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin:1rem 0;}
+.alq-linha-do-tempo{position:relative;padding-left:1.8rem;}
+.alq-linha-do-tempo::before{content:'';position:absolute;left:.6rem;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),transparent);}
+.alq-lt-item{position:relative;margin-bottom:1.2rem;}
+.alq-lt-item::before{content:'⬡';position:absolute;left:-1.8rem;top:.1rem;color:var(--gold);font-size:.7rem;}
+.alq-lt-item h4{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.06em;margin-bottom:.3rem;}
+.alq-lt-item p{color:var(--cream2);line-height:1.85;font-size:.91rem;}
+
+/* FILOSOFIA & MITOLOGIA */
+.fil-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.fil-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.fil-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.fil-panel{display:none;}
+.fil-panel.active{display:block;animation:fadeIn .3s ease;}
+.mit-panel{display:none;}
+.mit-panel.active{display:block;animation:fadeIn .3s ease;}
+.fil-matriz{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0;}
+.fil-item{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.fil-item:hover{border-color:var(--gold);transform:translateY(-2px);}
+.fi-ico{font-size:1.8rem;margin-bottom:.4rem;}
+.fi-nome{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.3rem;}
+.fi-desc{font-size:.72rem;color:var(--silver);line-height:1.4;}
+
+/* VIESES COGNITIVOS */
+.vies-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.vies-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.vies-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;}
+.vies-card.vc-alto::before{background:linear-gradient(180deg,#ef4444,#dc2626);}
+.vies-card.vc-medio::before{background:linear-gradient(180deg,#eab308,#ca8a04);}
+.vies-card.vc-baixo::before{background:linear-gradient(180deg,#22c55e,#16a34a);}
+.vies-hd{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:0;}
+.vies-num{font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--goldm);line-height:1;flex-shrink:0;min-width:2rem;}
+.vies-info{flex:1;}
+.vies-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.2rem;}
+.vies-ingles{font-size:.65rem;color:var(--silver);font-style:italic;margin-bottom:.4rem;}
+.vies-resumo{font-size:.8rem;color:var(--cream2);line-height:1.6;}
+.vies-badge-wrap{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;}
+.vies-tag{display:inline-block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.06em;padding:.2rem .6rem;border-radius:20px;}
+.vies-alto{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#f87171;}
+.vies-medio{background:rgba(234,179,8,.12);border:1px solid rgba(234,179,8,.35);color:#fbbf24;}
+.vies-baixo{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#4ade80;}
+.vies-categoria{background:rgba(147,112,219,.12);border:1px solid rgba(147,112,219,.3);color:#c4b5fd;}
+.vies-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.vies-body.show{display:block;animation:fadeIn .3s ease;}
+.vies-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .35rem;}
+.vies-body h4:first-child{margin-top:0;}
+.vies-body p{color:var(--cream2);line-height:1.9;font-size:.91rem;margin-bottom:.5rem;}
+.vies-gem-box{margin-top:.8rem;padding:.9rem 1rem;border-radius:8px;}
+.vies-gem-box.fraco{background:rgba(239,68,68,.08);border-left:3px solid rgba(239,68,68,.5);}
+.vies-gem-box.forte{background:rgba(34,197,94,.08);border-left:3px solid rgba(34,197,94,.5);}
+.vies-gem-box.medio{background:rgba(234,179,8,.08);border-left:3px solid rgba(234,179,8,.5);}
+.vies-gem-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.35rem;}
+.fraco .vies-gem-label{color:#f87171;}
+.forte .vies-gem-label{color:#4ade80;}
+.medio .vies-gem-label{color:#fbbf24;}
+.vies-gem-box p{color:var(--cream);font-style:italic;font-size:.88rem;line-height:1.7;}
+.vies-arr{margin-left:auto;color:var(--gold);font-size:.75rem;transition:transform .3s;padding-left:.5rem;flex-shrink:0;}
+.vies-card.open .vies-arr{transform:rotate(180deg);}
+
+/* CHAKRAS */
+.chk-intro{background:linear-gradient(135deg,rgba(147,112,219,.12),rgba(255,105,180,.08),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.4);border-radius:14px;padding:1.6rem;margin-bottom:1.5rem;text-align:center;}
+.chk-intro p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.chk-nav{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.chk-tab{background:none;border:2px solid transparent;color:var(--silver);padding:.4rem .85rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.05em;transition:all .25s;white-space:nowrap;}
+.chk-tab:hover{border-color:currentColor;opacity:.85;}
+.chk-tab.active{color:#fff;font-weight:700;}
+.chk-panel{display:none;}
+.chk-panel.active{display:block;animation:fadeIn .35s ease;}
+.chk-hero{border-radius:18px;padding:2rem 1.5rem;margin-bottom:1.4rem;text-align:center;position:relative;overflow:hidden;max-width:100%;box-sizing:border-box;}
+.chk-hero::before{content:'';position:absolute;inset:0;opacity:.08;background:radial-gradient(circle at 50% 30%,white,transparent 70%);}
+.chk-mandala{font-size:5rem;line-height:1;margin-bottom:.5rem;display:block;filter:drop-shadow(0 0 20px currentColor);}
+.chk-numero{font-family:'Cinzel Decorative',serif;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;opacity:.8;margin-bottom:.3rem;}
+.chk-nome-pt{font-family:'Cinzel Decorative',serif;font-size:1.5rem;margin-bottom:.2rem;}
+.chk-nome-sk{font-family:'EB Garamond',serif;font-style:italic;font-size:1.1rem;opacity:.8;margin-bottom:.6rem;}
+.chk-localiz{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;}
+.chk-badge-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem;}
+.chk-badge{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.08em;padding:.25rem .7rem;border-radius:20px;border:1px solid currentColor;opacity:.85;}
+.chk-body{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.chk-bloco{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.99));border:1px solid var(--goldm);border-radius:14px;padding:1.5rem;}
+.chk-bloco.full{grid-column:1/-1;}
+.chk-bloco h4{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.6rem;}
+.chk-bloco p,.chk-bloco li{color:var(--cream2);line-height:1.9;font-size:.91rem;}
+.chk-bloco ul{padding-left:1.2rem;}
+.chk-bloco li{margin-bottom:.25rem;}
+.chk-cor-dot{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;margin-right:.45rem;box-shadow:0 0 8px currentColor;}
+.chk-pedras-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
+.chk-pedra{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:.3rem .75rem;font-size:.78rem;color:var(--cream);}
+.chk-simbolo-box{text-align:center;padding:.6rem;}
+.chk-simbolo-img{font-size:3.5rem;filter:drop-shadow(0 0 12px currentColor);}
+.chk-simbolo-nome{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold2);margin-top:.4rem;letter-spacing:.06em;}
+.chk-gem-box{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:2px solid var(--gold);border-radius:12px;padding:1.2rem;grid-column:1/-1;}
+.chk-gem-box h4{color:var(--gold2);}
+.chk-afirmacao{text-align:center;padding:1.3rem 1.5rem;background:rgba(255,255,255,.03);border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:.88rem;line-height:1.9;margin-top:.5rem;grid-column:1/-1;font-style:italic;}
+.chk-equilibrio{background:rgba(255,255,255,.03);border-radius:10px;padding:1rem;}
+.chk-equilibrio-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:.8rem;}
+.chk-eq-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem;}
+.chk-eq-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.chk-serpente{display:flex;justify-content:center;align-items:flex-end;gap:0;margin:1.5rem 0;position:relative;}
+.chk-serpente-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:pointer;transition:all .2s;padding:.5rem .4rem;border-radius:12px;}
+.chk-serpente-item:hover{transform:scale(1.08);}
+.chk-serpente-dot{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;}
+.chk-serpente-item:hover .chk-serpente-dot{box-shadow:0 0 18px currentColor;border-color:currentColor;}
+.chk-serpente-label{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.06em;text-align:center;opacity:.8;}
+.chk-visao-geral{background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(201,168,76,.05),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.3);border-radius:14px;padding:1.5rem;margin-bottom:1.4rem;max-width:100%;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;}
+.chk-visao-geral h3{font-family:'Cinzel Decorative',serif;font-size:1rem;color:#c4b5fd;margin-bottom:.8rem;text-align:center;}
+.chk-visao-geral p{color:var(--cream2);line-height:1.9;font-size:.93rem;margin-bottom:.7rem;}
+.chk-pratica-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.99));border-left:3px solid;border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-bottom:.8rem;}
+.chk-pratica-card h5{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.chk-pratica-card p{color:var(--cream2);font-size:.88rem;line-height:1.75;}
+.chk-kundalini{background:linear-gradient(135deg,rgba(255,50,50,.06),rgba(255,150,0,.04),rgba(255,255,0,.03),rgba(0,200,0,.03),rgba(0,150,255,.04),rgba(100,0,200,.05),rgba(200,0,200,.04),rgba(6,12,20,.97));border:1px solid rgba(255,200,0,.25);border-radius:14px;padding:1.5rem;margin-top:1.2rem;}
+.chk-kundalini h3{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:var(--gold2);margin-bottom:.8rem;text-align:center;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .topbar{left:0;}
+  .hbg{display:block;}
+  .main{margin-left:0;}
+  .page{padding:1.2rem 1rem;overflow-x:hidden;max-width:100%;box-sizing:border-box;}
+  .home-hero{padding:.8rem .6rem 1rem;}
+  .home-grid{grid-template-columns:1fr 1fr;}
+  .tarot-grid{grid-template-columns:repeat(2,1fr);}
+  .num-grid{grid-template-columns:1fr;}
+  .home-hero h1{font-size:1.6rem;}
+  .card{padding:1.4rem 1.2rem;}
+  .hcard{padding:1.3rem 1rem;}
+  .ni{padding:.85rem 1.1rem;}
+  /* CHAKRAS MOBILE */
+  .chk-body{grid-template-columns:1fr;}
+  .chk-bloco.full,.chk-gem-box,.chk-afirmacao{grid-column:1;}
+  .chk-hero{padding:1.4rem 1rem;}
+  .chk-mandala{font-size:3.2rem;}
+  .chk-nome-pt{font-size:1.1rem;}
+  .chk-nome-sk{font-size:.88rem;}
+  .chk-badge{font-size:.55rem;padding:.2rem .45rem;letter-spacing:.03em;}
+  .chk-badge-row{gap:.3rem;}
+  .chk-serpente{overflow-x:auto;justify-content:flex-start;padding:0 .3rem .5rem;}
+  .chk-serpente-item{min-width:50px;padding:.4rem .25rem;}
+  .chk-serpente-dot{width:28px;height:28px;font-size:.82rem;}
+  .chk-serpente-label{font-size:.48rem;}
+  .chk-afirmacao{font-size:.95rem;padding:1.1rem 1rem;}
+  .chk-visao-geral{padding:1.1rem;}
+  .chk-visao-geral p,.chk-bloco p,.chk-bloco li{font-size:1rem;}
+  .chk-pedra{font-size:.85rem;padding:.28rem .65rem;}
+  .chk-nav{gap:.3rem;}
+  .chk-tab{font-size:.72rem;padding:.35rem .65rem;}
+  .ph h1{font-size:1.35rem;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.4rem .45rem;}
+  .chk-kundalini{padding:1.1rem;}
+}
+</style>
+
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="installBanner">
+  <div style="font-size:1.8rem">♊</div>
+  <div class="ib-text">
+    <div class="ib-title">Instalar como App</div>
+    <div class="ib-sub">Adicione à tela inicial do celular</div>
+  </div>
+  <button class="ib-btn" onclick="instalarApp()">Instalar</button>
+  <button class="ib-close" onclick="fecharBanner()">✕</button>
+</div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo" onclick="nav('home');fecharMenu()">
+    <span class="sb-sym">♊</span>
+    <h1>Gêmeos Hoje</h1>
+    <small>Escola Esotérica</small>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✦ Hoje</div>
+    <div class="ni" data-page="home" onclick="nav('home');fecharMenu()"><span class="ico">🏠</span><div class="tx"><div class="lbl">Início</div><div class="sub">Painel do dia</div></div></div>
+    <div class="ni" data-page="leitura" onclick="nav('leitura');fecharMenu()"><span class="ico">🌟</span><div class="tx"><div class="lbl">Leitura do Dia</div><div class="sub">Mensagem de Mercúrio</div></div></div>
+    <div class="ni" data-page="decanatos" onclick="nav('decanatos');fecharMenu()"><span class="ico">🌓</span><div class="tx"><div class="lbl">Decanatos de Gêmeos</div><div class="sub">Sua face específica do signo</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🃏 Tarot</div>
+    <div class="ni" data-page="tarot" onclick="nav('tarot');fecharMenu()"><span class="ico">🪄</span><div class="tx"><div class="lbl">Tarot de Gêmeos</div><div class="sub">6 arcanos do seu signo</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚗️ Alquimia</div>
+    <div class="ni" data-page="alquimia" onclick="nav('alquimia');fecharMenu()"><span class="ico">⚗️</span><div class="tx"><div class="lbl">Alquimia de Gêmeos</div><div class="sub">Transmutação & Consciência</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚖️ Hermetismo</div>
+    <div class="ni" data-page="leis" onclick="nav('leis');fecharMenu()"><span class="ico">⚖️</span><div class="tx"><div class="lbl">7 Leis Herméticas</div><div class="sub">Aplicadas a Gêmeos</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🔢 Numerologia</div>
+    <div class="ni" data-page="numerologia" onclick="nav('numerologia');fecharMenu()"><span class="ico">🔢</span><div class="tx"><div class="lbl">Numerologia de Gêmeos</div><div class="sub">Números sagrados do signo</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🧘 Meditação</div>
+    <div class="ni" data-page="meditacoes" onclick="nav('meditacoes');fecharMenu()"><span class="ico">🧘</span><div class="tx"><div class="lbl">Meditações Guiadas</div><div class="sub">Para a mente geminiana</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌙 Sonhos</div>
+    <div class="ni" data-page="sonhos" onclick="nav('sonhos');fecharMenu()"><span class="ico">🌙</span><div class="tx"><div class="lbl">Significado dos Sonhos</div><div class="sub">Dicionário onírico de Gêmeos</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌀 Arquétipos</div>
+    <div class="ni" data-page="arquetipos" onclick="nav('arquetipos');fecharMenu()"><span class="ico">🌀</span><div class="tx"><div class="lbl">Arquétipos de Gêmeos</div><div class="sub">Luz, sombra e integração</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌈 Chakras</div>
+    <div class="ni" data-page="chakras" onclick="nav('chakras');fecharMenu()"><span class="ico">🌸</span><div class="tx"><div class="lbl">Chakras & Gêmeos</div><div class="sub">Os 7 centros de energia vital</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">♊ Conhecimento</div>
+    <div class="ni" data-page="conhecimento" onclick="nav('conhecimento');fecharMenu()"><span class="ico">📖</span><div class="tx"><div class="lbl">Conhecendo Gêmeos</div><div class="sub">Todos os lados do signo</div></div></div>
+    <div class="ni" data-page="compatibilidade" onclick="nav('compatibilidade');fecharMenu()"><span class="ico">💞</span><div class="tx"><div class="lbl">Compatibilidade</div><div class="sub">Com todos os signos</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🏛️ Saber Clássico</div>
+    <div class="ni" data-page="filosofia" onclick="nav('filosofia');fecharMenu()"><span class="ico">🏛️</span><div class="tx"><div class="lbl">Gêmeos & Filosofia</div><div class="sub">Sofistas, Sócrates, Platão, Aristóteles</div></div></div>
+    <div class="ni" data-page="mitologia" onclick="nav('mitologia');fecharMenu()"><span class="ico">⚡</span><div class="tx"><div class="lbl">Gêmeos & Mitologia</div><div class="sub">Hermes, Dioscuros e os deuses</div></div></div>
+    <div class="ni" data-page="vieses" onclick="nav('vieses');fecharMenu()"><span class="ico">🧠</span><div class="tx"><div class="lbl">Vieses Cognitivos</div><div class="sub">30 armadilhas da mente geminiana</div></div></div>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✨ Sobre</div>
+    <div class="ni" data-page="quemsomos" onclick="nav('quemsomos');fecharMenu()"><span class="ico">🌟</span><div class="tx"><div class="lbl">Quem Somos</div><div class="sub">Nossa missão esotérica</div></div></div>
+    <div class="ni" data-page="contato" onclick="nav('contato');fecharMenu()"><span class="ico">✉️</span><div class="tx"><div class="lbl">Fale Conosco</div><div class="sub">Dúvidas e sugestões</div></div></div>
+  </div>
+  <div style="padding:1.2rem;border-top:1px solid rgba(201,168,76,.15);margin-top:auto;text-align:center;">
+    <button onclick="toggleSharePanel()" id="btnCompartilhar" style="display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid rgba(201,168,76,.3);color:rgba(201,168,76,.7);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.06em;padding:.5rem 1rem;border-radius:20px;cursor:pointer;margin-bottom:.6rem;width:100%;justify-content:center;transition:all .2s;" onmouseover="this.style.background='rgba(201,168,76,.1)'" onmouseout="this.style.background='none'">✨ Compartilhar este App</button>
+    <div id="sharePanel" style="display:none;margin-bottom:.8rem;">
+      <div style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:.6rem;">Compartilhar via</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;">
+        <a id="linkWhatsApp" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.35rem;background:#075e54;border:none;color:#fff;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.04em;padding:.5rem .4rem;border-radius:8px;cursor:pointer;text-decoration:none;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a id="linkTelegram" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.35rem;background:#0088cc;border:none;color:#fff;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.04em;padding:.5rem .4rem;border-radius:8px;cursor:pointer;text-decoration:none;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+        <a id="linkFacebook" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.35rem;background:#1877f2;border:none;color:#fff;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.04em;padding:.5rem .4rem;border-radius:8px;cursor:pointer;text-decoration:none;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a id="linkX" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.35rem;background:#000;border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.04em;padding:.5rem .4rem;border-radius:8px;cursor:pointer;text-decoration:none;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X (Twitter)
+        </a>
+      </div>
+      <button onclick="copiarLinkApp()" style="display:flex;align-items:center;justify-content:center;gap:.35rem;background:none;border:1px solid rgba(201,168,76,.3);color:rgba(201,168,76,.8);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.06em;padding:.45rem;border-radius:8px;cursor:pointer;width:100%;margin-top:.4rem;transition:all .2s;" onmouseover="this.style.background='rgba(201,168,76,.1)'" onmouseout="this.style.background='none'">
+        🔗 Copiar link
+      </button>
+    </div>
+    <a href="javascript:void(0)" onclick="abrirPrivacidade()" style="color:rgba(201,168,76,.45);font-family:Cinzel,serif;font-size:.62rem;letter-spacing:.08em;text-decoration:underline;padding:.4rem;display:inline-block;">Política de Privacidade</a><div style="color:rgba(138,154,181,.3);font-size:.55rem;margin-top:.3rem;">2026 Gêmeos Hoje</div>
+  </div>
+</aside>
+<div id="overlay" onclick="toggleMenu()"></div>
+<main class="main">
+  <div class="topbar">
+    <button class="hbg" onclick="toggleMenu()">☰</button>
+    <div class="tb-title" id="tbTitle">Gêmeos & Filosofia</div>
+    <div class="tb-date" id="tbDate"></div>
+    <button id="btnFs" onclick="toggleFullscreen()" title="Tela cheia" style="background:none;border:1px solid rgba(201,168,76,.15);color:rgba(201,168,76,.4);font-size:.8rem;cursor:pointer;padding:.3rem .5rem;border-radius:5px;flex-shrink:0;line-height:1;" onmouseover="this.style.color='rgba(201,168,76,.9)'" onmouseout="this.style.color='rgba(201,168,76,.4)'">⛶</button>
+    <a href="privacidade.html" title="Política de Privacidade" style="color:rgba(201,168,76,.4);font-size:.75rem;text-decoration:none;flex-shrink:0;padding:.3rem .5rem;border:1px solid rgba(201,168,76,.15);border-radius:5px;">🔒</a>
+  </div>
+  <div class="page active" id="page-filosofia">
+  <div class="ph"><div class="orn">· · ✦ · ·</div><h1>Gêmeos &amp; Filosofia</h1><p>O pensamento grego como espelho da alma geminiana</p></div>
+
+    <div class="card card-gold" style="margin-bottom:1.5rem;text-align:center;">
+      <div style="font-size:2.8rem;margin-bottom:.5rem;filter:drop-shadow(0 0 14px var(--gold))">🏛️</div>
+      <h3 style="font-size:1.1rem;margin-bottom:.6rem;">O Fio de Hermes na Filosofia</h3>
+      <p style="font-style:italic;">"A linguagem, o pensamento e a dualidade como ferramentas para entender o mundo — isso é a essência de Gêmeos, e o coração da filosofia grega."</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="fil-tabs">
+      <button class="fil-tab active" onclick="filTab(this,'fil-intro')">♊ Visão Geral</button>
+      <button class="fil-tab" onclick="filTab(this,'fil-sofistas')">🗣️ Sofistas</button>
+      <button class="fil-tab" onclick="filTab(this,'fil-socrates')">🍷 Sócrates</button>
+      <button class="fil-tab" onclick="filTab(this,'fil-platao')">🌐 Platão</button>
+      <button class="fil-tab" onclick="filTab(this,'fil-aristoteles')">🔬 Aristóteles</button>
+    </div>
+
+    <!-- INTRO -->
+    <div class="fil-panel active" id="fil-intro">
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>♊ Gêmeos como Arquétipo Filosófico</h3>
+        <p>Gêmeos é regido por Mercúrio — o único deus que transita livremente entre o Olimpo, a Terra e o Submundo. Essa mobilidade entre reinos é exatamente a vocação filosófica: habitar a fronteira entre o conhecido e o desconhecido, entre a aparência e a essência, entre o dito e o não-dito.</p>
+        <p style="margin-top:.8rem;">A filosofia grega clássica, especialmente entre os séculos V e IV a.C., é um espelho perfeito dos temas que regem Gêmeos: a linguagem como poder, a dualidade da realidade, o paradoxo do saber, e a curiosidade insaciável como virtude em si mesma.</p>
+      </div>
+      <div class="fil-matriz">
+        <div class="fil-item">
+          <div class="fi-ico">🗣️</div>
+          <div class="fi-nome">Sofistas</div>
+          <div class="fi-desc">Relativismo, retórica, múltiplas verdades</div>
+        </div>
+        <div class="fil-item">
+          <div class="fi-ico">🍷</div>
+          <div class="fi-nome">Sócrates</div>
+          <div class="fi-desc">Diálogo, ironia, dualidade saber/ignorância</div>
+        </div>
+        <div class="fil-item">
+          <div class="fi-ico">🌐</div>
+          <div class="fi-nome">Platão</div>
+          <div class="fi-desc">Dois mundos, diálogos, aparência vs. realidade</div>
+        </div>
+        <div class="fil-item">
+          <div class="fi-ico">🔬</div>
+          <div class="fi-nome">Aristóteles</div>
+          <div class="fi-desc">Lógica, linguagem, curiosidade universal</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem;">
+        <h3>🌬️ O Elemento Ar na Filosofia</h3>
+        <p>Gêmeos é um signo de Ar — e o Ar é o elemento do pensamento, da troca, da palavra. Não é coincidência que a filosofia grega tenha florescido em cidades-estado onde o debate público, a ágora, o discurso e a retórica eram práticas sagradas da cidadania. A filosofia é, em sua essência, uma prática aérea: não busca a verdade final, mas o movimento entre perspectivas.</p>
+        <p style="margin-top:.8rem;">Gêmeos não é o signo que chega à conclusão — é o signo que faz as perguntas certas. E foi exatamente assim que a filosofia grega funcionou: como um eterno conjunto de perguntas mais ricas do que qualquer resposta.</p>
+      </div>
+    </div>
+
+    <!-- SOFISTAS -->
+    <div class="fil-panel" id="fil-sofistas">
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <h3>🗣️ Os Sofistas — A Expressão Mais Pura de Gêmeos</h3>
+        <p>Os sofistas (séc. V a.C.) eram professores itinerantes que ensinavam a arte do discurso, da persuasão e do argumento. Para eles, a linguagem não descrevia a realidade — ela a <em>criava</em>. Isso é Mercúrio em estado bruto.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Protágoras: "O Homem é a Medida de Todas as Coisas"</h3>
+        <p>A frase mais famosa do pensamento sofista é uma declaração geminiana por excelência: não existe UMA verdade objetiva e universal — cada perspectiva humana constrói sua própria realidade. O signo de Gêmeos não crê em verdades absolutas; ele crê em pontos de vista, em contextos, em múltiplas faces da mesma moeda.</p>
+        <p style="margin-top:.8rem;">Protágoras ensinava que sobre qualquer assunto existem sempre dois discursos opostos igualmente válidos — o que chamava de <em>antilogiai</em>. Para a mentalidade geminiana, essa é uma verdade profunda: todo argumento tem seu contra-argumento, toda luz tem sua sombra, e compreender os dois lados é mais sábio do que escolher apenas um.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Górgias: O Poder Mágico da Palavra</h3>
+        <p>Górgias de Leontinos desenvolveu uma filosofia radical: nada existe; mesmo que existisse, não seria cognoscível; mesmo que fosse cognoscível, não seria comunicável. No entanto, apesar dessa visão niilista sobre a verdade, Górgias acreditava no poder absoluto do discurso — a palavra poderia mover almas como o vento move as coisas físicas.</p>
+        <p style="margin-top:.8rem;">Esse paradoxo é tipicamente geminiano: descreditar a linguagem como portadora de verdade e, ao mesmo tempo, celebrá-la como o mais poderoso instrumento da existência humana. É a dualidade que só um signo de Mercúrio poderia habitar confortavelmente.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Hípias e a Versatilidade Total</h3>
+        <p>Hípias de Élis era famoso por dominar absolutamente tudo: matemática, astronomia, gramática, música, escultura, pintura, poesia, mnemônica. Quando foi aos Jogos Olímpicos, declarou que tudo que usava — roupas, sandálias, anel, anel de sinete, ornamentos de cabelo — havia sido feito por ele mesmo.</p>
+        <p style="margin-top:.8rem;">Essa enciclopédia ambulante é o ideal geminiano da curiosidade sem fronteiras: o intelectual que não se limita a uma área, que bebe de todas as fontes, que prefere a amplitude à especialização. Gêmeos não escolhe entre ser músico, escritor ou matemático — ele quer ser os três ao mesmo tempo.</p>
+      </div>
+      <div class="leitura-reflexao">
+        <div class="label">Reflexão Geminiana</div>
+        <p>Os sofistas foram criticados por Sócrates e Platão por "vender a verdade" e ensinar a defender qualquer posição independente do mérito. Mas há sabedoria nessa acusação: os geminianos sabem que toda perspectiva tem valor, que todo argumento merece ser ouvido, e que a rigidez de uma única "verdade" é muitas vezes mais perigosa do que o relativismo fluido.</p>
+      </div>
+    </div>
+
+    <!-- SÓCRATES -->
+    <div class="fil-panel" id="fil-socrates">
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <h3>🍷 Sócrates — O Paradoxo Vivo</h3>
+        <p>Sócrates (470–399 a.C.) é talvez a figura mais geminiana da história da filosofia. Nunca escreveu uma linha sequer, vivia nas ruas e praças de Atenas, perguntava mais do que afirmava, e construiu um método inteiro baseado na conversa, na ironia e na dualidade.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Maiêutica: Dar à Luz Ideias</h3>
+        <p>O método socrático se chamava <em>maiêutica</em> — literalmente, "arte da parteira". Assim como sua mãe Fenarete ajudava mulheres a dar à luz crianças, Sócrates ajudava seus interlocutores a dar à luz ideias que já existiam dentro deles.</p>
+        <p style="margin-top:.8rem;">Isso é Mercúrio em sua função mais elevada: não impor verdades, mas criar o espaço onde a verdade do outro pode emergir. O diálogo como caminho espiritual. A pergunta como instrumento de transformação. Gêmeos não ensina — facilita a descoberta.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>"Só Sei Que Nada Sei" — A Dualidade do Saber</h3>
+        <p>A frase mais icônica de Sócrates é uma joia de paradoxo geminiano: afirmar que se possui um saber específico — o saber da própria ignorância. Nos dois pólos ao mesmo tempo: o sábio que sabe, e o ignorante que não sabe nada. A dualidade não como problema a resolver, mas como estado a habitar.</p>
+        <p style="margin-top:.8rem;">Para Sócrates, o filósofo não é quem chegou à verdade, mas quem reconhece que está sempre a caminho dela. Isso ressoa profundamente com a natureza geminiana: Gêmeos não busca o destino — ele se deleita no caminho.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Ironia Socrática</h3>
+        <p>A ironia (<em>eironeia</em>) socrática era uma técnica filosófica sofisticada: Sócrates fingia não saber, convidava o interlocutor a ensinar-lhe, e então, através de perguntas aparentemente inocentes, desmantelava sistematicamente as certezas alheias. Era ao mesmo tempo genuíno e teatral, sincero e estratégico.</p>
+        <p style="margin-top:.8rem;">Essa ambiguidade — ser verdadeiro e irônico ao mesmo tempo — é confortável para Gêmeos, o signo que habita os contrários sem se sentir contraditório. A ironia geminiana não é cinismo; é uma forma de manter vivos todos os ângulos de uma questão.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>O Daimon Socrático</h3>
+        <p>Sócrates afirmava ser guiado por um <em>daimon</em> — uma voz interior, um espírito familiar que nunca o dizia o que fazer, mas sempre o avisava quando estava prestes a agir errado. Essa presença dual — a consciência normal e a voz interna — é uma imagem perfeita do geminiano que dialoga consigo mesmo, que tem dois fluxos de pensamento simultâneos, que experimenta a vida como um eterno debate interior.</p>
+      </div>
+      <div class="leitura-reflexao">
+        <div class="label">Reflexão Geminiana</div>
+        <p>Sócrates foi condenado à morte por "corromper a juventude e introduzir novos deuses". Na prática, foi morto por fazer perguntas demais — por recusar-se a aceitar as respostas prontas da sociedade. Há algo profundamente geminiano nessa história: a mente que questiona tudo é sempre ameaçadora para quem precisa de certezas.</p>
+      </div>
+    </div>
+
+    <!-- PLATÃO -->
+    <div class="fil-panel" id="fil-platao">
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <h3>🌐 Platão — A Filosofia da Dualidade</h3>
+        <p>Platão (428–348 a.C.), discípulo de Sócrates, criou o sistema filosófico mais influente da história ocidental — e no seu coração pulsa uma visão profundamente geminiana: o mundo é duplo, a realidade é dupla, e só o pensamento pode navegar entre os dois planos.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Teoria das Formas: Dois Mundos</h3>
+        <p>Para Platão, existem dois níveis de realidade: o <strong style="color:var(--gold2);">Mundo Sensível</strong>, que percebemos pelos sentidos — cheio de cópias imperfeitas e mutáveis — e o <strong style="color:var(--gold2);">Mundo Inteligível</strong>, onde habitam as Formas ou Ideias eternas e perfeitas que tudo fundamenta.</p>
+        <p style="margin-top:.8rem;">Uma cadeira sensível é uma cópia imperfeita da Ideia de Cadeira. A beleza que vemos num rosto é um reflexo da Beleza em si. O mundo visível é o signo — o Mundo das Ideias é a essência. Para Gêmeos, habitante natural das fronteiras, essa divisão é familiar: ele percebe o ordinário e o extraordinário, o aparente e o real, como dois planos que sempre coexistem.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Alegoria da Caverna</h3>
+        <p>A mais famosa alegoria de Platão: humanos acorrentados no fundo de uma caverna enxergam apenas sombras projetadas na parede — e acreditam que essas sombras são a realidade. O filósofo é aquele que se liberta, sai da caverna, e contempla o sol — mas ao retornar para contar aos outros, é ridicularizado e ameaçado.</p>
+        <p style="margin-top:.8rem;">A tensão entre quem vê e quem não vê, entre a sombra e a luz, entre o interior da caverna e o exterior — essa é uma tensão tipicamente geminiana. Gêmeos transita com naturalidade entre o mundo percebido e o mundo intuído, entre o que todos veem e o que só a mente desperta contempla.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Os Diálogos: A Forma Geminiana do Saber</h3>
+        <p>Platão escreveu exclusivamente em forma de <em>diálogos</em> — conversas entre personagens, geralmente com Sócrates como protagonista questionador. Isso não é acidente estilístico: é uma visão filosófica de que a verdade emerge no espaço <em>entre</em> as vozes, não numa voz única e absoluta.</p>
+        <p style="margin-top:.8rem;">O diálogo como método filosófico é Mercúrio em ação: dois pólos em tensão produtiva, duas perspectivas que se iluminam mutuamente. O saber não é monólogo — é troca, é comunhão, é o encontro de duas mentes que geram algo que nenhuma das duas poderia gerar sozinha.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Eros e o Banquete: O Amor como Impulso Filosófico</h3>
+        <p>No <em>Banquete</em>, Platão apresenta o mito do Andrógino, narrado por Aristófanes: os seres humanos originais eram duplos — quatro braços, quatro pernas, dois rostos. Zeus os cortou ao meio, e desde então cada metade busca sua outra metade. O amor é essa busca pela completude perdida.</p>
+        <p style="margin-top:.8rem;">Essa é uma das imagens mais geminianas da filosofia: a dualidade como condição ontológica do ser humano, e a busca pela integração dos opostos como impulso fundamental da existência. Gêmeos carrega essa dualidade internamente — não busca seu complemento apenas no outro, mas em si mesmo.</p>
+      </div>
+      <div class="leitura-reflexao">
+        <div class="label">Reflexão Geminiana</div>
+        <p>Platão foi, paradoxalmente, o maior inimigo dos poetas e dos sofistas — das pessoas mais geminianas de sua época. Ele queria banir os poetas da República ideal. Há um ensinamento aqui: mesmo a mente mais geminiana pode, em momentos de rigidez, tentar suprimir o caos criativo que é sua própria natureza mais profunda.</p>
+      </div>
+    </div>
+
+    <!-- ARISTÓTELES -->
+    <div class="fil-panel" id="fil-aristoteles">
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <h3>🔬 Aristóteles — A Síntese Universal</h3>
+        <p>Aristóteles (384–322 a.C.) é o filósofo da classificação, da lógica e da curiosidade enciclopédica. Discípulo de Platão, recusou os dois mundos separados do mestre e criou uma filosofia onde a verdade está <em>dentro</em> das coisas sensíveis — e pode ser descoberta pela observação, análise e categorização.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Lógica: A Estrutura da Linguagem do Pensamento</h3>
+        <p>Aristóteles criou a lógica formal — o estudo sistemático de como os argumentos funcionam, quais são válidos, quais são falaciosos. O silogismo aristotélico (Todo homem é mortal; Sócrates é homem; logo Sócrates é mortal) é a estrutura do pensamento racional codificada.</p>
+        <p style="margin-top:.8rem;">Para Gêmeos, regido por Mercúrio — o deus da comunicação e do pensamento —, a lógica não é apenas ferramenta: é deleite. A mente geminiana encontra prazer genuíno em desmontar argumentos, encontrar as premissas ocultas, identificar as falácias disfarçadas de bom senso.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Curiosidade Enciclopédica</h3>
+        <p>Aristóteles escreveu sobre absolutamente tudo: lógica, metafísica, física, biologia, zoologia, botânica, ética, política, retórica, poética, meteorologia, psicologia, economia. Considera-se que ele escreveu mais de 200 tratados — e os que sobreviveram cobrem praticamente todos os campos do conhecimento da época.</p>
+        <p style="margin-top:.8rem;">Essa voracidade intelectual sem fronteiras de domínio é um traço profundamente geminiano. Para Gêmeos, a especialização total é quase uma prisão — ele quer saber um pouco de tudo, conectar campos aparentemente distantes, encontrar padrões onde outros veem apenas diferenças.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Dialética e os Contrários</h3>
+        <p>Aristóteles elaborou uma teoria dos contrários: quente/frio, úmido/seco, leve/pesado — os opostos são os princípios fundamentais de toda mudança e de todo processo natural. Toda transformação é um movimento de um contrário ao outro. A realidade é essencialmente polar.</p>
+        <p style="margin-top:.8rem;">Gêmeos vive essa polaridade de dentro: sente os dois pólos simultaneamente, transita entre eles com fluidez, e entende intuitivamente que os opostos não se anulam — se complementam e se definem mutuamente. A luz só existe porque existe a sombra.</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>A Retórica: A Arte do Discurso Eficaz</h3>
+        <p>Para Aristóteles, a retórica — a arte de persuadir — era uma das mais importantes disciplinas humanas. Ele identificou três modos de persuasão: <em>ethos</em> (autoridade e caráter do falante), <em>pathos</em> (despertar emoções no ouvinte) e <em>logos</em> (o argumento racional em si).</p>
+        <p style="margin-top:.8rem;">A habilidade natural de Gêmeos para a comunicação abrange os três: sabe construir credibilidade (ethos), toca emoções com precisão (pathos) e estrutura argumentos irresistíveis (logos). A retórica aristotélica é, essencialmente, um manual do comunicador geminiano.</p>
+      </div>
+      <div class="leitura-reflexao">
+        <div class="label">Reflexão Geminiana</div>
+        <p>Aristóteles disse que "o homem é por natureza um animal político" — um ser feito para viver na polis, na comunidade, na troca com os outros. Gêmeos, o signo mais social do zodíaco, entende isso visceralmente: ele não existe em isolamento. Sua inteligência se acende no contato, no debate, na presença do outro.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MITOLOGIA -->
+  </div>
+</main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
