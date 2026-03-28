@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Gêmeos Hoje — Chakras & Gêmeos — Escola Esotérica</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020408">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gêmeos Hoje">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6690267592043012" crossorigin="anonymous"></script>
+<style>:root{
+  --deep:#020408;
+  --deep2:#060c14;
+  --deep3:#0a1420;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --gold3:#f5dfa0;
+  --goldl:rgba(201,168,76,.15);
+  --goldm:rgba(201,168,76,.3);
+  --cream:#ece2c8;
+  --cream2:#d4c9a8;
+  --silver:#8a9ab5;
+  --sidebar:280px;
+  --top:62px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;outline:none;line-height:1.5;}
+html{font-size:15px;}html,body{height:100%;background:var(--deep);color:var(--cream);font-family:'EB Garamond',serif;overflow-x:hidden;max-width:100vw;}
+img,table,video,iframe,canvas{max-width:100%;}
+.card,.chk-bloco,.chk-visao-geral,.chk-hero,.chk-gem-box,.chk-kundalini,.chk-pratica-card{overflow-wrap:break-word;word-break:break-word;}
+canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+.app{display:flex;min-height:100vh;position:relative;z-index:2;overflow-x:hidden;max-width:100vw;}
+
+
+
+
+/* DECANATOS */
+.dec-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.dec-btn{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:.9rem .5rem;cursor:pointer;text-align:center;transition:all .3s;color:var(--cream);}
+.dec-btn.active{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(6,12,20,.95));}
+.dec-btn .dec-num{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold2);display:block;margin-bottom:.3rem;}
+.dec-btn .dec-per{font-size:.7rem;color:var(--silver);}
+.dec-info-card{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:14px;padding:1.2rem;margin-bottom:1.2rem;}
+.dec-info-card h3{font-family:'Cinzel',serif;color:var(--gold2);font-size:.95rem;margin-bottom:.4rem;}
+.dec-reg{font-size:.78rem;color:var(--silver);margin-bottom:.8rem;letter-spacing:.05em;}
+.dec-ess{color:var(--cream);font-size:.88rem;line-height:1.7;margin-bottom:.8rem;}
+.dec-dons{font-size:.8rem;color:var(--cream2);line-height:1.6;padding:.6rem;background:rgba(201,168,76,.06);border-left:2px solid var(--gold);border-radius:0 6px 6px 0;}
+.dec-des{font-size:.8rem;color:var(--silver);line-height:1.6;padding:.6rem;background:rgba(138,154,181,.06);border-left:2px solid var(--silver);border-radius:0 6px 6px 0;margin-top:.5rem;}
+.dec-leitura-card{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:14px;padding:1.2rem;margin-bottom:1rem;}
+.dec-leitura-card .leitura-titulo{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold2);margin-bottom:.2rem;}
+.dec-leitura-card .leitura-sub{font-size:.78rem;color:var(--silver);font-style:italic;margin-bottom:.8rem;}
+.dec-leitura-card .leitura-texto p{margin-bottom:.7rem;line-height:1.75;font-size:.88rem;}
+
+/* BOTÕES COMPARTILHAR */
+.share-bar{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+.share-btn{display:inline-flex;align-items:center;gap:.45rem;background:none;border:1px solid var(--goldm);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.06em;padding:.45rem .9rem;border-radius:20px;cursor:pointer;transition:all .25s;white-space:nowrap;}
+.share-btn:hover{background:var(--goldl);border-color:var(--gold);}
+.share-btn .s-ico{font-size:.9rem;}
+
+/* BANNER INSTALAR APP */
+#installBanner{display:none;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0a1420,#060c14);border:1px solid var(--gold);border-radius:14px;padding:.9rem 1.2rem;align-items:center;gap:1rem;box-shadow:0 8px 32px rgba(0,0,0,.6);max-width:340px;width:90%;}
+#installBanner .ib-text{flex:1;}
+#installBanner .ib-title{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.06em;}
+#installBanner .ib-sub{font-size:.68rem;color:var(--silver);margin-top:.2rem;}
+#installBanner .ib-btn{background:var(--gold);color:#020408;border:none;padding:.5rem 1rem;border-radius:8px;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+#installBanner .ib-close{background:none;border:none;color:var(--silver);cursor:pointer;font-size:1rem;padding:.2rem;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:var(--sidebar);right:0;height:var(--top);background:rgba(2,4,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--goldm);display:flex;align-items:center;padding:0 .8rem;z-index:100;gap:.5rem;overflow:hidden;}
+.hbg{display:none;background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:.3rem;}
+.tb-back{background:none;border:none;color:var(--gold);font-family:'Cinzel',serif;font-size:.72rem;cursor:pointer;letter-spacing:.06em;padding:.3rem .6rem;border:1px solid var(--goldm);border-radius:6px;transition:all .2s;}
+.tb-back:hover{background:var(--goldl);}
+.tb-title{font-family:'Cinzel',serif;color:var(--gold2);font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;max-width:140px;}
+.tb-date{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);font-size:.72rem;white-space:nowrap;flex-shrink:0;}
+
+/* SIDEBAR */
+.sidebar{width:var(--sidebar);height:100vh;background:linear-gradient(180deg,var(--deep2) 0%,var(--deep3) 100%);border-right:1px solid var(--goldm);position:fixed;top:0;left:0;z-index:150;display:flex;flex-direction:column;transition:transform .3s ease;overflow-y:scroll;overflow-x:hidden;}
+.sb-logo{padding:1.5rem 1.2rem 1rem;text-align:center;border-bottom:1px solid var(--goldl);cursor:pointer;}
+.sb-sym{font-size:3rem;display:block;margin-bottom:.4rem;filter:drop-shadow(0 0 12px var(--gold));}
+.sb-logo h1{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);letter-spacing:.08em;line-height:1.3;}
+.sb-logo small{color:var(--silver);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;}
+.sb-sec{padding:.6rem 0 .3rem;}
+.sb-sec-t{padding:.4rem 1.2rem .6rem;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);opacity:.7;}
+.ni{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.2rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative;}
+.ni:hover{background:var(--goldl);border-left-color:var(--gold);}
+.ni.active{background:var(--goldm);border-left-color:var(--gold2);}
+.ni .ico{font-size:1.3rem;width:1.6rem;text-align:center;flex-shrink:0;}
+.ni .tx .lbl{font-family:'Cinzel',serif;font-size:.9rem;color:var(--cream);letter-spacing:.04em;}
+.ni .tx .sub{font-size:.78rem;color:var(--silver);margin-top:.2rem;}
+
+/* MAIN */
+.main{margin-left:var(--sidebar);padding-top:var(--top);flex:1;min-width:0;overflow-x:hidden;}
+.page{display:none;padding:2rem 1.5rem;min-height:calc(100vh - var(--top));overflow-x:hidden;word-break:break-word;max-width:100%;box-sizing:border-box;}
+.page.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PAGE HEADER */
+.ph{text-align:center;margin-bottom:2.5rem;padding-bottom:1.8rem;border-bottom:1px solid var(--goldl);overflow-wrap:break-word;word-break:break-word;max-width:100%;}
+.ph .orn{color:var(--gold);letter-spacing:.3em;font-size:.7rem;margin-bottom:.5rem;}
+.ph h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.4rem;word-break:break-word;overflow-wrap:break-word;}
+.ph p{color:var(--silver);font-size:.9rem;font-style:italic;word-break:break-word;overflow-wrap:break-word;white-space:normal;max-width:100%;}
+
+/* CARDS */
+.card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;padding:1.6rem;margin-bottom:1.2rem;}
+.card-gold{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(6,12,20,.95));}
+.card h3{font-family:'Cinzel',serif;color:var(--gold2);font-size:.9rem;letter-spacing:.08em;margin-bottom:.6rem;}
+.card p{color:var(--cream2);line-height:2;font-size:.95rem;}
+
+/* HOME */
+.home-hero{text-align:center;padding:.8rem 1rem 1.2rem;margin-bottom:1rem;}
+.home-hero h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.3rem;}
+.home-hero .sub{color:var(--silver);font-style:italic;font-size:1rem;margin-bottom:1rem;}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.hcard{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;padding:1.1rem .8rem;cursor:pointer;transition:all .3s;text-align:center;}
+.hcard:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.15);}
+.hcard .ico{font-size:1.6rem;margin-bottom:.4rem;}
+.hcard .ttl{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.04em;}
+.hcard .dsc{font-size:.78rem;color:var(--silver);margin-top:.35rem;}
+
+/* LEITURA DIÁRIA */
+.leitura-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--gold);border-radius:16px;padding:2.2rem;margin-bottom:1.8rem;}
+.leitura-titulo{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--gold2);margin-bottom:.3rem;}
+.leitura-sub{color:var(--silver);font-style:italic;font-size:.85rem;margin-bottom:1.2rem;}
+.leitura-texto{color:var(--cream2);line-height:2;font-size:1rem;}
+.leitura-reflexao{margin-top:1.5rem;padding:1rem 1.2rem;background:var(--goldl);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.leitura-reflexao .label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem;}
+.leitura-reflexao p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+
+/* TAROT */
+.tarot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.tc{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;text-align:center;transition:all .3s;}
+.tc:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,168,76,.2);}
+.tc .t-sym{font-size:2rem;margin-bottom:.4rem;}
+.tc .t-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
+.tc .t-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin-top:.2rem;}
+.tc .t-elem{font-size:.62rem;color:var(--silver);margin-top:.2rem;}
+
+/* LEIS */
+.lei-acc{margin-bottom:1.1rem;border:1px solid var(--goldm);border-radius:10px;overflow:hidden;}
+.lei-hd{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;cursor:pointer;background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));transition:all .2s;}
+.lei-hd:hover{background:var(--goldl);}
+.lei-hd .l-ico{font-size:1.4rem;}
+.lei-hd .l-num{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);letter-spacing:.1em;}
+.lei-hd .l-nome{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream);}
+.lei-hd .l-latin{font-size:.68rem;color:var(--silver);font-style:italic;}
+.lei-hd .l-arr{margin-left:auto;color:var(--gold);transition:transform .3s;font-size:.8rem;}
+.lei-hd.open .l-arr{transform:rotate(180deg);}
+.lei-bd{display:none;padding:1.4rem 1.6rem;background:rgba(6,12,20,.98);border-top:1px solid var(--goldl);}
+.lei-bd.show{display:block;}
+.lei-bd h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.lei-bd h4:first-child{margin-top:0;}
+.lei-bd p{color:var(--cream2);line-height:2;font-size:.93rem;margin-bottom:.5rem;}
+.lei-mantra{margin-top:1rem;padding:.8rem 1rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:8px;font-style:italic;color:var(--gold3);text-align:center;font-size:.88rem;}
+
+/* NUMEROLOGIA */
+.num-regente{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.95));border:2px solid var(--gold);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;text-align:center;}
+.num-regente .n-big{font-family:'Cinzel Decorative',serif;font-size:4rem;color:var(--gold2);line-height:1;margin-bottom:.3rem;filter:drop-shadow(0 0 15px var(--gold));}
+.num-regente .n-label{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.num-regente p{color:var(--cream2);line-height:1.85;font-size:.95rem;}
+.num-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.num-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;cursor:pointer;transition:all .3s;}
+.num-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.15);}
+.num-card .n-num{font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold2);line-height:1;}
+.num-card .n-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin:.3rem 0 .4rem;}
+.num-card .n-prev{font-size:.78rem;color:var(--silver);line-height:1.5;}
+
+/* NUMEROLOGIA PESSOAL */
+.num-pessoal-box{background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.35);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.num-pessoal-box h3{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:#c4b5fd;margin-bottom:.4rem;text-align:center;}
+.num-pessoal-box .np-sub{font-size:.78rem;color:var(--silver);text-align:center;font-style:italic;margin-bottom:1.2rem;}
+.np-form{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;}
+.np-form label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.3rem;}
+.np-form input[type=date]{background:rgba(10,20,32,.9);border:1px solid var(--goldm);color:var(--cream);font-family:'EB Garamond',serif;font-size:.9rem;padding:.5rem .8rem;border-radius:8px;outline:none;flex:1;min-width:160px;color-scheme:dark;}
+.np-form input[type=date]:focus{border-color:var(--gold);}
+.np-calcular{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#020408;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;border:none;padding:.55rem 1.2rem;border-radius:8px;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.np-calcular:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.np-resultado{margin-top:1.4rem;display:none;}
+.np-resultado.show{display:block;animation:fadeIn .4s ease;}
+.np-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.np-num-destaque{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.97));border:2px solid var(--gold);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-destaque .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:var(--gold2);line-height:1;filter:drop-shadow(0 0 12px var(--gold));}
+.np-num-destaque .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-destaque .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-destaque .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-num-idade{background:linear-gradient(135deg,rgba(147,112,219,.12),rgba(6,12,20,.97));border:2px solid rgba(147,112,219,.5);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-idade .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:#c4b5fd;line-height:1;filter:drop-shadow(0 0 12px rgba(147,112,219,.6));}
+.np-num-idade .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:#c4b5fd;text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-idade .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-idade .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-leitura-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.np-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.05em;transition:all .2s;}
+.np-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.np-panel{display:none;}
+.np-panel.active{display:block;}
+.np-leitura-bloco{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;margin-bottom:.8rem;}
+.np-leitura-bloco .npb-titulo{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem;}
+.np-leitura-bloco p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-afirmacao{text-align:center;padding:1.2rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:10px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin-top:.5rem;}
+.np-sintegia{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(147,112,219,.05));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:1rem;}
+.np-sintegia .nps-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;text-align:center;}
+.np-sintegia p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-ciclo-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem;}
+.np-ciclo-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.8rem;text-align:center;}
+.np-ciclo-item .npc-num{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.np-ciclo-item .npc-label{font-size:.6rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;margin-top:.2rem;}
+.np-ciclo-item .npc-anos{font-size:.65rem;color:var(--gold);margin-top:.15rem;}
+
+/* PALPITES */
+.pal-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.pal-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.pal-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.pal-panel{display:none;}
+.pal-panel.active{display:block;animation:fadeIn .3s ease;}
+.pal-hero{text-align:center;padding:1.4rem 1rem 1.6rem;margin-bottom:1.2rem;border:1px solid;border-radius:14px;}
+.palh-sym{font-size:3rem;margin-bottom:.4rem;filter:drop-shadow(0 0 16px currentColor);}
+.palh-titulo{font-family:'Cinzel Decorative',serif;font-size:1rem;margin-bottom:.4rem;}
+.palh-sub{color:var(--silver);font-size:.82rem;font-style:italic;line-height:1.6;}
+.pal-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.pal-info-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.8rem;text-align:center;}
+.pic-n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.pic-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.06em;margin-top:.3rem;}
+.pal-boloes-wrap{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.2rem;}
+.pal-bolao{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;}
+.pbal-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;}
+.pbal-nums{display:flex;flex-wrap:wrap;gap:.45rem;}
+.pbal-num{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:50%;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;border:2px solid;transition:all .3s;}
+.pbal-num.mega{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.6);color:#4ade80;}
+.pbal-num.loto{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.6);color:#60a5fa;}
+.pbal-num.quina{background:rgba(147,51,234,.15);border-color:rgba(147,51,234,.6);color:#c084fc;}
+.pbal-num.extra{background:rgba(147,112,219,.15);border-color:rgba(147,112,219,.6);color:#c4b5fd;}
+.pbal-num.gold{background:var(--goldl);border-color:var(--gold);color:var(--gold2);}
+.pbal-num.dia{background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.5);color:#fbbf24;}
+.pal-leitura-box{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;}
+.pal-leitura-box .plb-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.pal-leitura-box p{color:var(--cream2);line-height:1.85;font-size:.92rem;}
+.pal-gerar-btn{width:100%;padding:.8rem;border:none;border-radius:10px;color:#fff;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .25s;margin-bottom:1rem;}
+.pal-gerar-btn:hover{filter:brightness(1.12);transform:translateY(-1px);}
+
+/* BICHO */
+.bicho-destaque{background:linear-gradient(135deg,rgba(234,179,8,.12),rgba(6,12,20,.97));border:2px solid rgba(234,179,8,.5);border-radius:16px;padding:1.6rem;text-align:center;margin-bottom:1.2rem;}
+.bd-sym{font-size:4rem;line-height:1;margin-bottom:.4rem;filter:drop-shadow(0 0 20px rgba(234,179,8,.5));}
+.bd-nome{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:#facc15;margin-bottom:.2rem;}
+.bd-grupo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:rgba(234,179,8,.7);text-transform:uppercase;margin-bottom:.6rem;}
+.bd-desc{color:var(--cream2);font-size:.88rem;line-height:1.7;font-style:italic;}
+.bicho-numeros{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem;}
+.bnum-card{border-radius:12px;padding:1rem;text-align:center;border:1px solid;}
+.bnum-milhar{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.4);}
+.bnum-centena{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.4);}
+.bnum-dezena{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.4);}
+.bnum-unidade{background:rgba(147,112,219,.1);border-color:rgba(147,112,219,.4);}
+.bnum-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;color:var(--silver);text-transform:uppercase;margin-bottom:.4rem;}
+.bnum-val{font-family:'Cinzel Decorative',serif;font-size:2.4rem;color:var(--gold2);line-height:1;}
+.bnum-sub{font-size:.58rem;color:var(--silver);margin-top:.2rem;}
+.bicho-variacoes{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;margin-bottom:1.2rem;}
+.bvar-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.bvar-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.bvar-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.6rem .8rem;display:flex;align-items:center;gap:.6rem;}
+.bvar-ico{font-size:1.1rem;flex-shrink:0;}
+.bvar-info .bvi-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;}
+.bvar-info .bvi-v{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);}
+.bicho-ranking{margin-bottom:1.2rem;}
+.brank-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.brank-item{display:flex;align-items:center;gap:.8rem;padding:.55rem .7rem;background:rgba(10,20,32,.7);border:1px solid var(--goldl);border-radius:8px;margin-bottom:.4rem;transition:all .2s;}
+.brank-item:hover{border-color:var(--goldm);background:rgba(10,20,32,.9);}
+.brank-pos{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold);width:1.6rem;text-align:center;flex-shrink:0;}
+.brank-sym{font-size:1.4rem;flex-shrink:0;}
+.brank-info{flex:1;}
+.brank-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);}
+.brank-nums{font-size:.65rem;color:var(--silver);margin-top:.1rem;}
+.brank-stars{color:var(--gold);font-size:.75rem;flex-shrink:0;}
+
+/* EXTRAS */
+.extra-sorte-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.esg-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.esg-ico{font-size:1.4rem;margin-bottom:.3rem;}
+.esg-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.esg-val{font-family:'Cinzel',serif;font-size:.9rem;color:var(--cream2);}
+
+/* MEDITAÇÕES */
+.med-grid{display:grid;gap:1rem;}
+.med-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.med-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.med-ico{font-size:2rem;flex-shrink:0;}
+.med-card .m-tipo{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem;}
+.med-card .m-titulo{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream2);margin-bottom:.3rem;}
+.med-card .m-dur{font-size:.72rem;color:var(--silver);}
+.med-card .m-intro{font-size:.78rem;color:var(--silver);line-height:1.5;margin-top:.4rem;}
+
+/* SONHOS */
+.son-cat-header{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin:1.5rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.son-cats{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.son-cat-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.son-cat-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.son-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.25);border-radius:14px;}
+.son-hero .s-sym{font-size:3.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.5));margin-bottom:.5rem;}
+.son-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.son-hero p{color:var(--silver);font-size:.85rem;font-style:italic;line-height:1.6;}
+.son-num-dia{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.son-num-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.son-num-card .n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.son-num-card .label{font-size:.62rem;color:var(--silver);margin-top:.2rem;font-family:'Cinzel',serif;letter-spacing:.05em;}
+.son-grid{display:grid;gap:.8rem;margin-bottom:1.5rem;}
+.son-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.son-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,181,253,.12);}
+.son-card .s-ico{font-size:1.8rem;flex-shrink:0;}
+.son-card .s-cat{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.2rem;}
+.son-card .s-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.2rem;}
+.son-card .s-desc{font-size:.72rem;color:var(--silver);line-height:1.5;}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;z-index:300;background:rgba(2,4,8,.95);backdrop-filter:blur(12px);align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto;}
+.mo.open{display:flex;}
+.mb{background:linear-gradient(135deg,var(--deep2),var(--deep3));border:1px solid var(--gold);border-radius:16px;width:100%;max-width:680px;margin:auto;max-height:90vh;overflow-y:auto;}
+.m-hd{display:flex;justify-content:space-between;align-items:flex-start;padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--goldl);position:sticky;top:0;background:var(--deep2);z-index:5;border-radius:16px 16px 0 0;}
+.m-num{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.m-ti{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--gold2);}
+.m-cl{background:none;border:1px solid var(--goldm);color:var(--gold);width:2rem;height:2rem;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.m-cl:hover{background:var(--goldl);border-color:var(--gold);}
+.m-bd{padding:1.2rem 1.5rem 1.5rem;}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.06em;transition:all .2s;}
+.tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.tab-panel p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.tab-panel h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:1rem 0 .5rem;}
+
+/* CONHECIMENTO */
+.con-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.con-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.con-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tipo-positivo{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.tipo-negativo{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.tipo-familia{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.tipo-social{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.tipo-emocional{background:rgba(196,181,253,.15);color:#c4b5fd;border:1px solid rgba(196,181,253,.3);}
+.con-section{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
+.con-section h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.8rem;}
+.con-section p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.con-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.filt-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.filt-btn.active{border-color:var(--gold);color:var(--gold2);background:var(--goldl);}
+
+/* COMPATIBILIDADE */
+.compat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;}
+.compat-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;transition:all .3s;text-align:center;}
+.compat-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.compat-card .c-sym{font-size:1.8rem;}
+.compat-card .c-nome{font-family:'Cinzel',serif;font-size:.72rem;color:var(--cream);margin:.2rem 0;}
+.compat-card .c-nivel{display:flex;justify-content:center;gap:.2rem;margin-top:.4rem;}
+.compat-card .c-tipo{font-size:.6rem;padding:.2rem .5rem;border-radius:8px;margin-top:.3rem;display:inline-block;}
+.compat-alta{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.compat-media{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.compat-desafiadora{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.star-on{color:var(--gold);}
+.star-off{color:rgba(201,168,76,.2);}
+
+/* ARQUÉTIPOS */
+.arq-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.3);border-radius:14px;}
+.arq-hero .arq-sym{font-size:4rem;margin-bottom:.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.6));}
+.arq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.arq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.7;}
+.arq-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.arq-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.arq-btn.active{border-color:#c4b5fd;color:#c4b5fd;background:rgba(196,181,253,.1);}
+.arq-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:13px;padding:1.4rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.arq-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,181,253,.12);}
+.arq-card-hd{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;}
+.arq-ico{font-size:2.2rem;flex-shrink:0;}
+.arq-card-hd .arq-tipo{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;}
+.arq-tipo-luz{color:#4ade80;}
+.arq-tipo-sombra{color:#f87171;}
+.arq-tipo-integrado{color:#c4b5fd;}
+.arq-card-hd .arq-nome{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);}
+.arq-card-hd .arq-sub{font-size:.75rem;color:var(--silver);font-style:italic;}
+.arq-card p{color:var(--cream2);line-height:1.85;font-size:.93rem;}
+.arq-sombra-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);border-radius:8px;}
+.arq-sombra-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#f87171;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-sombra-box p{color:rgba(248,113,113,.85);font-size:.88rem;line-height:1.7;}
+.arq-luz-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:8px;}
+.arq-luz-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#4ade80;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-luz-box p{color:rgba(74,222,128,.9);font-size:.88rem;line-height:1.7;}
+.arq-integracao{margin-top:1rem;padding:.9rem 1.2rem;background:rgba(196,181,253,.08);border-left:3px solid #c4b5fd;border-radius:0 8px 8px 0;}
+.arq-integracao .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-integracao p{color:rgba(196,181,253,.9);font-style:italic;font-size:.88rem;line-height:1.7;}
+
+/* OVERLAY */
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:140;}
+
+/* AD BANNER */
+.ad-banner{display:none;}
+
+/* TAROT TABS */
+.tarot-main-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tmt{flex:1;padding:.7rem 1rem;background:none;border:1px solid var(--goldm);color:var(--silver);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.08em;border-radius:10px;cursor:pointer;transition:all .3s;min-width:140px;}
+.tmt:hover{border-color:var(--gold);color:var(--gold2);}
+.tmt.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+
+/* TIRAGEM */
+.tiragem-hero{text-align:center;padding:1.5rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;}
+.tiragem-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.5rem;}
+.tiragem-hero p{color:var(--silver);font-size:.88rem;line-height:1.6;}
+.tiragem-modos{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.modo-btn{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);color:var(--silver);padding:.8rem .5rem;border-radius:10px;cursor:pointer;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.05em;transition:all .3s;display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.modo-btn span{font-family:'EB Garamond',serif;font-size:.65rem;color:var(--silver);opacity:.7;letter-spacing:.02em;}
+.modo-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active span{opacity:1;color:var(--cream2);}
+.baralho-area{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:1.2rem;min-height:120px;align-items:center;}
+.carta-verso{width:62px;height:96px;border-radius:8px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);border:1px solid var(--goldm);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all .3s;position:relative;overflow:hidden;}
+.carta-verso::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(201,168,76,.04) 4px,rgba(201,168,76,.04) 5px);}
+.carta-verso:hover{transform:translateY(-6px) scale(1.04);border-color:var(--gold);box-shadow:0 12px 28px rgba(201,168,76,.25);}
+.carta-verso.selecionada{border-color:var(--gold2);box-shadow:0 0 0 2px var(--gold),0 10px 28px rgba(201,168,76,.35);transform:translateY(-10px) scale(1.06);background:linear-gradient(135deg,rgba(201,168,76,.18),#1a2d4a);}
+.carta-verso.desabilitada{opacity:.35;cursor:default;transform:none;}
+.tirag-resultado{margin-top:1.2rem;}
+.tirag-posicao-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:.4rem;}
+.tirag-cards-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
+.tirag-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--gold);border-radius:14px;padding:1.3rem;flex:1;min-width:240px;max-width:380px;}
+.tirag-card-top{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;padding-bottom:.7rem;border-bottom:1px solid var(--goldl);}
+.tirag-card-sym{font-size:2rem;}
+.tirag-card-nome{font-family:'Cinzel Decorative',serif;font-size:.9rem;color:var(--gold2);}
+.tirag-card-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-top:.1rem;}
+.tirag-card-pos{font-size:.6rem;padding:.2rem .6rem;border-radius:8px;background:var(--goldl);color:var(--gold);font-family:'Cinzel',serif;letter-spacing:.06em;border:1px solid var(--goldm);margin-left:auto;white-space:nowrap;}
+.tirag-card-texto{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.tirag-sintese{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:.8rem;}
+.tirag-sintese-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.tirag-sintese p{color:var(--cream2);line-height:1.9;font-size:.93rem;font-style:italic;}
+.btn-nova-tiragem{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.08));border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;padding:.8rem 2rem;border-radius:10px;cursor:pointer;transition:all .3s;}
+.btn-nova-tiragem:hover{background:linear-gradient(135deg,rgba(201,168,76,.35),rgba(201,168,76,.15));}
+
+/* ALQUIMIA */
+.alq-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.alq-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.alq-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.alq-panel{display:none;}
+.alq-panel.active{display:block;animation:fadeIn .3s ease;}
+.alq-hero{text-align:center;padding:1.6rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(80,20,120,.1));border:1px solid var(--gold);border-radius:16px;}
+.alq-hero-sym{font-size:3.5rem;margin-bottom:.5rem;filter:drop-shadow(0 0 20px var(--gold));}
+.alq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:.4rem;}
+.alq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.65;}
+.alq-etapa{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.alq-etapa:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.alq-etapa-hd{display:flex;align-items:center;gap:.9rem;}
+.alq-etapa-sym{font-size:1.8rem;flex-shrink:0;}
+.alq-etapa-info{flex:1;}
+.alq-etapa-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.06em;}
+.alq-etapa-latin{font-size:.68rem;color:var(--silver);font-style:italic;margin:.1rem 0;}
+.alq-etapa-arr{color:var(--gold);font-size:.8rem;transition:transform .3s;}
+.alq-etapa.open .alq-etapa-arr{transform:rotate(180deg);}
+.alq-etapa-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.alq-etapa-body.show{display:block;}
+.alq-etapa-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.alq-etapa-body h4:first-child{margin-top:0;}
+.alq-etapa-body p{color:var(--cream2);line-height:1.9;font-size:.93rem;margin-bottom:.5rem;}
+.alq-pratica{margin-top:.8rem;padding:.9rem 1rem;background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.alq-pratica .prt-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.35rem;}
+.alq-pratica p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+.alq-metal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.2rem;}
+.alq-metal{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.alq-metal:hover{border-color:var(--gold);}
+.alq-metal-sym{font-size:2rem;margin-bottom:.3rem;}
+.alq-metal-nome{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.05em;}
+.alq-metal-body{font-size:.82rem;color:var(--cream2);line-height:1.7;margin-top:.5rem;text-align:left;}
+.alq-gem-card{background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.3);border-radius:12px;padding:1.2rem;margin-bottom:.9rem;}
+.alq-gem-card h3{font-family:'Cinzel',serif;font-size:.85rem;color:#c4b5fd;letter-spacing:.06em;margin-bottom:.5rem;}
+.alq-gem-card p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.alq-consciencia-bloco{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;}
+.alq-consciencia-bloco h3{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold2);margin-bottom:.6rem;}
+.alq-consciencia-bloco p{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.alq-mantra{text-align:center;padding:1.2rem;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(80,20,120,.08));border:1px solid var(--gold);border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin:1rem 0;}
+.alq-linha-do-tempo{position:relative;padding-left:1.8rem;}
+.alq-linha-do-tempo::before{content:'';position:absolute;left:.6rem;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),transparent);}
+.alq-lt-item{position:relative;margin-bottom:1.2rem;}
+.alq-lt-item::before{content:'⬡';position:absolute;left:-1.8rem;top:.1rem;color:var(--gold);font-size:.7rem;}
+.alq-lt-item h4{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.06em;margin-bottom:.3rem;}
+.alq-lt-item p{color:var(--cream2);line-height:1.85;font-size:.91rem;}
+
+/* FILOSOFIA & MITOLOGIA */
+.fil-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.fil-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.fil-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.fil-panel{display:none;}
+.fil-panel.active{display:block;animation:fadeIn .3s ease;}
+.mit-panel{display:none;}
+.mit-panel.active{display:block;animation:fadeIn .3s ease;}
+.fil-matriz{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0;}
+.fil-item{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.fil-item:hover{border-color:var(--gold);transform:translateY(-2px);}
+.fi-ico{font-size:1.8rem;margin-bottom:.4rem;}
+.fi-nome{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.3rem;}
+.fi-desc{font-size:.72rem;color:var(--silver);line-height:1.4;}
+
+/* VIESES COGNITIVOS */
+.vies-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.vies-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.vies-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;}
+.vies-card.vc-alto::before{background:linear-gradient(180deg,#ef4444,#dc2626);}
+.vies-card.vc-medio::before{background:linear-gradient(180deg,#eab308,#ca8a04);}
+.vies-card.vc-baixo::before{background:linear-gradient(180deg,#22c55e,#16a34a);}
+.vies-hd{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:0;}
+.vies-num{font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--goldm);line-height:1;flex-shrink:0;min-width:2rem;}
+.vies-info{flex:1;}
+.vies-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.2rem;}
+.vies-ingles{font-size:.65rem;color:var(--silver);font-style:italic;margin-bottom:.4rem;}
+.vies-resumo{font-size:.8rem;color:var(--cream2);line-height:1.6;}
+.vies-badge-wrap{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;}
+.vies-tag{display:inline-block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.06em;padding:.2rem .6rem;border-radius:20px;}
+.vies-alto{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#f87171;}
+.vies-medio{background:rgba(234,179,8,.12);border:1px solid rgba(234,179,8,.35);color:#fbbf24;}
+.vies-baixo{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#4ade80;}
+.vies-categoria{background:rgba(147,112,219,.12);border:1px solid rgba(147,112,219,.3);color:#c4b5fd;}
+.vies-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.vies-body.show{display:block;animation:fadeIn .3s ease;}
+.vies-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .35rem;}
+.vies-body h4:first-child{margin-top:0;}
+.vies-body p{color:var(--cream2);line-height:1.9;font-size:.91rem;margin-bottom:.5rem;}
+.vies-gem-box{margin-top:.8rem;padding:.9rem 1rem;border-radius:8px;}
+.vies-gem-box.fraco{background:rgba(239,68,68,.08);border-left:3px solid rgba(239,68,68,.5);}
+.vies-gem-box.forte{background:rgba(34,197,94,.08);border-left:3px solid rgba(34,197,94,.5);}
+.vies-gem-box.medio{background:rgba(234,179,8,.08);border-left:3px solid rgba(234,179,8,.5);}
+.vies-gem-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.35rem;}
+.fraco .vies-gem-label{color:#f87171;}
+.forte .vies-gem-label{color:#4ade80;}
+.medio .vies-gem-label{color:#fbbf24;}
+.vies-gem-box p{color:var(--cream);font-style:italic;font-size:.88rem;line-height:1.7;}
+.vies-arr{margin-left:auto;color:var(--gold);font-size:.75rem;transition:transform .3s;padding-left:.5rem;flex-shrink:0;}
+.vies-card.open .vies-arr{transform:rotate(180deg);}
+
+/* CHAKRAS */
+.chk-intro{background:linear-gradient(135deg,rgba(147,112,219,.12),rgba(255,105,180,.08),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.4);border-radius:14px;padding:1.6rem;margin-bottom:1.5rem;text-align:center;}
+.chk-intro p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.chk-nav{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.chk-tab{background:none;border:2px solid transparent;color:var(--silver);padding:.4rem .85rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.05em;transition:all .25s;white-space:nowrap;}
+.chk-tab:hover{border-color:currentColor;opacity:.85;}
+.chk-tab.active{color:#fff;font-weight:700;}
+.chk-panel{display:none;}
+.chk-panel.active{display:block;animation:fadeIn .35s ease;}
+.chk-hero{border-radius:18px;padding:2rem 1.5rem;margin-bottom:1.4rem;text-align:center;position:relative;overflow:hidden;max-width:100%;box-sizing:border-box;}
+.chk-hero::before{content:'';position:absolute;inset:0;opacity:.08;background:radial-gradient(circle at 50% 30%,white,transparent 70%);}
+.chk-mandala{font-size:5rem;line-height:1;margin-bottom:.5rem;display:block;filter:drop-shadow(0 0 20px currentColor);}
+.chk-numero{font-family:'Cinzel Decorative',serif;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;opacity:.8;margin-bottom:.3rem;}
+.chk-nome-pt{font-family:'Cinzel Decorative',serif;font-size:1.5rem;margin-bottom:.2rem;}
+.chk-nome-sk{font-family:'EB Garamond',serif;font-style:italic;font-size:1.1rem;opacity:.8;margin-bottom:.6rem;}
+.chk-localiz{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;}
+.chk-badge-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem;}
+.chk-badge{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.08em;padding:.25rem .7rem;border-radius:20px;border:1px solid currentColor;opacity:.85;}
+.chk-body{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.chk-bloco{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.99));border:1px solid var(--goldm);border-radius:14px;padding:1.5rem;}
+.chk-bloco.full{grid-column:1/-1;}
+.chk-bloco h4{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.6rem;}
+.chk-bloco p,.chk-bloco li{color:var(--cream2);line-height:1.9;font-size:.91rem;}
+.chk-bloco ul{padding-left:1.2rem;}
+.chk-bloco li{margin-bottom:.25rem;}
+.chk-cor-dot{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;margin-right:.45rem;box-shadow:0 0 8px currentColor;}
+.chk-pedras-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
+.chk-pedra{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:.3rem .75rem;font-size:.78rem;color:var(--cream);}
+.chk-simbolo-box{text-align:center;padding:.6rem;}
+.chk-simbolo-img{font-size:3.5rem;filter:drop-shadow(0 0 12px currentColor);}
+.chk-simbolo-nome{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold2);margin-top:.4rem;letter-spacing:.06em;}
+.chk-gem-box{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:2px solid var(--gold);border-radius:12px;padding:1.2rem;grid-column:1/-1;}
+.chk-gem-box h4{color:var(--gold2);}
+.chk-afirmacao{text-align:center;padding:1.3rem 1.5rem;background:rgba(255,255,255,.03);border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:.88rem;line-height:1.9;margin-top:.5rem;grid-column:1/-1;font-style:italic;}
+.chk-equilibrio{background:rgba(255,255,255,.03);border-radius:10px;padding:1rem;}
+.chk-equilibrio-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:.8rem;}
+.chk-eq-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem;}
+.chk-eq-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.chk-serpente{display:flex;justify-content:center;align-items:flex-end;gap:0;margin:1.5rem 0;position:relative;}
+.chk-serpente-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:pointer;transition:all .2s;padding:.5rem .4rem;border-radius:12px;}
+.chk-serpente-item:hover{transform:scale(1.08);}
+.chk-serpente-dot{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;}
+.chk-serpente-item:hover .chk-serpente-dot{box-shadow:0 0 18px currentColor;border-color:currentColor;}
+.chk-serpente-label{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.06em;text-align:center;opacity:.8;}
+.chk-visao-geral{background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(201,168,76,.05),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.3);border-radius:14px;padding:1.5rem;margin-bottom:1.4rem;max-width:100%;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;}
+.chk-visao-geral h3{font-family:'Cinzel Decorative',serif;font-size:1rem;color:#c4b5fd;margin-bottom:.8rem;text-align:center;}
+.chk-visao-geral p{color:var(--cream2);line-height:1.9;font-size:.93rem;margin-bottom:.7rem;}
+.chk-pratica-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.99));border-left:3px solid;border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-bottom:.8rem;}
+.chk-pratica-card h5{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.chk-pratica-card p{color:var(--cream2);font-size:.88rem;line-height:1.75;}
+.chk-kundalini{background:linear-gradient(135deg,rgba(255,50,50,.06),rgba(255,150,0,.04),rgba(255,255,0,.03),rgba(0,200,0,.03),rgba(0,150,255,.04),rgba(100,0,200,.05),rgba(200,0,200,.04),rgba(6,12,20,.97));border:1px solid rgba(255,200,0,.25);border-radius:14px;padding:1.5rem;margin-top:1.2rem;}
+.chk-kundalini h3{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:var(--gold2);margin-bottom:.8rem;text-align:center;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .topbar{left:0;}
+  .hbg{display:block;}
+  .main{margin-left:0;}
+  .page{padding:1.2rem 1rem;overflow-x:hidden;max-width:100%;box-sizing:border-box;}
+  .home-hero{padding:.8rem .6rem 1rem;}
+  .home-grid{grid-template-columns:1fr 1fr;}
+  .tarot-grid{grid-template-columns:repeat(2,1fr);}
+  .num-grid{grid-template-columns:1fr;}
+  .home-hero h1{font-size:1.6rem;}
+  .card{padding:1.4rem 1.2rem;}
+  .hcard{padding:1.3rem 1rem;}
+  .ni{padding:.85rem 1.1rem;}
+  /* CHAKRAS MOBILE */
+  .chk-body{grid-template-columns:1fr;}
+  .chk-bloco.full,.chk-gem-box,.chk-afirmacao{grid-column:1;}
+  .chk-hero{padding:1.4rem 1rem;}
+  .chk-mandala{font-size:3.2rem;}
+  .chk-nome-pt{font-size:1.1rem;}
+  .chk-nome-sk{font-size:.88rem;}
+  .chk-badge{font-size:.55rem;padding:.2rem .45rem;letter-spacing:.03em;}
+  .chk-badge-row{gap:.3rem;}
+  .chk-serpente{overflow-x:auto;justify-content:flex-start;padding:0 .3rem .5rem;}
+  .chk-serpente-item{min-width:50px;padding:.4rem .25rem;}
+  .chk-serpente-dot{width:28px;height:28px;font-size:.82rem;}
+  .chk-serpente-label{font-size:.48rem;}
+  .chk-afirmacao{font-size:.95rem;padding:1.1rem 1rem;}
+  .chk-visao-geral{padding:1.1rem;}
+  .chk-visao-geral p,.chk-bloco p,.chk-bloco li{font-size:1rem;}
+  .chk-pedra{font-size:.85rem;padding:.28rem .65rem;}
+  .chk-nav{gap:.3rem;}
+  .chk-tab{font-size:.72rem;padding:.35rem .65rem;}
+  .ph h1{font-size:1.35rem;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.4rem .45rem;}
+  .chk-kundalini{padding:1.1rem;}
+}
+</style>
+</head>
+.sidebar a.ni{text-decoration:none;display:flex;color:inherit;}
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;}
+  .topbar{left:0;}
+  .hbg{display:block !important;}
+  #overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:140;}
+  #overlay.active{display:block;}
+}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="installBanner">
+  <div style="font-size:1.8rem">♊</div>
+  <div class="ib-text">
+    <div class="ib-title">Instalar como App</div>
+    <div class="ib-sub">Adicione à tela inicial do celular</div>
+  </div>
+  <button class="ib-btn" onclick="instalarApp()">Instalar</button>
+  <button class="ib-close" onclick="fecharBanner()">✕</button>
+</div>
+
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo" onclick="window.location='index.html'">
+    <span class="sb-sym">♊</span>
+    <h1>Gêmeos Hoje</h1>
+    <small>Escola Esotérica</small>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✦ Hoje</div>
+    <a href="index.html" class="ni" data-page="home"><span class="ico">🏠</span><div class="tx"><div class="lbl">Início</div><div class="sub">Painel do dia</div></div></a>
+
+    <a href="leitura.html" class="ni" data-page="leitura"><span class="ico">🌟</span><div class="tx"><div class="lbl">Leitura do Dia</div><div class="sub">Mensagem de Mercúrio</div></div></a>
+
+    <a href="decanatos.html" class="ni" data-page="decanatos"><span class="ico">🌓</span><div class="tx"><div class="lbl">Decanatos de Gêmeos</div><div class="sub">Sua face específica do signo</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🃏 Tarot</div>
+    <a href="tarot.html" class="ni" data-page="tarot"><span class="ico">🪄</span><div class="tx"><div class="lbl">Tarot de Gêmeos</div><div class="sub">6 arcanos do seu signo</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚗️ Alquimia</div>
+    <a href="alquimia.html" class="ni" data-page="alquimia"><span class="ico">⚗️</span><div class="tx"><div class="lbl">Alquimia de Gêmeos</div><div class="sub">Transmutação & Consciência</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚖️ Hermetismo</div>
+    <a href="leis.html" class="ni" data-page="leis"><span class="ico">⚖️</span><div class="tx"><div class="lbl">7 Leis Herméticas</div><div class="sub">Aplicadas a Gêmeos</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🔢 Numerologia</div>
+    <a href="numerologia.html" class="ni" data-page="numerologia"><span class="ico">🔢</span><div class="tx"><div class="lbl">Numerologia de Gêmeos</div><div class="sub">Números sagrados do signo</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🍀 Palpites</div>
+    <a href="palpites.html" class="ni" data-page="palpites"><span class="ico">🍀</span><div class="tx"><div class="lbl">Palpites de Gêmeos</div><div class="sub">Números da sorte pelos astros</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🧘 Meditação</div>
+    <a href="meditacoes.html" class="ni" data-page="meditacoes"><span class="ico">🧘</span><div class="tx"><div class="lbl">Meditações Guiadas</div><div class="sub">Para a mente geminiana</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌙 Sonhos</div>
+    <a href="sonhos.html" class="ni" data-page="sonhos"><span class="ico">🌙</span><div class="tx"><div class="lbl">Significado dos Sonhos</div><div class="sub">Dicionário onírico de Gêmeos</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌀 Arquétipos</div>
+    <a href="arquetipos.html" class="ni" data-page="arquetipos"><span class="ico">🌀</span><div class="tx"><div class="lbl">Arquétipos de Gêmeos</div><div class="sub">Luz, sombra e integração</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌈 Chakras</div>
+    <a href="chakras.html" class="ni active" data-page="chakras"><span class="ico">🌸</span><div class="tx"><div class="lbl">Chakras & Gêmeos</div><div class="sub">Os 7 centros de energia vital</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">♊ Conhecimento</div>
+    <a href="conhecimento.html" class="ni" data-page="conhecimento"><span class="ico">📖</span><div class="tx"><div class="lbl">Conhecendo Gêmeos</div><div class="sub">Todos os lados do signo</div></div></a>
+
+    <a href="compatibilidade.html" class="ni" data-page="compatibilidade"><span class="ico">💞</span><div class="tx"><div class="lbl">Compatibilidade</div><div class="sub">Com todos os signos</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🏛️ Saber Clássico</div>
+    <a href="filosofia.html" class="ni" data-page="filosofia"><span class="ico">🏛️</span><div class="tx"><div class="lbl">Gêmeos & Filosofia</div><div class="sub">Sofistas, Sócrates, Platão...</div></div></a>
+
+    <a href="mitologia.html" class="ni" data-page="mitologia"><span class="ico">⚡</span><div class="tx"><div class="lbl">Gêmeos & Mitologia</div><div class="sub">Hermes, Dioscuros e os deuses</div></div></a>
+
+    <a href="vieses.html" class="ni" data-page="vieses"><span class="ico">🧠</span><div class="tx"><div class="lbl">Vieses Cognitivos</div><div class="sub">30 armadilhas da mente geminiana</div></div></a>
+
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✨ Sobre</div>
+    <a href="quemsomos.html" class="ni" data-page="quemsomos"><span class="ico">🌟</span><div class="tx"><div class="lbl">Quem Somos</div><div class="sub">Nossa missão esotérica</div></div></a>
+
+    <a href="contato.html" class="ni" data-page="contato"><span class="ico">✉️</span><div class="tx"><div class="lbl">Fale Conosco</div><div class="sub">Dúvidas e sugestões</div></div></a>
+
+  </div>
+  <div style="padding:1.2rem;border-top:1px solid rgba(201,168,76,.15);margin-top:auto;text-align:center;">
+    <a href="privacidade.html" style="color:rgba(201,168,76,.45);font-family:Cinzel,serif;font-size:.62rem;letter-spacing:.08em;text-decoration:underline;padding:.4rem;display:inline-block;">Política de Privacidade</a>
+    <div style="color:rgba(138,154,181,.3);font-size:.55rem;margin-top:.3rem;">2026 Gêmeos Hoje</div>
+  </div>
+</aside>
+<div id="overlay" onclick="toggleMenu()"></div>
+<main class="main">
+  <div class="topbar">
+    <button class="hbg" onclick="toggleMenu()">☰</button>
+    <div class="tb-title" id="tbTitle">Chakras & Gêmeos</div>
+    <div class="tb-date" id="tbDate"></div>
+    <a href="privacidade.html" title="Política de Privacidade" style="color:rgba(201,168,76,.4);font-size:.75rem;text-decoration:none;flex-shrink:0;padding:.3rem .5rem;border:1px solid rgba(201,168,76,.15);border-radius:5px;">🔒</a>
+  </div>
+  <div class="page active" id="page-chakras">
+  <div class="ph"><div class="orn">· · ✦ · ·</div><h1>Chakras & Gêmeos</h1><p>Os 7 centros de energia vital — cores, pedras, símbolos e Gêmeos</p></div>
+
+    <!-- VISÃO GERAL -->
+    <div class="chk-visao-geral">
+      <h3>🌈 O Sistema dos Chakras</h3>
+      <p>Os <strong style="color:#c4b5fd;">chakras</strong> (em sânscrito: <em>cakra</em>, "roda" ou "disco") são centros de energia vital que, segundo as tradições hinduísta, tântrica e yóguica, se distribuem ao longo do eixo espinhal do corpo sutil (pranamayakosha). Cada chakra processa uma dimensão específica da experiência humana — física, emocional, mental e espiritual — e quando em equilíbrio, permite que a <strong style="color:#c4b5fd;">força vital (prana / kundalini)</strong> flua livremente, gerando saúde integral, clareza e expansão da consciência.</p>
+      <p>Para <strong style="color:var(--gold2);">Gêmeos</strong>, regido por Mercúrio — o mensageiro que transita entre todos os planos — o trabalho com chakras é especialmente poderoso. A natureza dual do signo reverbera diretamente nos pares de opostos que cada chakra trabalha: terra/céu, emoção/razão, fala/silêncio, pessoal/universal.</p>
+    </div>
+
+    <!-- MAPA VISUAL DOS 7 CHAKRAS -->
+    <div style="background:linear-gradient(135deg,rgba(10,20,32,.97),rgba(6,12,20,.99));border:1px solid var(--goldm);border-radius:14px;padding:1.4rem;margin-bottom:1.4rem;text-align:center;">
+      <div style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;">· Clique em cada chakra para explorar ·</div>
+      <div class="chk-serpente">
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'1\']'),'chk-1')" title="Muladhara">
+          <div class="chk-serpente-dot" style="background:rgba(220,38,38,.25);color:#ef4444;border-color:#ef4444;">🔴</div>
+          <div class="chk-serpente-label" style="color:#ef4444;">Raiz</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#ef4444,#f97316);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'2\']'),'chk-2')" title="Svadhisthana">
+          <div class="chk-serpente-dot" style="background:rgba(249,115,22,.25);color:#f97316;border-color:#f97316;">🟠</div>
+          <div class="chk-serpente-label" style="color:#f97316;">Sacral</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#f97316,#eab308);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'3\']'),'chk-3')" title="Manipura">
+          <div class="chk-serpente-dot" style="background:rgba(234,179,8,.25);color:#eab308;border-color:#eab308;">🟡</div>
+          <div class="chk-serpente-label" style="color:#eab308;">Plexo</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#eab308,#22c55e);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'4\']'),'chk-4')" title="Anahata">
+          <div class="chk-serpente-dot" style="background:rgba(34,197,94,.25);color:#22c55e;border-color:#22c55e;">💚</div>
+          <div class="chk-serpente-label" style="color:#22c55e;">Coração</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#22c55e,#06b6d4);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'5\']'),'chk-5')" title="Vishuddha">
+          <div class="chk-serpente-dot" style="background:rgba(6,182,212,.25);color:#06b6d4;border-color:#06b6d4;">🩵</div>
+          <div class="chk-serpente-label" style="color:#06b6d4;">Garganta</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#06b6d4,#6366f1);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'6\']'),'chk-6')" title="Ajna">
+          <div class="chk-serpente-dot" style="background:rgba(99,102,241,.25);color:#818cf8;border-color:#818cf8;">💜</div>
+          <div class="chk-serpente-label" style="color:#818cf8;">Terceiro Olho</div>
+        </div>
+        <div style="width:2px;height:20px;background:linear-gradient(180deg,#6366f1,#a855f7);align-self:flex-end;margin-bottom:18px;"></div>
+        <div class="chk-serpente-item" onclick="chkTab(document.querySelector('.chk-tab[data-chk=\'7\']'),'chk-7')" title="Sahasrara">
+          <div class="chk-serpente-dot" style="background:rgba(168,85,247,.25);color:#a855f7;border-color:#a855f7;">🔮</div>
+          <div class="chk-serpente-label" style="color:#a855f7;">Coronal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABAS DOS 7 CHAKRAS + VISÃO GERAL -->
+    <div class="chk-nav">
+      <button class="chk-tab active" data-chk="geral" onclick="chkTab(this,'chk-geral')" style="border-color:var(--gold);color:var(--gold2);">✦ Visão Geral</button>
+      <button class="chk-tab" data-chk="1" onclick="chkTab(this,'chk-1')" style="color:#ef4444;">🔴 Raiz</button>
+      <button class="chk-tab" data-chk="2" onclick="chkTab(this,'chk-2')" style="color:#f97316;">🟠 Sacral</button>
+      <button class="chk-tab" data-chk="3" onclick="chkTab(this,'chk-3')" style="color:#eab308;">🟡 Plexo Solar</button>
+      <button class="chk-tab" data-chk="4" onclick="chkTab(this,'chk-4')" style="color:#22c55e;">💚 Coração</button>
+      <button class="chk-tab" data-chk="5" onclick="chkTab(this,'chk-5')" style="color:#06b6d4;">🩵 Garganta</button>
+      <button class="chk-tab" data-chk="6" onclick="chkTab(this,'chk-6')" style="color:#818cf8;">💜 Terceiro Olho</button>
+      <button class="chk-tab" data-chk="7" onclick="chkTab(this,'chk-7')" style="color:#a855f7;">🔮 Coronal</button>
+    </div>
+
+    <!-- PAINEL: VISÃO GERAL -->
+    <div class="chk-panel active" id="chk-geral">
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:var(--gold2);">📜 Origem e Tradição</h4>
+          <p>O sistema dos 7 chakras principais tem raízes nos <strong>Vedas</strong> (textos sagrados hindus com mais de 3.000 anos), nas <strong>Upanishads</strong> e especialmente nos textos do <strong>Tantra</strong> e do <strong>Hatha Yoga</strong>. A palavra vem do sânscrito e significa literalmente "roda" — pois cada centro energético gira como uma roda de luz, processando e distribuindo prana (energia vital) pelo corpo sutil.</p>
+          <p style="margin-top:.7rem;">Na tradição ocidental, esses centros foram integrados pela Teosofia (séc. XIX) e pela psicologia analítica de <strong>Carl Gustav Jung</strong>, que identificou paralelos entre os chakras e os complexos do inconsciente, tornando o sistema chakral uma ferramenta de psicologia espiritual profunda — muito alinhada com a natureza introspectiva e investigativa de Gêmeos.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">🌿 Corpo Físico</h4>
+          <ul>
+            <li>Cada chakra governa órgãos e sistemas específicos</li>
+            <li>Desequilíbrios energéticos podem se manifestar como sintomas físicos</li>
+            <li>O trabalho corporal (yoga, respiração) ativa e equilibra os centros</li>
+            <li>A coluna vertebral é o eixo pelo qual a energia sobe (sushumna nadi)</li>
+          </ul>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">💧 Corpo Emocional</h4>
+          <ul>
+            <li>Emoções reprimidas bloqueiam chakras específicos</li>
+            <li>Cada chakra processa padrões emocionais primordiais</li>
+            <li>A cura emocional libera energia estagnada nos centros</li>
+            <li>Traumas se armazenam como tensão nos chakras correspondentes</li>
+          </ul>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">☀️ Os 3 Nadis (Canais)</h4>
+          <p><strong style="color:#eab308;">Sushumna</strong> — canal central da coluna; caminho da kundalini<br>
+          <strong style="color:#ef4444;">Pingala</strong> — canal direito; energia solar, masculina, ativa<br>
+          <strong style="color:#818cf8;">Ida</strong> — canal esquerdo; energia lunar, feminina, receptiva<br><br>
+          Os três nadis se entrelaçam como uma serpente dupla (análoga ao caduceu de Hermes/Mercúrio — símbolo direto de Gêmeos!).</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">🔮 Kundalini</h4>
+          <p>A <strong>Kundalini</strong> é descrita como uma serpente adormecida enrolada na base da coluna (Muladhara). Quando desperta — através de yoga, meditação, pranayama ou experiências de transformação — sobe pelos chakras até o topo da cabeça (Sahasrara), produzindo estados de iluminação. Para Gêmeos, a kundalini frequentemente se manifesta como flashes de insight e expansão mental repentina.</p>
+        </div>
+
+        <div class="chk-gem-box">
+          <h4>♊ Gêmeos e o Sistema Chakral — Visão Panorâmica</h4>
+          <p>Para o nativo de Gêmeos, o sistema de chakras oferece um mapa extraordinariamente revelador. Mercúrio — regente do signo — corresponde diretamente ao <strong style="color:#06b6d4;">5º chakra (Vishuddha / Garganta)</strong>, centro da comunicação, da palavra, da expressão e do discernimento — as dádivas naturais de Gêmeos.</p>
+          <p style="margin-top:.7rem;">A dualidade característica do signo (os Gêmeos: Cástor e Pólux) espelha perfeitamente a polaridade dos nadis Ida e Pingala — dois fluxos opostos que precisam ser equilibrados para que a energia suba pelo canal central. O geminiano que trabalha conscientemente seus chakras experimenta a <strong>integração da dualidade</strong> que é o grande tema espiritual do seu signo.</p>
+          <p style="margin-top:.7rem;"><strong style="color:var(--gold2);">Chakras prioritários para Gêmeos:</strong> Vishuddha (5º) — expressão e verdade; Ajna (6º) — intuição e clareza mental; Manipura (3º) — poder pessoal e foco; Anahata (4º) — amor que une as duas metades do ser.</p>
+        </div>
+
+        <!-- TABELA RESUMO -->
+        <div class="chk-bloco full">
+          <h4 style="color:var(--gold2);">📊 Tabela Resumo dos 7 Chakras</h4>
+          <div style="overflow-x:auto;margin-top:.6rem;">
+            <table style="width:100%;border-collapse:collapse;font-size:.8rem;">
+              <thead>
+                <tr style="border-bottom:1px solid var(--goldm);">
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Chakra</th>
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Nome Sânscrito</th>
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Localização</th>
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Cor</th>
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Elemento</th>
+                  <th style="padding:.5rem .7rem;text-align:left;font-family:'Cinzel',serif;color:var(--gold);font-size:.65rem;letter-spacing:.08em;">Tema Central</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#ef4444;">🔴 1º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Muladhara</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Base da coluna</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#ef4444;color:#ef4444;"></span>Vermelho</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Terra</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Segurança, sobrevivência, raízes</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#f97316;">🟠 2º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Svadhisthana</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Abaixo do umbigo</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#f97316;color:#f97316;"></span>Laranja</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Água</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Criatividade, prazer, emoções</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#eab308;">🟡 3º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Manipura</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Plexo solar</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#eab308;color:#eab308;"></span>Amarelo</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Fogo</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Poder pessoal, vontade, identidade</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#22c55e;">💚 4º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Anahata</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Centro do peito</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#22c55e;color:#22c55e;"></span>Verde</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Ar</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Amor, compaixão, equilíbrio</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#06b6d4;">🩵 5º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Vishuddha</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Garganta</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#06b6d4;color:#06b6d4;"></span>Azul celeste</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Éter</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Comunicação, verdade, expressão</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,.06);">
+                  <td style="padding:.5rem .7rem;color:#818cf8;">💜 6º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Ajna</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Entre as sobrancelhas</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#818cf8;color:#818cf8;"></span>Índigo</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Luz</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Intuição, visão, sabedoria</td>
+                </tr>
+                <tr>
+                  <td style="padding:.5rem .7rem;color:#a855f7;">🔮 7º</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">Sahasrara</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Topo da cabeça</td>
+                  <td style="padding:.5rem .7rem;"><span class="chk-cor-dot" style="background:#a855f7;color:#a855f7;"></span>Violeta/Branco</td>
+                  <td style="padding:.5rem .7rem;color:var(--silver);">Consciência</td>
+                  <td style="padding:.5rem .7rem;color:var(--cream2);">União, transcendência, iluminação</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="chk-afirmacao" style="color:var(--gold2);border:1px solid var(--goldm);">
+          "Como acima, assim abaixo — como dentro, assim fora."<br>
+          <span style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);font-style:normal;">O CADUCEU DE MERCÚRIO É A IDA E PINGALA — GÊMEOS É O PORTADOR DA VARA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 1º CHAKRA — MULADHARA -->
+    <div class="chk-panel" id="chk-1">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(220,38,38,.18),rgba(6,12,20,.97));border:2px solid rgba(239,68,68,.5);">
+        <span class="chk-mandala" style="color:#ef4444;">🔴</span>
+        <div class="chk-numero" style="color:#ef4444;">1º Chakra</div>
+        <div class="chk-nome-pt" style="color:#ef4444;">Raiz</div>
+        <div class="chk-nome-sk">Muladhara — "Suporte da Raiz"</div>
+        <div class="chk-localiz" style="color:#ef4444;">Base da coluna vertebral · Períneo</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#ef4444;">🌍 Elemento: Terra</span>
+          <span class="chk-badge" style="color:#ef4444;">🔷 Forma: Quadrado</span>
+          <span class="chk-badge" style="color:#ef4444;">🐘 Animal: Elefante</span>
+          <span class="chk-badge" style="color:#ef4444;">🌺 Pétalas: 4</span>
+          <span class="chk-badge" style="color:#ef4444;">📍 Mantra: LAM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#ef4444;">🌱 Significado Geral</h4>
+          <p>Muladhara é a fundação de toda a vida consciente. Localizado na base da coluna, é o chakra da <strong>sobrevivência, segurança, pertencimento e enraizamento</strong>. Regido pelo elemento Terra, conecta o ser humano ao plano físico — ao corpo, ao lar, à família de origem e à sensação de ter o direito de existir. É aqui que a kundalini repousa antes do despertar.</p>
+          <p style="margin-top:.7rem;">Na vida real, um Muladhara saudável se manifesta como: estabilidade financeira e emocional, sensação de segurança no próprio corpo, vínculos familiares saudáveis, capacidade de cumprir compromissos práticos e presença plena no momento presente.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#ef4444;">🎨 Cor — Vermelho</h4>
+          <p><span class="chk-cor-dot" style="background:#ef4444;color:#ef4444;box-shadow:0 0 8px #ef4444;"></span>O vermelho vibrante representa a força vital primordial, o sangue, a terra e o fogo interior da sobrevivência. É a cor mais densa do espectro visível, ancorando a energia no plano mais concreto da existência. Usar roupas vermelhas, visualizar vermelho na base da coluna ou rodear-se de objetos vermelhos ativa e equilibra Muladhara.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#ef4444;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">🔴 Jaspe Vermelho</span>
+            <span class="chk-pedra">⚫ Obsidiana</span>
+            <span class="chk-pedra">🟤 Olho de Tigre</span>
+            <span class="chk-pedra">🔴 Granada</span>
+            <span class="chk-pedra">⚫ Turmalina Negra</span>
+            <span class="chk-pedra">🔴 Cornalina</span>
+            <span class="chk-pedra">⚫ Hematita</span>
+          </div>
+          <p style="margin-top:.7rem;font-size:.82rem;color:var(--silver);">Posicione as pedras na base da coluna durante meditação, carregue-as como talismã ou coloque-as no ambiente para criar energia de enraizamento.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#ef4444;">🔣 Símbolo — Lotus de 4 Pétalas</h4>
+          <div class="chk-simbolo-box">
+            <div class="chk-simbolo-img" style="color:#ef4444;">⬛</div>
+            <div class="chk-simbolo-nome">Quadrado dentro do Lótus Vermelho</div>
+          </div>
+          <p style="font-size:.85rem;color:var(--cream2);margin-top:.5rem;">As 4 pétalas representam os 4 aspectos da consciência (manas, buddhi, chitta, ahamkara). O quadrado amarelo no centro simboliza a solidez da Terra. O triângulo vermelho aponta para baixo: enraizamento na matéria. O elefante de 7 trombas sustenta o mundo.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#ef4444;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Senso de segurança, saúde física, vitalidade, estabilidade financeira, presença no corpo, vínculos seguros, capacidade de realizar projetos concretos.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Ansiedade existencial, medos irracionais, problemas financeiros crônicos, desconexão do corpo, compulsões materiais, apego excessivo a posses, dificuldade de sair do lugar.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#ef4444;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Andar descalço na terra/grama</li>
+            <li>Yoga: poses de enraizamento (Tadasana, Virabhadrasana)</li>
+            <li>Meditação com mantra LAM</li>
+            <li>Banhos de argila e sal grosso</li>
+            <li>Jardinar, cozinhar com ervas da terra</li>
+            <li>Exercícios físicos que fortalecem pernas e glúteos</li>
+            <li>Visualização de raízes saindo dos pés até o núcleo da Terra</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Muladhara & Gêmeos — O Desafio do Enraizamento</h4>
+          <p>Este é o chakra mais desafiador para Gêmeos. A natureza aérea, mental e dual do signo naturalmente tende a voar — a mente geminiana habita o mundo das ideias, das possibilidades e das conexões, não raro esquecendo o corpo e as necessidades práticas da existência.</p>
+          <p style="margin-top:.7rem;">O Muladhara desequilibrado em Gêmeos frequentemente se manifesta como: agitação crônica, dificuldade de terminar o que começa, instabilidade financeira por dispersão, ansiedade sem motivo aparente e sensação de "não pertencer a lugar nenhum".</p>
+          <p style="margin-top:.7rem;"><strong style="color:#ef4444;">Prática especial para Gêmeos:</strong> Antes de cada grande decisão ou novo projeto, pause e pergunte: "Minha base (financeira, emocional, corporal) está segura o suficiente para sustentar essa nova direção?" Aterrar a mente aérea de Gêmeos é o primeiro passo para manifestar seus infinitos talentos no mundo físico.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#ef4444;border:1px solid rgba(239,68,68,.3);">
+          "Eu estou. Eu pertenço. Eu me enraízo na Terra<br>e me sinto seguro(a) em minha própria presença."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 2º CHAKRA — SVADHISTHANA -->
+    <div class="chk-panel" id="chk-2">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(6,12,20,.97));border:2px solid rgba(249,115,22,.5);">
+        <span class="chk-mandala" style="color:#f97316;">🟠</span>
+        <div class="chk-numero" style="color:#f97316;">2º Chakra</div>
+        <div class="chk-nome-pt" style="color:#f97316;">Sacral</div>
+        <div class="chk-nome-sk">Svadhisthana — "Morada do Eu"</div>
+        <div class="chk-localiz" style="color:#f97316;">Abaixo do umbigo · Sacro</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#f97316;">💧 Elemento: Água</span>
+          <span class="chk-badge" style="color:#f97316;">🌙 Forma: Crescente</span>
+          <span class="chk-badge" style="color:#f97316;">🐊 Animal: Crocodilo</span>
+          <span class="chk-badge" style="color:#f97316;">🌸 Pétalas: 6</span>
+          <span class="chk-badge" style="color:#f97316;">📍 Mantra: VAM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#f97316;">🌊 Significado Geral</h4>
+          <p>Svadhisthana é o centro da <strong>criatividade, sexualidade, prazer, fluência emocional e relações interpessoais</strong>. Governado pela água — fluxo, adaptabilidade, profundidade — este chakra rege nossa capacidade de sentir plenamente, criar, desejar e se conectar com o outro de forma íntima e autêntica.</p>
+          <p style="margin-top:.7rem;">Na vida real: saúde sexual e reprodutiva, criatividade fluindo naturalmente, prazer saudável, emoções expressas sem repressão nem explosão, relações íntimas nutritivas e satisfatórias, senso de abundância e fluidez na vida.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#f97316;">🎨 Cor — Laranja</h4>
+          <p><span class="chk-cor-dot" style="background:#f97316;color:#f97316;box-shadow:0 0 8px #f97316;"></span>O laranja combina a energia vital do vermelho com a alegria do amarelo — simbolizando entusiasmo criativo, calor emocional e vitalidade sexual. É a cor do pôr do sol, do fogo suave, da fecundidade. Meditações com luz laranja banhando o ventre ativam este centro.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#f97316;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">🟠 Cornalina</span>
+            <span class="chk-pedra">🟠 Calcita Laranja</span>
+            <span class="chk-pedra">🌅 Pedra do Sol</span>
+            <span class="chk-pedra">🟠 Ágata Laranja</span>
+            <span class="chk-pedra">✨ Âmbar</span>
+            <span class="chk-pedra">🟤 Aragonita</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#f97316;">🔣 Símbolo — Lótus de 6 Pétalas</h4>
+          <p>As 6 pétalas representam as 6 qualidades negativas a serem transmutadas: desejo, ira, ganância, delírio, orgulho, inveja — e suas contrapartes positivas. O círculo no centro simboliza a fluidez da água e os ciclos da lua. O crocodilo emerge das profundezas do inconsciente emocional.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#f97316;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Criatividade fluente, prazer saudável, emoções expressas com equilíbrio, relações íntimas satisfatórias, senso de abundância e fluidez.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Bloqueio: frigidez emocional/sexual, falta de criatividade, culpa pelo prazer, rigidez. Hiperativo: dependência emocional, compulsões, ciúme obsessivo.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#f97316;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Dança livre e fluída (especialmente dança do ventre)</li>
+            <li>Banhos de lua cheia e imersões em água</li>
+            <li>Arte criativa sem objetivo: pintura, escrita livre</li>
+            <li>Yoga: movimentos pélvicos, Bhujangasana</li>
+            <li>Mantra VAM em meditação</li>
+            <li>Expressão criativa sem julgamento</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Svadhisthana & Gêmeos — Criatividade como Alimento</h4>
+          <p>Gêmeos tem uma relação naturalmente rica com este chakra — a criatividade geminiana é abundante e multifacetada. No entanto, o signo pode racionalizar excessivamente as emoções, criando um bloqueio sutil: sentir é substituído por analisar o sentimento.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#f97316;">Convite para Gêmeos:</strong> Permita-se sentir sem imediatamente transformar a emoção em conceito. A criatividade geminiana atinge seu máximo quando nasce do corpo e das emoções vividas — não apenas da mente ágil.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#f97316;border:1px solid rgba(249,115,22,.3);">
+          "Eu fluo. Eu sinto. Minha criatividade é sagrada<br>e meu prazer é um presente divino."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 3º CHAKRA — MANIPURA -->
+    <div class="chk-panel" id="chk-3">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(234,179,8,.15),rgba(6,12,20,.97));border:2px solid rgba(234,179,8,.5);">
+        <span class="chk-mandala" style="color:#eab308;">🟡</span>
+        <div class="chk-numero" style="color:#eab308;">3º Chakra</div>
+        <div class="chk-nome-pt" style="color:#eab308;">Plexo Solar</div>
+        <div class="chk-nome-sk">Manipura — "Cidade das Joias"</div>
+        <div class="chk-localiz" style="color:#eab308;">Plexo Solar · Acima do umbigo</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#eab308;">🔥 Elemento: Fogo</span>
+          <span class="chk-badge" style="color:#eab308;">🔺 Forma: Triângulo</span>
+          <span class="chk-badge" style="color:#eab308;">🐏 Animal: Carneiro</span>
+          <span class="chk-badge" style="color:#eab308;">🌸 Pétalas: 10</span>
+          <span class="chk-badge" style="color:#eab308;">📍 Mantra: RAM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#eab308;">☀️ Significado Geral</h4>
+          <p>Manipura é o centro do <strong>poder pessoal, da vontade, da autoconfiança e da identidade individual</strong>. O fogo aqui não queima — transforma. É o "sol interior" que digere experiências, impulsiona a ação decidida, sustenta a disciplina e forja o caráter. Quando Manipura brilha, você sabe quem você é e age a partir dessa certeza.</p>
+          <p style="margin-top:.7rem;">Na vida real: confiança saudável, capacidade de estabelecer limites, motivação e iniciativa, disciplina, senso claro de propósito, poder de transformar ideias em ação e resistência diante dos desafios.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">🎨 Cor — Amarelo</h4>
+          <p><span class="chk-cor-dot" style="background:#eab308;color:#eab308;box-shadow:0 0 8px #eab308;"></span>O amarelo solar representa iluminação, clareza, poder e calor vital. É a cor do sol, da inteligência ativa e da força de vontade. Visualizar um sol brilhante no plexo solar durante a meditação é uma das práticas mais eficazes para fortalecer Manipura.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">🟡 Citrino</span>
+            <span class="chk-pedra">🌕 Calcita Amarela</span>
+            <span class="chk-pedra">🟤 Olho de Tigre</span>
+            <span class="chk-pedra">🟡 Topázio Imperial</span>
+            <span class="chk-pedra">🌟 Pirita</span>
+            <span class="chk-pedra">🟡 Âmbar</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">🔣 Símbolo — Lótus de 10 Pétalas</h4>
+          <p>As 10 pétalas representam os 10 pranas (forças vitais) e as 10 direções do espaço. O triângulo vermelho invertido no centro simboliza o elemento fogo em sua forma descendente (agni). O carneiro representa a força que avança sem hesitar.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Autoconfiança, poder de decisão, disciplina, motivação, capacidade de estabelecer limites, identidade sólida e calor interior.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Bloqueado: insegurança, vitimização, procrastinação, medo de tomar decisões. Hiperativo: autoritarismo, arrogância, necessidade de controle, workaholismo.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#eab308;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Pranayama: Kapalabhati (respiração de fogo)</li>
+            <li>Posturas de core: Navasana (barco), abdominais conscientes</li>
+            <li>Mantra RAM em meditação</li>
+            <li>Exposição moderada ao sol da manhã</li>
+            <li>Estabelecer e cumprir um pequeno compromisso diário</li>
+            <li>Visualizar chama amarela no plexo solar</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Manipura & Gêmeos — Focando o Fogo Disperso</h4>
+          <p>A mente geminiana gera centelhas de ideias constantemente — mas sem um Manipura forte, o fogo se dispersa em mil direções sem nunca incendiar de verdade. O desafio de Gêmeos aqui é <strong>concentrar a força de vontade</strong> em vez de fragmentá-la entre múltiplos projetos simultâneos.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#eab308;">Prática para Gêmeos:</strong> Escolha um objetivo central por mês e direcione 80% da sua energia para ele. Permita-se ser "unilateral" temporariamente — o foco temporário não mata a versatilidade geminiana, ele a potencializa.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#eab308;border:1px solid rgba(234,179,8,.3);">
+          "Eu tenho poder. Eu ajo com propósito.<br>Minha vontade é o fogo que transforma o mundo."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 4º CHAKRA — ANAHATA -->
+    <div class="chk-panel" id="chk-4">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(34,197,94,.13),rgba(6,12,20,.97));border:2px solid rgba(34,197,94,.5);">
+        <span class="chk-mandala" style="color:#22c55e;">💚</span>
+        <div class="chk-numero" style="color:#22c55e;">4º Chakra</div>
+        <div class="chk-nome-pt" style="color:#22c55e;">Coração</div>
+        <div class="chk-nome-sk">Anahata — "Som Não Percutido"</div>
+        <div class="chk-localiz" style="color:#22c55e;">Centro do peito · Coração</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#22c55e;">💨 Elemento: Ar</span>
+          <span class="chk-badge" style="color:#22c55e;">✡️ Forma: Estrela de Davi</span>
+          <span class="chk-badge" style="color:#22c55e;">🦌 Animal: Antílope</span>
+          <span class="chk-badge" style="color:#22c55e;">🌸 Pétalas: 12</span>
+          <span class="chk-badge" style="color:#22c55e;">📍 Mantra: YAM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#22c55e;">💚 Significado Geral</h4>
+          <p>Anahata é a ponte entre o mundo inferior (chakras 1-3: matéria) e o superior (chakras 5-7: espírito). O coração é o mediador universal — assim como Mercúrio/Hermes mediava entre deuses e humanos. Aqui habitam o <strong>amor incondicional, a compaixão, o perdão, a cura e o equilíbrio entre dar e receber</strong>.</p>
+          <p style="margin-top:.7rem;">"Anahata" significa "som não percutido" — o som que existe antes do silêncio e depois do ruído, o pulso do amor universal que não precisa de causa. Na vida real: capacidade de amar sem perder a si mesmo, compaixão sem codependência, perdão genuíno, alegria espontânea.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">🎨 Cores — Verde e Rosa</h4>
+          <p><span class="chk-cor-dot" style="background:#22c55e;color:#22c55e;box-shadow:0 0 8px #22c55e;"></span>Verde: cura, crescimento, natureza, equilíbrio.<br>
+          <span class="chk-cor-dot" style="background:#f472b6;color:#f472b6;box-shadow:0 0 8px #f472b6;"></span>Rosa: amor suave, compaixão, ternura.<br><br>
+          Ambas as cores equilibram e ativam Anahata, sendo o verde mais associado à cura e ao crescimento e o rosa ao amor compassivo e incondicional.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">💚 Quartzo Verde</span>
+            <span class="chk-pedra">💚 Aventurina</span>
+            <span class="chk-pedra">💚 Malaquita</span>
+            <span class="chk-pedra">🌹 Quartzo Rosa</span>
+            <span class="chk-pedra">🌹 Rodocrosita</span>
+            <span class="chk-pedra">💚 Esmeralda</span>
+            <span class="chk-pedra">🌹 Kunzita</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">🔣 Símbolo — Estrela de Seis Pontas</h4>
+          <p>A estrela de seis pontas (Anahata yantra) é formada por dois triângulos entrelaçados: um apontando para cima (espírito ascendendo), outro para baixo (matéria descendo) — o encontro perfeito dos dois mundos no coração. As 12 pétalas representam as 12 qualidades divinas do amor.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Amor incondicional, compaixão genuína, perdão, alegria espontânea, equilíbrio entre dar e receber, empatia sem fusão.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Bloqueado: isolamento emocional, incapacidade de receber afeto, amargura. Hiperativo: codependência, auto-sacrifício excessivo, incapacidade de estabelecer limites.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#22c55e;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Meditação Metta (amor bondade) — irradiar amor a si e ao mundo</li>
+            <li>Yoga: Bhujangasana, Ustrasana (abertura do peito)</li>
+            <li>Mantra YAM e canto do coração</li>
+            <li>Contato com a natureza e animais</li>
+            <li>Prática do perdão ativo (cartas, visualizações)</li>
+            <li>Gestos de gentileza sem esperar retorno</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Anahata & Gêmeos — Unindo as Duas Metades</h4>
+          <p>O 4º chakra tem uma ressonância única com Gêmeos: a Estrela de Davi é a imagem perfeita dos dois gêmeos (Cástor e Pólux) — dois triângulos que se integram no coração. Quando Anahata está aberto em Gêmeos, a dualidade característica do signo não é vivida como conflito interno, mas como <strong>riqueza complementar</strong>.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#22c55e;">Desafio específico:</strong> Gêmeos pode intelectualizar o amor — amar com a mente em vez de com o coração. A prática do silêncio mental durante trocas afetivas ("apenas sentir sem analisar") é transformadora.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#22c55e;border:1px solid rgba(34,197,94,.3);">
+          "Eu amo e sou amado(a). Meu coração é ponte<br>entre o céu e a terra — entre mim e o outro."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 5º CHAKRA — VISHUDDHA -->
+    <div class="chk-panel" id="chk-5">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(6,12,20,.97));border:2px solid rgba(6,182,212,.5);">
+        <span class="chk-mandala" style="color:#06b6d4;">🩵</span>
+        <div class="chk-numero" style="color:#06b6d4;">5º Chakra</div>
+        <div class="chk-nome-pt" style="color:#06b6d4;">Garganta</div>
+        <div class="chk-nome-sk">Vishuddha — "Pureza"</div>
+        <div class="chk-localiz" style="color:#06b6d4;">Garganta · Pescoço · Tireóide</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#06b6d4;">🌌 Elemento: Éter/Espaço</span>
+          <span class="chk-badge" style="color:#06b6d4;">⭕ Forma: Círculo</span>
+          <span class="chk-badge" style="color:#06b6d4;">🐘 Animal: Elefante Branco</span>
+          <span class="chk-badge" style="color:#06b6d4;">🌸 Pétalas: 16</span>
+          <span class="chk-badge" style="color:#06b6d4;">📍 Mantra: HAM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#06b6d4;">🎤 Significado Geral</h4>
+          <p>Vishuddha é o chakra da <strong>comunicação, da expressão autêntica, da verdade e do discernimento</strong>. Aqui a experiência interna encontra o mundo externo através da palavra, do som, do canto e de qualquer forma de expressão. "Vishuddha" significa "pureza" — a pureza de dizer a verdade sem medo.</p>
+          <p style="margin-top:.7rem;">O 5º chakra governa não apenas a fala, mas toda forma de comunicação: escuta ativa, escrita, arte, gestos. Quando equilibrado: você se expressa com clareza e confiança, escuta com profundidade, diz a verdade com amor e sua palavra tem poder criativo.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">🎨 Cor — Azul Celeste</h4>
+          <p><span class="chk-cor-dot" style="background:#06b6d4;color:#06b6d4;box-shadow:0 0 8px #06b6d4;"></span>O azul turquesa / azul celeste representa o céu infinito e o oceano sem limites — espaço, expansão, liberdade de expressão. É a cor da verdade, da transparência e da comunicação divina. Usar azul no pescoço (lenços, colares) ou visualizar azul na garganta durante meditação ativa este centro.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">🩵 Aquamarina</span>
+            <span class="chk-pedra">🔵 Lápis-Lazúli</span>
+            <span class="chk-pedra">🩵 Turquesa</span>
+            <span class="chk-badge" style="color:#06b6d4;">🔵 Sodalita</span>
+            <span class="chk-pedra">💎 Cianita Azul</span>
+            <span class="chk-pedra">🩵 Celestita</span>
+            <span class="chk-pedra">💙 Safira</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">🔣 Símbolo — Lótus de 16 Pétalas</h4>
+          <p>As 16 pétalas representam as 16 vogais do sânscrito — todos os sons da criação. O círculo no centro é o espaço puro (akasha) — o éter que permite o som se propagar. O elefante branco simboliza o poder da sabedoria que se move com graça e firmeza através das palavras.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Expressão autêntica e fluente, capacidade de ouvir profundamente, voz clara e confiante, criatividade verbal, integridade no que diz e promete.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Bloqueado: dificuldade de se expressar, medo de falar em público, timidez, mentiras por medo, problemas de tireoide, rouquidão frequente. Hiperativo: verborragia, interrupções constantes, dificuldade de ouvir.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#06b6d4;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Canto, karaokê, coral, canto tibetano</li>
+            <li>Pranayama: Ujjayi (respiração oceânica com garganta levemente fechada)</li>
+            <li>Mantra HAM — vibrando na garganta</li>
+            <li>Escrita de diário sem censura</li>
+            <li>Yoga: Matsyasana (peixe), Sarvangasana (apoio nos ombros)</li>
+            <li>Praticar dizer "não" com amor e firmeza</li>
+            <li>Leitura em voz alta de textos inspiradores</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box" style="border-color:#06b6d4;">
+          <h4 style="color:#06b6d4;">♊ Vishuddha & Gêmeos — O Chakra do Signo ⭐</h4>
+          <p>Este é <strong style="color:#06b6d4;">o chakra mais naturalmente ativo de Gêmeos</strong>. Mercúrio, regente do signo, é o deus da comunicação, das palavras, do comércio de ideias — e Vishuddha é seu templo no corpo. Geminianos frequentemente têm dons excepcionais de oratória, escrita, ensino e persuasão.</p>
+          <p style="margin-top:.7rem;">No entanto, o grande desafio de Gêmeos neste chakra é a <strong>qualidade sobre a quantidade</strong>: o nativo pode usar a abundância verbal para evitar profundidade, para preencher silêncios que seriam transformadores, ou para dizer meias-verdades com maestria.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#06b6d4;">A evolução espiritual de Gêmeos</strong> passa por aprender que <em>o silêncio também é comunicação</em>, que ouvir é tão sagrado quanto falar, e que a palavra verdadeira tem mais poder do que mil palavras brilhantes mas vazias. Quando Gêmeos alinha sua expressão com sua verdade mais profunda, torna-se um veículo de Mercúrio — transmitindo luz entre mundos.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#06b6d4;border:1px solid rgba(6,182,212,.3);">
+          "Eu me expresso com verdade e graça.<br>Minha palavra é criação — e meu silêncio, sabedoria."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 6º CHAKRA — AJNA -->
+    <div class="chk-panel" id="chk-6">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(6,12,20,.97));border:2px solid rgba(129,140,248,.5);">
+        <span class="chk-mandala" style="color:#818cf8;">💜</span>
+        <div class="chk-numero" style="color:#818cf8;">6º Chakra</div>
+        <div class="chk-nome-pt" style="color:#818cf8;">Terceiro Olho</div>
+        <div class="chk-nome-sk">Ajna — "Perceber" / "Comandar"</div>
+        <div class="chk-localiz" style="color:#818cf8;">Entre as sobrancelhas · Glândula Pineal</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#818cf8;">💡 Elemento: Luz</span>
+          <span class="chk-badge" style="color:#818cf8;">🔯 Forma: Círculo com triângulo</span>
+          <span class="chk-badge" style="color:#818cf8;">🪷 Pétalas: 2</span>
+          <span class="chk-badge" style="color:#818cf8;">📍 Mantra: OM / AUM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#818cf8;">👁️ Significado Geral</h4>
+          <p>Ajna é o centro da <strong>intuição, da clarividência, da sabedoria transcendental e da percepção além dos sentidos físicos</strong>. É o "olho que vê o que os dois olhos físicos não conseguem" — o órgão da percepção sutil, da visão interior e do discernimento espiritual profundo.</p>
+          <p style="margin-top:.7rem;">Associado à glândula pineal (considerada por Descartes o "assento da alma"), o terceiro olho é a faculdade que integra o hemisfério esquerdo (razão) e o direito (intuição) numa percepção unificada. Na vida real: clareza de propósito, sonhos vívidos e reveladores, intuições precisas, capacidade de ver padrões invisíveis, percepção do "todo" nas situações.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#818cf8;">🎨 Cor — Índigo</h4>
+          <p><span class="chk-cor-dot" style="background:#818cf8;color:#818cf8;box-shadow:0 0 8px #818cf8;"></span>O índigo — azul profundo com toque de violeta — representa a noite sem lua, o espaço entre os mundos, a profundidade do oceano e a imensidão do universo interior. É a cor da sabedoria milenar, da visão transpessoal e do silêncio fértil onde a percepção espiritual floresce.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#818cf8;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">💙 Lápis-Lazúli</span>
+            <span class="chk-pedra">💜 Ametista</span>
+            <span class="chk-pedra">🔵 Sodalita</span>
+            <span class="chk-pedra">🌙 Pedra da Lua</span>
+            <span class="chk-pedra">⚡ Labradorita</span>
+            <span class="chk-pedra">💎 Fluorita</span>
+            <span class="chk-pedra">💙 Tanzanita</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#818cf8;">🔣 Símbolo — Lótus de 2 Pétalas</h4>
+          <p>As apenas 2 pétalas representam os dois hemisférios cerebrais e os dois nadis principais (Ida e Pingala) que se unem aqui, antes de entrar no canal central (Sushumna). A sílaba sagrada OM está inscrita no centro. A forma invoca o olho interior que supera a dualidade.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#818cf8;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Intuição aguçada e confiável, clareza mental, sonhos reveladores, capacidade de ver a verdade por trás das aparências, imaginação criativa e profundidade de visão.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Hiperativo</div>
+              <p style="font-size:.85rem;">Bloqueado: rigidez mental, ceticismo extremo, dificuldade com sonhos e intuição. Hiperativo: alucinações, paranoia, confusão entre realidade e fantasia, excesso de pensamentos.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#818cf8;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Meditação com foco no espaço entre as sobrancelhas</li>
+            <li>Mantra OM — o som primordial</li>
+            <li>Diário de sonhos (registrar ao acordar)</li>
+            <li>Tratak (contemplação de chama de vela)</li>
+            <li>Reduzir estímulos excessivos (telas, barulho) para aguçar percepção</li>
+            <li>Respiração profunda antes de decisões importantes</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Ajna & Gêmeos — Da Inteligência à Sabedoria</h4>
+          <p>Gêmeos é naturalmente dotado de inteligência mental brilhante — mas o 6º chakra convida a um nível além da inteligência: a <strong>sabedoria intuitiva</strong>. A diferença é que a inteligência processa informações já existentes; a sabedoria percebe o que ainda não foi dito, o padrão invisível, a verdade entre as linhas.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#818cf8;">O desafio de Gêmeos com Ajna:</strong> A mente muito ativa do signo pode criar "ruído mental" que abafa os sinais sutis da intuição. A prática do silêncio deliberado — mesmo por 5 minutos diários — expande drasticamente o acesso ao terceiro olho geminiano.</p>
+          <p style="margin-top:.7rem;">Quando Gêmeos integra o 6º chakra, sua análise intelectual e sua percepção intuitiva se unem em algo extraordinário: a capacidade de ver através das situações, das pessoas e de si mesmo com uma clareza que vai muito além do que os dados racionais podem oferecer.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#818cf8;border:1px solid rgba(129,140,248,.3);">
+          "Eu vejo além das aparências. Minha intuição é guia.<br>O universo me revela os mistérios que busco."
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL: 7º CHAKRA — SAHASRARA -->
+    <div class="chk-panel" id="chk-7">
+      <div class="chk-hero" style="background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(255,255,255,.03),rgba(6,12,20,.97));border:2px solid rgba(168,85,247,.5);">
+        <span class="chk-mandala" style="color:#a855f7;">🔮</span>
+        <div class="chk-numero" style="color:#a855f7;">7º Chakra</div>
+        <div class="chk-nome-pt" style="color:#a855f7;">Coronal</div>
+        <div class="chk-nome-sk">Sahasrara — "Mil Pétalas"</div>
+        <div class="chk-localiz" style="color:#a855f7;">Topo da cabeça · Fontanela</div>
+        <div class="chk-badge-row">
+          <span class="chk-badge" style="color:#a855f7;">✨ Elemento: Consciência Pura</span>
+          <span class="chk-badge" style="color:#a855f7;">🌸 Pétalas: 1.000</span>
+          <span class="chk-badge" style="color:#a855f7;">📍 Mantra: silêncio / OM</span>
+        </div>
+      </div>
+      <div class="chk-body">
+        <div class="chk-bloco full">
+          <h4 style="color:#a855f7;">🌌 Significado Geral</h4>
+          <p>Sahasrara transcende todos os outros chakras — é a <strong>porta para a consciência universal, a conexão com o Divino, a iluminação e a experiência da unidade</strong>. Aqui não há mais dualidade: sujeito e objeto, eu e o outro, tempo e eternidade — tudo se dissolve na Consciência pura que permeia tudo.</p>
+          <p style="margin-top:.7rem;">Sahasrara não tem um elemento físico específico — sua "matéria" é a consciência em si. Quando ativo, experimenta-se estados de êxtase espiritual, profunda paz interior, sentido de propósito cósmico e a certeza vivencial (não intelectual) de que você é uma expressão do Todo.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">🎨 Cores — Violeta e Branco</h4>
+          <p><span class="chk-cor-dot" style="background:#a855f7;color:#a855f7;box-shadow:0 0 8px #a855f7;"></span>Violeta: transformação espiritual, sabedoria divina, dissolução do ego.<br>
+          <span class="chk-cor-dot" style="background:#ffffff;color:#ffffff;box-shadow:0 0 8px #ffffff;"></span>Branco/Dourado: luz da consciência pura, a cor que contém todas as cores — o estado além de todos os estados.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">💎 Pedras e Cristais</h4>
+          <div class="chk-pedras-grid">
+            <span class="chk-pedra">💜 Ametista</span>
+            <span class="chk-pedra">⚪ Cristal de Quartzo Transparente</span>
+            <span class="chk-pedra">🌕 Selenita</span>
+            <span class="chk-pedra">💜 Sugilita</span>
+            <span class="chk-pedra">⚪ Pedra da Lua Branca</span>
+            <span class="chk-pedra">💎 Diamante</span>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">🔣 Símbolo — Lótus de 1.000 Pétalas</h4>
+          <p>O lótus de mil pétalas — multicolorido, irradiando luz em todas as direções — representa a plenitude da consciência desdobrada em toda sua diversidade. É o símbolo da iluminação completa. As mil pétalas correspondem a todas as qualidades e potencialidades do ser humano plenamente realizado.</p>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">⚖️ Equilibrado × Desequilibrado</h4>
+          <div class="chk-equilibrio">
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">✅</span>
+              <div><div class="chk-eq-titulo" style="color:#4ade80;">Equilibrado</div>
+              <p style="font-size:.85rem;">Paz profunda, senso de propósito cósmico, experiências espirituais genuínas, desapego saudável, compaixão universal e inteligência que serve ao bem maior.</p></div>
+            </div>
+            <div class="chk-equilibrio-row">
+              <span class="chk-eq-icon">❌</span>
+              <div><div class="chk-eq-titulo" style="color:#f87171;">Bloqueado/Desequilibrado</div>
+              <p style="font-size:.85rem;">Senso de vazio e falta de significado, materialismo extremo, desconexão espiritual, ou inversamente: espiritualidade como fuga da realidade, fanatismo, desprezo pelo mundo físico.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="chk-bloco">
+          <h4 style="color:#a855f7;">🌿 Práticas de Ativação</h4>
+          <ul>
+            <li>Meditação em silêncio profundo — sem objeto de atenção</li>
+            <li>Pranayama: respiração consciente sem manipulação</li>
+            <li>Contemplação da natureza: céu estrelado, oceano, montanhas</li>
+            <li>Serviço desinteressado (seva) — agir sem esperar reconhecimento</li>
+            <li>Estudo de textos sagrados não para acumular conhecimento, mas para dissolvê-lo</li>
+            <li>Exposição à música sagrada: canto gregoriano, kirtan, sons binaurais</li>
+          </ul>
+        </div>
+        <div class="chk-gem-box">
+          <h4>♊ Sahasrara & Gêmeos — O Portador das Mensagens Divinas</h4>
+          <p>Para Gêmeos, o 7º chakra representa o destino último de Mercúrio como mensageiro não apenas entre humanos, mas entre o humano e o Divino. Na mitologia grega, Hermes era o único deus que podia transitar livremente entre o Olimpo, a Terra e o Hades — os três mundos. Essa é a vocação espiritual máxima de Gêmeos: ser um <strong>canal entre dimensões</strong>.</p>
+          <p style="margin-top:.7rem;"><strong style="color:#a855f7;">O paradoxo final de Gêmeos:</strong> O signo que vive na dualidade (dois gêmeos, duas almas, duas mentes) é convidado pelo 7º chakra a experimentar a unidade absoluta que está além de toda dualidade. A dissolução da divisão é o ápice da jornada geminiana.</p>
+          <p style="margin-top:.7rem;">Quando Gêmeos acessa Sahasrara, sua comunicação deixa de ser brilhante para ser <em>sagrada</em> — suas palavras carregam a frequência do Divino, e sua presença ilumina os outros não pelo que diz, mas pelo que irradia.</p>
+        </div>
+        <div class="chk-afirmacao" style="color:#a855f7;border:1px solid rgba(168,85,247,.3);">
+          "Eu sou Um com tudo que existe.<br>Sou a consciência que observa, ama e transcende."
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÁTICAS INTEGRADORAS (fora dos painéis) -->
+    <div class="chk-kundalini" id="chkPraticasIntegradoras" style="display:none;">
+      <h3>🐍 Práticas Integradoras — Gêmeos & Todos os Chakras</h3>
+      <div class="chk-pratica-card" style="border-color:#ef4444;">
+        <h5 style="color:#ef4444;">🔴→🔮 Meditação Ascendente de Chakras</h5>
+        <p>Sente-se em silêncio. Respire fundo 3 vezes. Visualize uma luz vermelha na base da coluna — sinta a Terra te sustentando. Vá subindo pelas cores do arco-íris (laranja, amarelo, verde, azul, índigo, violeta) até um jorro de luz branca no topo da cabeça. Permaneça 3 respirações em cada chakra. Para Gêmeos: preste atenção especial à garganta e ao plexo solar.</p>
+      </div>
+      <div class="chk-pratica-card" style="border-color:#06b6d4;">
+        <h5 style="color:#06b6d4;">🌬️ Respiração dos Dois Canais (Nadi Shodhana)</h5>
+        <p>Feche a narina direita com o polegar e inale pela esquerda (Ida/lunar). Feche ambas brevemente. Expire pela narina direita (Pingala/solar). Repita no sentido inverso. Esta prática equilibra os dois hemisférios cerebrais e os dois "gêmeos" internos — Ida e Pingala — preparando o canal central (Sushumna) para a ascensão da kundalini. Ideal para Gêmeos por trabalhar diretamente com a dualidade.</p>
+      </div>
+      <div class="chk-pratica-card" style="border-color:#22c55e;">
+        <h5 style="color:#22c55e;">💚 Autoavaliação Semanal dos Chakras</h5>
+        <p>Uma vez por semana, pergunte-se sobre cada chakra: <em>Raiz: "Estou me sentindo seguro e estável esta semana?" Sacral: "Expressei minha criatividade?" Plexo: "Mantive minha vontade ou me dispersei?" Coração: "Amei e recebi amor com equilíbrio?" Garganta: "Disse minha verdade?" Terceiro Olho: "Confiei na minha intuição?" Coronal: "Senti conexão com algo maior?"</em> Para cada "não", aplique uma prática específica do chakra correspondente.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin:.5rem 0 1.5rem;">
+      <button onclick="togglePraticasIntegradoras()" style="background:none;border:1px solid var(--goldm);color:var(--gold2);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;padding:.6rem 1.4rem;border-radius:20px;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='var(--goldl)'" onmouseout="this.style.background='none'">🐍 Ver Práticas Integradoras para Gêmeos</button>
+    </div>
+  </div>
+
+  <!-- QUEM SOMOS -->
+  </div>
+</main>
+</div>
+<script>
+
+function toggleMenu(){
+  const s=document.getElementById('sidebar');
+  const o=document.getElementById('overlay');
+  s.classList.toggle('open');
+  if(o) o.classList.toggle('active');
+}
+document.addEventListener('DOMContentLoaded',function(){
+  const tb=document.getElementById('tbDate');
+  if(tb) tb.textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  initStars();
+});
+function initStars(){
+  const canvas=document.getElementById('bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,a:Math.random(),s:Math.random()*.003+.001,g:Math.random()<.05});}
+  function draw(){ctx.fillStyle='rgba(2,4,8,.15)';ctx.fillRect(0,0,W,H);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=s.g?`rgba(201,168,76,${s.a})`:`rgba(200,210,255,${s.a*.7})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',resize);resize();draw();
+}
+
+
+// ═══ PWA ═══
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(e=>console.log('SW erro:',e));
+  });
+}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  const b=document.getElementById('installBanner');if(b)b.style.display='flex';
+});
+function instalarApp(){
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(()=>{deferredPrompt=null;fecharBanner();});
+}
+function fecharBanner(){
+  const b=document.getElementById('installBanner');if(b)b.style.display='none';
+}
+function abrirPrivacidade(){
+  // Remove qualquer overlay antigo
+  const velho=document.getElementById('overlayPriv');
+  if(velho)velho.remove();
+
+  const conteudo=document.getElementById('modalPrivacidade').innerHTML;
+
+  const overlay=document.createElement('div');
+  overlay.id='overlayPriv';
+  overlay.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(2,4,8,.98);z-index:2147483647;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:1.5rem 1rem 5rem;';
+  overlay.innerHTML=conteudo;
+  document.documentElement.appendChild(overlay);
+  overlay.scrollTop=0;
+}
+function fecharPrivacidade(){
+  const overlay=document.getElementById('overlayPriv');
+  if(overlay)overlay.remove();
+}
+</script>
+
+</script>
+</body>
+</html>
