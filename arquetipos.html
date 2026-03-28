@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Arquétipos de Gêmeos — Luz, Sombra e Integração</title>
+<meta name="description" content="Os arquétipos psicológicos de Gêmeos: o Mensageiro, o Trapaceiro, o Eterno Jovem. Luz, sombra e o caminho de integração.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Gêmeos Hoje — Escola Esotérica">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arquétipos de Gêmeos — Luz, Sombra e Integração">
+<meta property="og:description" content="Os arquétipos psicológicos de Gêmeos: o Mensageiro, o Trapaceiro, o Eterno Jovem. Luz, sombra e o caminho de integração.">
+<meta property="og:url" content="https://gemeoshoje.com.br/arquetipos">
+<meta property="og:site_name" content="Gêmeos Hoje">
+<meta property="og:image" content="https://gemeoshoje.com.br/icon-512.png">
+<link rel="canonical" href="https://gemeoshoje.com.br/arquetipos.html">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020408">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gêmeos Hoje">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6690267592043012" crossorigin="anonymous"></script>
+<style>
+
+:root{
+  --deep:#020408;
+  --deep2:#060c14;
+  --deep3:#0a1420;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --gold3:#f5dfa0;
+  --goldl:rgba(201,168,76,.15);
+  --goldm:rgba(201,168,76,.3);
+  --cream:#ece2c8;
+  --cream2:#d4c9a8;
+  --silver:#8a9ab5;
+  --sidebar:280px;
+  --top:56px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;outline:none;}
+html,body{height:100%;background:var(--deep);color:var(--cream);font-family:'EB Garamond',serif;overflow-x:hidden;}
+canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+.app{display:flex;min-height:100vh;position:relative;z-index:2;}
+
+
+
+/* BOTÕES COMPARTILHAR */
+.share-bar{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+.share-btn{display:inline-flex;align-items:center;gap:.45rem;background:none;border:1px solid var(--goldm);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.06em;padding:.45rem .9rem;border-radius:20px;cursor:pointer;transition:all .25s;white-space:nowrap;}
+.share-btn:hover{background:var(--goldl);border-color:var(--gold);}
+.share-btn .s-ico{font-size:.9rem;}
+
+/* BANNER INSTALAR APP */
+#installBanner{display:none;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0a1420,#060c14);border:1px solid var(--gold);border-radius:14px;padding:.9rem 1.2rem;align-items:center;gap:1rem;box-shadow:0 8px 32px rgba(0,0,0,.6);max-width:340px;width:90%;}
+#installBanner .ib-text{flex:1;}
+#installBanner .ib-title{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.06em;}
+#installBanner .ib-sub{font-size:.68rem;color:var(--silver);margin-top:.2rem;}
+#installBanner .ib-btn{background:var(--gold);color:#020408;border:none;padding:.5rem 1rem;border-radius:8px;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+#installBanner .ib-close{background:none;border:none;color:var(--silver);cursor:pointer;font-size:1rem;padding:.2rem;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:var(--sidebar);right:0;height:var(--top);background:rgba(2,4,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--goldm);display:flex;align-items:center;padding:0 .8rem;z-index:100;gap:.5rem;overflow:hidden;}
+.hbg{display:none;background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:.3rem;}
+.tb-back{background:none;border:none;color:var(--gold);font-family:'Cinzel',serif;font-size:.72rem;cursor:pointer;letter-spacing:.06em;padding:.3rem .6rem;border:1px solid var(--goldm);border-radius:6px;transition:all .2s;}
+.tb-back:hover{background:var(--goldl);}
+.tb-title{font-family:'Cinzel',serif;color:var(--gold2);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;max-width:120px;}
+.tb-date{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);font-size:.72rem;white-space:nowrap;flex-shrink:0;}
+
+/* SIDEBAR */
+.sidebar{width:var(--sidebar);height:100vh;background:linear-gradient(180deg,var(--deep2) 0%,var(--deep3) 100%);border-right:1px solid var(--goldm);position:fixed;top:0;left:0;z-index:150;display:flex;flex-direction:column;transition:transform .3s ease;overflow-y:scroll;overflow-x:hidden;}
+.sb-logo{padding:1.5rem 1.2rem 1rem;text-align:center;border-bottom:1px solid var(--goldl);cursor:pointer;}
+.sb-sym{font-size:3rem;display:block;margin-bottom:.4rem;filter:drop-shadow(0 0 12px var(--gold));}
+.sb-logo h1{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);letter-spacing:.08em;line-height:1.3;}
+.sb-logo small{color:var(--silver);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;}
+.sb-sec{padding:.6rem 0 .3rem;}
+.sb-sec-t{padding:.3rem 1.2rem .5rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.7;}
+.ni{display:flex;align-items:center;gap:.8rem;padding:.65rem 1.2rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative;}
+.ni:hover{background:var(--goldl);border-left-color:var(--gold);}
+.ni.active{background:var(--goldm);border-left-color:var(--gold2);}
+.ni .ico{font-size:1.1rem;width:1.4rem;text-align:center;flex-shrink:0;}
+.ni .tx .lbl{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);letter-spacing:.04em;}
+.ni .tx .sub{font-size:.65rem;color:var(--silver);margin-top:.15rem;}
+
+/* MAIN */
+.main{margin-left:var(--sidebar);padding-top:var(--top);flex:1;}
+.page{display:none;padding:1.8rem 2rem;min-height:calc(100vh - var(--top));}
+.page.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PAGE HEADER */
+.ph{text-align:center;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--goldl);}
+.ph .orn{color:var(--gold);letter-spacing:.3em;font-size:.7rem;margin-bottom:.5rem;}
+.ph h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.4rem;}
+.ph p{color:var(--silver);font-size:.9rem;font-style:italic;}
+
+/* CARDS */
+.card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:1.4rem;margin-bottom:1rem;}
+.card-gold{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(6,12,20,.95));}
+.card h3{font-family:'Cinzel',serif;color:var(--gold2);font-size:.9rem;letter-spacing:.08em;margin-bottom:.6rem;}
+.card p{color:var(--cream2);line-height:1.85;font-size:.95rem;}
+
+/* HOME */
+.home-hero{text-align:center;padding:.8rem 1rem 1.2rem;margin-bottom:1rem;}
+.home-hero h1{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);margin-bottom:.3rem;}
+.home-hero .sub{color:var(--silver);font-style:italic;font-size:.85rem;margin-bottom:.8rem;}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.hcard{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;cursor:pointer;transition:all .3s;text-align:center;}
+.hcard:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.15);}
+.hcard .ico{font-size:1.8rem;margin-bottom:.5rem;}
+.hcard .ttl{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold2);letter-spacing:.06em;}
+.hcard .dsc{font-size:.7rem;color:var(--silver);margin-top:.3rem;}
+
+/* LEITURA DIÁRIA */
+.leitura-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--gold);border-radius:14px;padding:2rem;margin-bottom:1.5rem;}
+.leitura-titulo{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--gold2);margin-bottom:.3rem;}
+.leitura-sub{color:var(--silver);font-style:italic;font-size:.85rem;margin-bottom:1.2rem;}
+.leitura-texto{color:var(--cream2);line-height:2;font-size:1rem;}
+.leitura-reflexao{margin-top:1.5rem;padding:1rem 1.2rem;background:var(--goldl);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.leitura-reflexao .label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem;}
+.leitura-reflexao p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+
+/* TAROT */
+.tarot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.tc{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;text-align:center;transition:all .3s;}
+.tc:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,168,76,.2);}
+.tc .t-sym{font-size:2rem;margin-bottom:.4rem;}
+.tc .t-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
+.tc .t-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin-top:.2rem;}
+.tc .t-elem{font-size:.62rem;color:var(--silver);margin-top:.2rem;}
+
+/* LEIS */
+.lei-acc{margin-bottom:.8rem;border:1px solid var(--goldm);border-radius:10px;overflow:hidden;}
+.lei-hd{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;cursor:pointer;background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));transition:all .2s;}
+.lei-hd:hover{background:var(--goldl);}
+.lei-hd .l-ico{font-size:1.4rem;}
+.lei-hd .l-num{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);letter-spacing:.1em;}
+.lei-hd .l-nome{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream);}
+.lei-hd .l-latin{font-size:.68rem;color:var(--silver);font-style:italic;}
+.lei-hd .l-arr{margin-left:auto;color:var(--gold);transition:transform .3s;font-size:.8rem;}
+.lei-hd.open .l-arr{transform:rotate(180deg);}
+.lei-bd{display:none;padding:1.2rem 1.5rem;background:rgba(6,12,20,.98);border-top:1px solid var(--goldl);}
+.lei-bd.show{display:block;}
+.lei-bd h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.lei-bd h4:first-child{margin-top:0;}
+.lei-bd p{color:var(--cream2);line-height:1.85;font-size:.93rem;margin-bottom:.5rem;}
+.lei-mantra{margin-top:1rem;padding:.8rem 1rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:8px;font-style:italic;color:var(--gold3);text-align:center;font-size:.88rem;}
+
+/* NUMEROLOGIA */
+.num-regente{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.95));border:2px solid var(--gold);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;text-align:center;}
+.num-regente .n-big{font-family:'Cinzel Decorative',serif;font-size:4rem;color:var(--gold2);line-height:1;margin-bottom:.3rem;filter:drop-shadow(0 0 15px var(--gold));}
+.num-regente .n-label{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.num-regente p{color:var(--cream2);line-height:1.85;font-size:.95rem;}
+.num-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.num-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;cursor:pointer;transition:all .3s;}
+.num-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.15);}
+.num-card .n-num{font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold2);line-height:1;}
+.num-card .n-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);margin:.3rem 0 .4rem;}
+.num-card .n-prev{font-size:.78rem;color:var(--silver);line-height:1.5;}
+
+/* NUMEROLOGIA PESSOAL */
+.num-pessoal-box{background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.35);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.num-pessoal-box h3{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:#c4b5fd;margin-bottom:.4rem;text-align:center;}
+.num-pessoal-box .np-sub{font-size:.78rem;color:var(--silver);text-align:center;font-style:italic;margin-bottom:1.2rem;}
+.np-form{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;}
+.np-form label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.3rem;}
+.np-form input[type=date]{background:rgba(10,20,32,.9);border:1px solid var(--goldm);color:var(--cream);font-family:'EB Garamond',serif;font-size:.9rem;padding:.5rem .8rem;border-radius:8px;outline:none;flex:1;min-width:160px;color-scheme:dark;}
+.np-form input[type=date]:focus{border-color:var(--gold);}
+.np-calcular{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#020408;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;border:none;padding:.55rem 1.2rem;border-radius:8px;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.np-calcular:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.np-resultado{margin-top:1.4rem;display:none;}
+.np-resultado.show{display:block;animation:fadeIn .4s ease;}
+.np-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.np-num-destaque{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(6,12,20,.97));border:2px solid var(--gold);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-destaque .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:var(--gold2);line-height:1;filter:drop-shadow(0 0 12px var(--gold));}
+.np-num-destaque .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-destaque .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-destaque .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-num-idade{background:linear-gradient(135deg,rgba(147,112,219,.12),rgba(6,12,20,.97));border:2px solid rgba(147,112,219,.5);border-radius:12px;padding:1.2rem;text-align:center;}
+.np-num-idade .npd-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;color:#c4b5fd;line-height:1;filter:drop-shadow(0 0 12px rgba(147,112,219,.6));}
+.np-num-idade .npd-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:#c4b5fd;text-transform:uppercase;margin:.4rem 0 .6rem;}
+.np-num-idade .npd-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;}
+.np-num-idade .npd-prev{font-size:.75rem;color:var(--silver);line-height:1.5;}
+.np-leitura-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.np-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.05em;transition:all .2s;}
+.np-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.np-panel{display:none;}
+.np-panel.active{display:block;}
+.np-leitura-bloco{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:10px;padding:1.2rem;margin-bottom:.8rem;}
+.np-leitura-bloco .npb-titulo{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem;}
+.np-leitura-bloco p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-afirmacao{text-align:center;padding:1.2rem;background:var(--goldl);border:1px solid var(--goldm);border-radius:10px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin-top:.5rem;}
+.np-sintegia{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(147,112,219,.05));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:1rem;}
+.np-sintegia .nps-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;text-align:center;}
+.np-sintegia p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.np-ciclo-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem;}
+.np-ciclo-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.8rem;text-align:center;}
+.np-ciclo-item .npc-num{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.np-ciclo-item .npc-label{font-size:.6rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;margin-top:.2rem;}
+.np-ciclo-item .npc-anos{font-size:.65rem;color:var(--gold);margin-top:.15rem;}
+
+/* PALPITES */
+.pal-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.pal-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.pal-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.pal-panel{display:none;}
+.pal-panel.active{display:block;animation:fadeIn .3s ease;}
+.pal-hero{text-align:center;padding:1.4rem 1rem 1.6rem;margin-bottom:1.2rem;border:1px solid;border-radius:14px;}
+.palh-sym{font-size:3rem;margin-bottom:.4rem;filter:drop-shadow(0 0 16px currentColor);}
+.palh-titulo{font-family:'Cinzel Decorative',serif;font-size:1rem;margin-bottom:.4rem;}
+.palh-sub{color:var(--silver);font-size:.82rem;font-style:italic;line-height:1.6;}
+.pal-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.pal-info-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.8rem;text-align:center;}
+.pic-n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.pic-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.06em;margin-top:.3rem;}
+.pal-boloes-wrap{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.2rem;}
+.pal-bolao{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;}
+.pbal-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem;}
+.pbal-nums{display:flex;flex-wrap:wrap;gap:.45rem;}
+.pbal-num{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:50%;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;border:2px solid;transition:all .3s;}
+.pbal-num.mega{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.6);color:#4ade80;}
+.pbal-num.loto{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.6);color:#60a5fa;}
+.pbal-num.quina{background:rgba(147,51,234,.15);border-color:rgba(147,51,234,.6);color:#c084fc;}
+.pbal-num.extra{background:rgba(147,112,219,.15);border-color:rgba(147,112,219,.6);color:#c4b5fd;}
+.pbal-num.gold{background:var(--goldl);border-color:var(--gold);color:var(--gold2);}
+.pbal-num.dia{background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.5);color:#fbbf24;}
+.pal-leitura-box{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;}
+.pal-leitura-box .plb-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.pal-leitura-box p{color:var(--cream2);line-height:1.85;font-size:.92rem;}
+.pal-gerar-btn{width:100%;padding:.8rem;border:none;border-radius:10px;color:#fff;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .25s;margin-bottom:1rem;}
+.pal-gerar-btn:hover{filter:brightness(1.12);transform:translateY(-1px);}
+
+/* BICHO */
+.bicho-destaque{background:linear-gradient(135deg,rgba(234,179,8,.12),rgba(6,12,20,.97));border:2px solid rgba(234,179,8,.5);border-radius:16px;padding:1.6rem;text-align:center;margin-bottom:1.2rem;}
+.bd-sym{font-size:4rem;line-height:1;margin-bottom:.4rem;filter:drop-shadow(0 0 20px rgba(234,179,8,.5));}
+.bd-nome{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:#facc15;margin-bottom:.2rem;}
+.bd-grupo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:rgba(234,179,8,.7);text-transform:uppercase;margin-bottom:.6rem;}
+.bd-desc{color:var(--cream2);font-size:.88rem;line-height:1.7;font-style:italic;}
+.bicho-numeros{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem;}
+.bnum-card{border-radius:12px;padding:1rem;text-align:center;border:1px solid;}
+.bnum-milhar{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.4);}
+.bnum-centena{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.4);}
+.bnum-dezena{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.4);}
+.bnum-unidade{background:rgba(147,112,219,.1);border-color:rgba(147,112,219,.4);}
+.bnum-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;color:var(--silver);text-transform:uppercase;margin-bottom:.4rem;}
+.bnum-val{font-family:'Cinzel Decorative',serif;font-size:2.4rem;color:var(--gold2);line-height:1;}
+.bnum-sub{font-size:.58rem;color:var(--silver);margin-top:.2rem;}
+.bicho-variacoes{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;margin-bottom:1.2rem;}
+.bvar-titulo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;}
+.bvar-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.bvar-item{background:rgba(10,20,32,.8);border:1px solid var(--goldm);border-radius:8px;padding:.6rem .8rem;display:flex;align-items:center;gap:.6rem;}
+.bvar-ico{font-size:1.1rem;flex-shrink:0;}
+.bvar-info .bvi-l{font-size:.58rem;color:var(--silver);font-family:'Cinzel',serif;letter-spacing:.05em;}
+.bvar-info .bvi-v{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);}
+.bicho-ranking{margin-bottom:1.2rem;}
+.brank-titulo{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.brank-item{display:flex;align-items:center;gap:.8rem;padding:.55rem .7rem;background:rgba(10,20,32,.7);border:1px solid var(--goldl);border-radius:8px;margin-bottom:.4rem;transition:all .2s;}
+.brank-item:hover{border-color:var(--goldm);background:rgba(10,20,32,.9);}
+.brank-pos{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold);width:1.6rem;text-align:center;flex-shrink:0;}
+.brank-sym{font-size:1.4rem;flex-shrink:0;}
+.brank-info{flex:1;}
+.brank-nome{font-family:'Cinzel',serif;font-size:.75rem;color:var(--cream);}
+.brank-nums{font-size:.65rem;color:var(--silver);margin-top:.1rem;}
+.brank-stars{color:var(--gold);font-size:.75rem;flex-shrink:0;}
+
+/* EXTRAS */
+.extra-sorte-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-bottom:1.2rem;}
+.esg-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.esg-ico{font-size:1.4rem;margin-bottom:.3rem;}
+.esg-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.esg-val{font-family:'Cinzel',serif;font-size:.9rem;color:var(--cream2);}
+
+/* MEDITAÇÕES */
+.med-grid{display:grid;gap:1rem;}
+.med-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.med-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.med-ico{font-size:2rem;flex-shrink:0;}
+.med-card .m-tipo{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem;}
+.med-card .m-titulo{font-family:'Cinzel',serif;font-size:.85rem;color:var(--cream2);margin-bottom:.3rem;}
+.med-card .m-dur{font-size:.72rem;color:var(--silver);}
+.med-card .m-intro{font-size:.78rem;color:var(--silver);line-height:1.5;margin-top:.4rem;}
+
+/* SONHOS */
+.son-cat-header{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin:1.5rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid var(--goldl);}
+.son-cats{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.son-cat-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.son-cat-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.son-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.08),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.25);border-radius:14px;}
+.son-hero .s-sym{font-size:3.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.5));margin-bottom:.5rem;}
+.son-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.son-hero p{color:var(--silver);font-size:.85rem;font-style:italic;line-height:1.6;}
+.son-num-dia{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.son-num-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:.9rem;text-align:center;}
+.son-num-card .n{font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold2);line-height:1;}
+.son-num-card .label{font-size:.62rem;color:var(--silver);margin-top:.2rem;font-family:'Cinzel',serif;letter-spacing:.05em;}
+.son-grid{display:grid;gap:.8rem;margin-bottom:1.5rem;}
+.son-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.2rem;cursor:pointer;transition:all .3s;display:flex;gap:1rem;align-items:flex-start;}
+.son-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,181,253,.12);}
+.son-card .s-ico{font-size:1.8rem;flex-shrink:0;}
+.son-card .s-cat{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.2rem;}
+.son-card .s-nome{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.2rem;}
+.son-card .s-desc{font-size:.72rem;color:var(--silver);line-height:1.5;}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;z-index:300;background:rgba(2,4,8,.95);backdrop-filter:blur(12px);align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto;}
+.mo.open{display:flex;}
+.mb{background:linear-gradient(135deg,var(--deep2),var(--deep3));border:1px solid var(--gold);border-radius:16px;width:100%;max-width:680px;margin:auto;max-height:90vh;overflow-y:auto;}
+.m-hd{display:flex;justify-content:space-between;align-items:flex-start;padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--goldl);position:sticky;top:0;background:var(--deep2);z-index:5;border-radius:16px 16px 0 0;}
+.m-num{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;}
+.m-ti{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--gold2);}
+.m-cl{background:none;border:1px solid var(--goldm);color:var(--gold);width:2rem;height:2rem;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.m-cl:hover{background:var(--goldl);border-color:var(--gold);}
+.m-bd{padding:1.2rem 1.5rem 1.5rem;}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .8rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.06em;transition:all .2s;}
+.tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.tab-panel p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.tab-panel h4{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:1rem 0 .5rem;}
+
+/* CONHECIMENTO */
+.con-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.con-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;}
+.con-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.tipo-positivo{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.tipo-negativo{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.tipo-familia{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.tipo-social{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.tipo-emocional{background:rgba(196,181,253,.15);color:#c4b5fd;border:1px solid rgba(196,181,253,.3);}
+.con-section{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
+.con-section h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.8rem;}
+.con-section p{color:var(--cream2);line-height:1.9;font-size:.95rem;}
+.con-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.filt-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.filt-btn.active{border-color:var(--gold);color:var(--gold2);background:var(--goldl);}
+
+/* COMPATIBILIDADE */
+.compat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;}
+.compat-card{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:10px;padding:1rem;cursor:pointer;transition:all .3s;text-align:center;}
+.compat-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.compat-card .c-sym{font-size:1.8rem;}
+.compat-card .c-nome{font-family:'Cinzel',serif;font-size:.72rem;color:var(--cream);margin:.2rem 0;}
+.compat-card .c-nivel{display:flex;justify-content:center;gap:.2rem;margin-top:.4rem;}
+.compat-card .c-tipo{font-size:.6rem;padding:.2rem .5rem;border-radius:8px;margin-top:.3rem;display:inline-block;}
+.compat-alta{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.compat-media{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.compat-desafiadora{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);}
+.star-on{color:var(--gold);}
+.star-off{color:rgba(201,168,76,.2);}
+
+/* ARQUÉTIPOS */
+.arq-hero{text-align:center;padding:1.5rem 1rem 2rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.95));border:1px solid rgba(147,112,219,.3);border-radius:14px;}
+.arq-hero .arq-sym{font-size:4rem;margin-bottom:.5rem;filter:drop-shadow(0 0 16px rgba(147,112,219,.6));}
+.arq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#c4b5fd;margin-bottom:.4rem;}
+.arq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.7;}
+.arq-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.arq-btn{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.35rem .8rem;border-radius:16px;cursor:pointer;font-size:.68rem;transition:all .2s;}
+.arq-btn.active{border-color:#c4b5fd;color:#c4b5fd;background:rgba(196,181,253,.1);}
+.arq-card{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:13px;padding:1.4rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.arq-card:hover{border-color:#c4b5fd;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,181,253,.12);}
+.arq-card-hd{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;}
+.arq-ico{font-size:2.2rem;flex-shrink:0;}
+.arq-card-hd .arq-tipo{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;}
+.arq-tipo-luz{color:#4ade80;}
+.arq-tipo-sombra{color:#f87171;}
+.arq-tipo-integrado{color:#c4b5fd;}
+.arq-card-hd .arq-nome{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);}
+.arq-card-hd .arq-sub{font-size:.75rem;color:var(--silver);font-style:italic;}
+.arq-card p{color:var(--cream2);line-height:1.85;font-size:.93rem;}
+.arq-sombra-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);border-radius:8px;}
+.arq-sombra-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#f87171;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-sombra-box p{color:rgba(248,113,113,.85);font-size:.88rem;line-height:1.7;}
+.arq-luz-box{margin-top:1rem;padding:.9rem 1rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:8px;}
+.arq-luz-box .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#4ade80;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-luz-box p{color:rgba(74,222,128,.9);font-size:.88rem;line-height:1.7;}
+.arq-integracao{margin-top:1rem;padding:.9rem 1.2rem;background:rgba(196,181,253,.08);border-left:3px solid #c4b5fd;border-radius:0 8px 8px 0;}
+.arq-integracao .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#c4b5fd;text-transform:uppercase;margin-bottom:.3rem;}
+.arq-integracao p{color:rgba(196,181,253,.9);font-style:italic;font-size:.88rem;line-height:1.7;}
+
+/* OVERLAY */
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:140;}
+
+/* AD BANNER */
+.ad-banner{display:none;}
+
+/* TAROT TABS */
+.tarot-main-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tmt{flex:1;padding:.7rem 1rem;background:none;border:1px solid var(--goldm);color:var(--silver);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.08em;border-radius:10px;cursor:pointer;transition:all .3s;min-width:140px;}
+.tmt:hover{border-color:var(--gold);color:var(--gold2);}
+.tmt.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+
+/* TIRAGEM */
+.tiragem-hero{text-align:center;padding:1.5rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(6,12,20,.95));border:1px solid var(--goldm);border-radius:14px;}
+.tiragem-hero h2{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold2);margin-bottom:.5rem;}
+.tiragem-hero p{color:var(--silver);font-size:.88rem;line-height:1.6;}
+.tiragem-modos{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem;}
+.modo-btn{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.95));border:1px solid var(--goldm);color:var(--silver);padding:.8rem .5rem;border-radius:10px;cursor:pointer;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.05em;transition:all .3s;display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.modo-btn span{font-family:'EB Garamond',serif;font-size:.65rem;color:var(--silver);opacity:.7;letter-spacing:.02em;}
+.modo-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.modo-btn.active span{opacity:1;color:var(--cream2);}
+.baralho-area{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:1.2rem;min-height:120px;align-items:center;}
+.carta-verso{width:62px;height:96px;border-radius:8px;background:linear-gradient(135deg,#0d1a2e,#1a2d4a);border:1px solid var(--goldm);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all .3s;position:relative;overflow:hidden;}
+.carta-verso::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(201,168,76,.04) 4px,rgba(201,168,76,.04) 5px);}
+.carta-verso:hover{transform:translateY(-6px) scale(1.04);border-color:var(--gold);box-shadow:0 12px 28px rgba(201,168,76,.25);}
+.carta-verso.selecionada{border-color:var(--gold2);box-shadow:0 0 0 2px var(--gold),0 10px 28px rgba(201,168,76,.35);transform:translateY(-10px) scale(1.06);background:linear-gradient(135deg,rgba(201,168,76,.18),#1a2d4a);}
+.carta-verso.desabilitada{opacity:.35;cursor:default;transform:none;}
+.tirag-resultado{margin-top:1.2rem;}
+.tirag-posicao-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:.4rem;}
+.tirag-cards-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
+.tirag-card{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--gold);border-radius:14px;padding:1.3rem;flex:1;min-width:240px;max-width:380px;}
+.tirag-card-top{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;padding-bottom:.7rem;border-bottom:1px solid var(--goldl);}
+.tirag-card-sym{font-size:2rem;}
+.tirag-card-nome{font-family:'Cinzel Decorative',serif;font-size:.9rem;color:var(--gold2);}
+.tirag-card-num{font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-top:.1rem;}
+.tirag-card-pos{font-size:.6rem;padding:.2rem .6rem;border-radius:8px;background:var(--goldl);color:var(--gold);font-family:'Cinzel',serif;letter-spacing:.06em;border:1px solid var(--goldm);margin-left:auto;white-space:nowrap;}
+.tirag-card-texto{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.tirag-sintese{background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(6,12,20,.98));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-top:.8rem;}
+.tirag-sintese-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
+.tirag-sintese p{color:var(--cream2);line-height:1.9;font-size:.93rem;font-style:italic;}
+.btn-nova-tiragem{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.08));border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;padding:.8rem 2rem;border-radius:10px;cursor:pointer;transition:all .3s;}
+.btn-nova-tiragem:hover{background:linear-gradient(135deg,rgba(201,168,76,.35),rgba(201,168,76,.15));}
+
+/* ALQUIMIA */
+.alq-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.alq-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.alq-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.alq-panel{display:none;}
+.alq-panel.active{display:block;animation:fadeIn .3s ease;}
+.alq-hero{text-align:center;padding:1.6rem 1rem 1.8rem;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(80,20,120,.1));border:1px solid var(--gold);border-radius:16px;}
+.alq-hero-sym{font-size:3.5rem;margin-bottom:.5rem;filter:drop-shadow(0 0 20px var(--gold));}
+.alq-hero h2{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:.4rem;}
+.alq-hero p{color:var(--silver);font-size:.88rem;font-style:italic;line-height:1.65;}
+.alq-etapa{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;}
+.alq-etapa:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.alq-etapa-hd{display:flex;align-items:center;gap:.9rem;}
+.alq-etapa-sym{font-size:1.8rem;flex-shrink:0;}
+.alq-etapa-info{flex:1;}
+.alq-etapa-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.06em;}
+.alq-etapa-latin{font-size:.68rem;color:var(--silver);font-style:italic;margin:.1rem 0;}
+.alq-etapa-arr{color:var(--gold);font-size:.8rem;transition:transform .3s;}
+.alq-etapa.open .alq-etapa-arr{transform:rotate(180deg);}
+.alq-etapa-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.alq-etapa-body.show{display:block;}
+.alq-etapa-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .4rem;}
+.alq-etapa-body h4:first-child{margin-top:0;}
+.alq-etapa-body p{color:var(--cream2);line-height:1.9;font-size:.93rem;margin-bottom:.5rem;}
+.alq-pratica{margin-top:.8rem;padding:.9rem 1rem;background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;}
+.alq-pratica .prt-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.35rem;}
+.alq-pratica p{color:var(--cream);font-style:italic;font-size:.9rem;line-height:1.7;}
+.alq-metal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.2rem;}
+.alq-metal{background:linear-gradient(135deg,rgba(10,20,32,.9),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.alq-metal:hover{border-color:var(--gold);}
+.alq-metal-sym{font-size:2rem;margin-bottom:.3rem;}
+.alq-metal-nome{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.05em;}
+.alq-metal-body{font-size:.82rem;color:var(--cream2);line-height:1.7;margin-top:.5rem;text-align:left;}
+.alq-gem-card{background:linear-gradient(135deg,rgba(147,112,219,.1),rgba(6,12,20,.97));border:1px solid rgba(147,112,219,.3);border-radius:12px;padding:1.2rem;margin-bottom:.9rem;}
+.alq-gem-card h3{font-family:'Cinzel',serif;font-size:.85rem;color:#c4b5fd;letter-spacing:.06em;margin-bottom:.5rem;}
+.alq-gem-card p{color:var(--cream2);line-height:1.9;font-size:.92rem;}
+.alq-consciencia-bloco{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;}
+.alq-consciencia-bloco h3{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold2);margin-bottom:.6rem;}
+.alq-consciencia-bloco p{color:var(--cream2);line-height:1.9;font-size:.93rem;}
+.alq-mantra{text-align:center;padding:1.2rem;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(80,20,120,.08));border:1px solid var(--gold);border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:.92rem;color:var(--gold2);line-height:1.8;margin:1rem 0;}
+.alq-linha-do-tempo{position:relative;padding-left:1.8rem;}
+.alq-linha-do-tempo::before{content:'';position:absolute;left:.6rem;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),transparent);}
+.alq-lt-item{position:relative;margin-bottom:1.2rem;}
+.alq-lt-item::before{content:'⬡';position:absolute;left:-1.8rem;top:.1rem;color:var(--gold);font-size:.7rem;}
+.alq-lt-item h4{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);letter-spacing:.06em;margin-bottom:.3rem;}
+.alq-lt-item p{color:var(--cream2);line-height:1.85;font-size:.91rem;}
+
+/* FILOSOFIA & MITOLOGIA */
+.fil-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.fil-tab{background:none;border:1px solid var(--goldm);color:var(--silver);padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;transition:all .2s;white-space:nowrap;}
+.fil-tab.active{background:var(--goldm);border-color:var(--gold);color:var(--gold2);}
+.fil-panel{display:none;}
+.fil-panel.active{display:block;animation:fadeIn .3s ease;}
+.mit-panel{display:none;}
+.mit-panel.active{display:block;animation:fadeIn .3s ease;}
+.fil-matriz{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0;}
+.fil-item{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.1rem;text-align:center;transition:all .3s;}
+.fil-item:hover{border-color:var(--gold);transform:translateY(-2px);}
+.fi-ico{font-size:1.8rem;margin-bottom:.4rem;}
+.fi-nome{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.3rem;}
+.fi-desc{font-size:.72rem;color:var(--silver);line-height:1.4;}
+
+/* VIESES COGNITIVOS */
+.vies-card{background:linear-gradient(135deg,rgba(10,20,32,.92),rgba(6,12,20,.97));border:1px solid var(--goldm);border-radius:12px;padding:1.3rem;margin-bottom:1rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.vies-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,168,76,.12);}
+.vies-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;}
+.vies-card.vc-alto::before{background:linear-gradient(180deg,#ef4444,#dc2626);}
+.vies-card.vc-medio::before{background:linear-gradient(180deg,#eab308,#ca8a04);}
+.vies-card.vc-baixo::before{background:linear-gradient(180deg,#22c55e,#16a34a);}
+.vies-hd{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:0;}
+.vies-num{font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--goldm);line-height:1;flex-shrink:0;min-width:2rem;}
+.vies-info{flex:1;}
+.vies-nome{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);letter-spacing:.05em;margin-bottom:.2rem;}
+.vies-ingles{font-size:.65rem;color:var(--silver);font-style:italic;margin-bottom:.4rem;}
+.vies-resumo{font-size:.8rem;color:var(--cream2);line-height:1.6;}
+.vies-badge-wrap{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;}
+.vies-tag{display:inline-block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.06em;padding:.2rem .6rem;border-radius:20px;}
+.vies-alto{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#f87171;}
+.vies-medio{background:rgba(234,179,8,.12);border:1px solid rgba(234,179,8,.35);color:#fbbf24;}
+.vies-baixo{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#4ade80;}
+.vies-categoria{background:rgba(147,112,219,.12);border:1px solid rgba(147,112,219,.3);color:#c4b5fd;}
+.vies-body{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--goldl);}
+.vies-body.show{display:block;animation:fadeIn .3s ease;}
+.vies-body h4{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:.8rem 0 .35rem;}
+.vies-body h4:first-child{margin-top:0;}
+.vies-body p{color:var(--cream2);line-height:1.9;font-size:.91rem;margin-bottom:.5rem;}
+.vies-gem-box{margin-top:.8rem;padding:.9rem 1rem;border-radius:8px;}
+.vies-gem-box.fraco{background:rgba(239,68,68,.08);border-left:3px solid rgba(239,68,68,.5);}
+.vies-gem-box.forte{background:rgba(34,197,94,.08);border-left:3px solid rgba(34,197,94,.5);}
+.vies-gem-box.medio{background:rgba(234,179,8,.08);border-left:3px solid rgba(234,179,8,.5);}
+.vies-gem-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.35rem;}
+.fraco .vies-gem-label{color:#f87171;}
+.forte .vies-gem-label{color:#4ade80;}
+.medio .vies-gem-label{color:#fbbf24;}
+.vies-gem-box p{color:var(--cream);font-style:italic;font-size:.88rem;line-height:1.7;}
+.vies-arr{margin-left:auto;color:var(--gold);font-size:.75rem;transition:transform .3s;padding-left:.5rem;flex-shrink:0;}
+.vies-card.open .vies-arr{transform:rotate(180deg);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .topbar{left:0;}
+  .hbg{display:block;}
+  .main{margin-left:0;}
+  .page{padding:1rem .9rem;}
+  .home-hero{padding:.5rem .5rem .8rem;}
+  .home-grid{grid-template-columns:1fr 1fr;}
+  .tarot-grid{grid-template-columns:repeat(2,1fr);}
+  .num-grid{grid-template-columns:1fr;}
+  .home-hero h1{font-size:1.4rem;}
+}
+
+
+/* ── MULTIPAGE FIXES ── */
+.ni{text-decoration:none;display:flex;}
+.sb-logo{text-decoration:none;display:block;}
+.ni.active{background:var(--goldm);border-left-color:var(--gold2);}
+
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<div id="installBanner">
+  <div style="font-size:1.8rem">♊</div>
+  <div class="ib-text">
+    <div class="ib-title">Instalar como App</div>
+    <div class="ib-sub">Adicione à tela inicial do celular</div>
+  </div>
+  <button class="ib-btn" onclick="instalarApp()">Instalar</button>
+  <button class="ib-close" onclick="fecharBanner()">✕</button>
+</div>
+
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <a class="sb-logo" href="index.html" style="text-decoration:none">
+    <span class="sb-sym">♊</span>
+    <h1>Gêmeos Hoje</h1>
+    <small>Escola Esotérica</small>
+  </a>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✦ Hoje</div>
+    <a class="ni" href="index.html"><span class="ico">🏠</span><div class="tx"><div class="lbl">Início</div><div class="sub">Painel do dia</div></div></a>
+    <a class="ni" href="leitura.html"><span class="ico">🌟</span><div class="tx"><div class="lbl">Leitura do Dia</div><div class="sub">Mensagem de Mercúrio</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🃏 Tarot</div>
+    <a class="ni" href="tarot.html"><span class="ico">🪄</span><div class="tx"><div class="lbl">Tarot de Gêmeos</div><div class="sub">6 arcanos do seu signo</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚗️ Alquimia</div>
+    <a class="ni" href="alquimia.html"><span class="ico">⚗️</span><div class="tx"><div class="lbl">Alquimia de Gêmeos</div><div class="sub">Transmutação & Consciência</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">⚖️ Hermetismo</div>
+    <a class="ni" href="hermetismo.html"><span class="ico">⚖️</span><div class="tx"><div class="lbl">7 Leis Herméticas</div><div class="sub">Aplicadas a Gêmeos</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🔢 Numerologia</div>
+    <a class="ni" href="numerologia.html"><span class="ico">🔢</span><div class="tx"><div class="lbl">Numerologia de Gêmeos</div><div class="sub">Números sagrados do signo</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🍀 Sorte</div>
+    <a class="ni" href="palpites.html"><span class="ico">🎰</span><div class="tx"><div class="lbl">Palpites de Gêmeos</div><div class="sub">Mega-Sena, Lotofácil, Bicho</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🧘 Meditação</div>
+    <a class="ni" href="meditacoes.html"><span class="ico">🧘</span><div class="tx"><div class="lbl">Meditações Guiadas</div><div class="sub">Para a mente geminiana</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌙 Sonhos</div>
+    <a class="ni" href="sonhos.html"><span class="ico">🌙</span><div class="tx"><div class="lbl">Significado dos Sonhos</div><div class="sub">Dicionário onírico de Gêmeos</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🌀 Arquétipos</div>
+    <a class="ni" href="arquetipos.html" class="ni active"><span class="ico">🌀</span><div class="tx"><div class="lbl">Arquétipos de Gêmeos</div><div class="sub">Luz, sombra e integração</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">♊ Conhecimento</div>
+    <a class="ni" href="conhecimento.html"><span class="ico">📖</span><div class="tx"><div class="lbl">Conhecendo Gêmeos</div><div class="sub">Todos os lados do signo</div></div></a>
+    <a class="ni" href="compatibilidade.html"><span class="ico">💞</span><div class="tx"><div class="lbl">Compatibilidade</div><div class="sub">Com todos os signos</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">🏛️ Saber Clássico</div>
+    <a class="ni" href="filosofia.html"><span class="ico">🏛️</span><div class="tx"><div class="lbl">Gêmeos & Filosofia</div><div class="sub">Sofistas, Sócrates, Platão</div></div></a>
+    <a class="ni" href="mitologia.html"><span class="ico">⚡</span><div class="tx"><div class="lbl">Gêmeos & Mitologia</div><div class="sub">Hermes, Dioscuros e os deuses</div></div></a>
+    <a class="ni" href="vieses.html"><span class="ico">🧠</span><div class="tx"><div class="lbl">Vieses Cognitivos</div><div class="sub">30 armadilhas da mente geminiana</div></div></a>
+  </div>
+  <div class="sb-sec">
+    <div class="sb-sec-t">✨ Sobre</div>
+    <a class="ni" href="quemsomos.html"><span class="ico">🌟</span><div class="tx"><div class="lbl">Quem Somos</div><div class="sub">Nossa missão esotérica</div></div></a>
+    <a class="ni" href="contato.html"><span class="ico">✉️</span><div class="tx"><div class="lbl">Fale Conosco</div><div class="sub">Dúvidas e sugestões</div></div></a>
+  </div>
+  <div style="padding:1.2rem;border-top:1px solid rgba(201,168,76,.15);margin-top:auto;text-align:center;">
+    <button onclick="toggleSharePanel()" style="display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid rgba(201,168,76,.3);color:rgba(201,168,76,.7);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.06em;padding:.5rem 1rem;border-radius:20px;cursor:pointer;margin-bottom:.6rem;width:100%;justify-content:center;transition:all .2s;">✨ Compartilhar</button>
+    <div id="sharePanel" style="display:none;margin-bottom:.8rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;">
+        <a id="linkWhatsApp" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.3rem;background:#075e54;color:#fff;font-family:'Cinzel',serif;font-size:.6rem;padding:.5rem .3rem;border-radius:8px;text-decoration:none;">📱 WhatsApp</a>
+        <a id="linkTelegram" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.3rem;background:#0088cc;color:#fff;font-family:'Cinzel',serif;font-size:.6rem;padding:.5rem .3rem;border-radius:8px;text-decoration:none;">✈️ Telegram</a>
+        <a id="linkFacebook" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.3rem;background:#1877f2;color:#fff;font-family:'Cinzel',serif;font-size:.6rem;padding:.5rem .3rem;border-radius:8px;text-decoration:none;">📘 Facebook</a>
+        <a id="linkX" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.3rem;background:#000;border:1px solid rgba(255,255,255,.15);color:#fff;font-family:'Cinzel',serif;font-size:.6rem;padding:.5rem .3rem;border-radius:8px;text-decoration:none;">𝕏 Twitter</a>
+      </div>
+      <button onclick="copiarLinkApp()" style="display:flex;align-items:center;justify-content:center;gap:.3rem;background:none;border:1px solid rgba(201,168,76,.3);color:rgba(201,168,76,.8);font-family:'Cinzel',serif;font-size:.62rem;padding:.45rem;border-radius:8px;cursor:pointer;width:100%;margin-top:.4rem;">🔗 Copiar link</button>
+    </div>
+    <a href="javascript:void(0)" onclick="abrirPrivacidade()" style="color:rgba(201,168,76,.45);font-family:Cinzel,serif;font-size:.62rem;letter-spacing:.08em;text-decoration:underline;">Política de Privacidade</a>
+    <div style="color:rgba(138,154,181,.3);font-size:.55rem;margin-top:.3rem;">© 2026 Gêmeos Hoje</div>
+  </div>
+</aside>
+
+
+<div id="overlay" onclick="fecharMenu()"></div>
+
+<main class="main">
+  <div class="topbar">
+    <button class="hbg" onclick="toggleMenu()">☰</button>
+    <button class="tb-back" id="tbBack" onclick="voltar()" style="display:block">← Voltar</button>
+    <div class="tb-title" id="tbTitle">Arquétipos de Gêmeos</div>
+    <div class="tb-date" id="tbDate"></div>
+    <button id="btnFs" onclick="toggleFullscreen()" title="Tela cheia" style="background:none;border:1px solid rgba(201,168,76,.15);color:rgba(201,168,76,.4);font-size:.8rem;cursor:pointer;padding:.3rem .5rem;border-radius:5px;flex-shrink:0;line-height:1;transition:all .2s;">⛶</button>
+    <a href="javascript:void(0)" onclick="abrirPrivacidade()" title="Política de Privacidade" style="color:rgba(201,168,76,.4);font-size:.75rem;text-decoration:none;flex-shrink:0;padding:.3rem .5rem;border:1px solid rgba(201,168,76,.15);border-radius:5px;">🔒</a>
+  </div>
+
+  <div class="page active" id="page-arquetipos">
+    <div class="ph"><div class="orn">· · ✦ · ·</div><h1>Arquétipos de Gêmeos</h1><p>As máscaras, sombras e potenciais da alma geminiana</p></div>
+    <div class="arq-hero">
+      <div class="arq-sym">🌀</div>
+      <h2>A Psique Geminiana</h2>
+      <p>Jung descreveu os arquétipos como padrões primordiais do inconsciente coletivo — e Gêmeos habita mais arquétipos simultaneamente do que qualquer outro signo. Conhecê-los é o primeiro passo para a integração.</p>
+    </div>
+    <div class="arq-filter">
+      <button class="arq-btn active" onclick="filtrarArq('todos',this)">Todos</button>
+      <button class="arq-btn" onclick="filtrarArq('luz',this)">✨ Lado Luz</button>
+      <button class="arq-btn" onclick="filtrarArq('sombra',this)">🌑 Lado Sombra</button>
+      <button class="arq-btn" onclick="filtrarArq('integrado',this)">🌀 Integrado</button>
+    </div>
+    <div id="arqContent"></div>
+  </div>
+
+  <!-- AdSense Banner -->
+  <div style="padding:.8rem 2rem 1.5rem;max-width:900px;margin:0 auto;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6690267592043012" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+</main>
+</div>
+
+
+<!-- MODAL POLÍTICA DE PRIVACIDADE -->
+<div id="modalPrivacidade" style="display:none;">
+  <div style="max-width:680px;margin:0 auto;background:#060c14;border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:2rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+      <h2 style="font-family:'Cinzel Decorative',serif;color:#c9a84c;font-size:1rem;margin:0;">Política de Privacidade</h2>
+      <button onclick="fecharPrivacidade()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;font-size:1.4rem;cursor:pointer;width:40px;height:40px;border-radius:50%;line-height:1;flex-shrink:0;">&times;</button>
+    </div>
+    <div style="font-family:'EB Garamond',serif;color:#ece2c8;font-size:.95rem;line-height:1.7;">
+
+      <p><strong style="color:#c9a84c;">Última atualização:</strong> Março de 2026</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">1. Sobre este site/aplicativo</h3>
+      <p>O <strong>Gêmeos Hoje — Escola Esotérica</strong> é um site e aplicativo de horóscopo e conteúdo esotérico voltado ao signo de Gêmeos. Não realizamos cadastro de usuários nem coletamos dados pessoais diretamente.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">2. Dados coletados</h3>
+      <p>Este site <strong>não coleta, armazena nem compartilha</strong> dados pessoais como nome, e-mail, localização ou qualquer outra informação identificável. Todo o conteúdo é carregado localmente no seu dispositivo.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">3. Publicidade (Google AdSense)</h3>
+      <p>Este site utiliza o serviço <strong>Google AdSense</strong> para exibição de anúncios. O Google pode usar cookies e tecnologias similares para exibir anúncios personalizados com base em suas visitas anteriores a este e outros sites. Para mais informações ou para desativar anúncios personalizados, acesse: <a href="https://www.google.com/settings/ads" target="_blank" style="color:#c9a84c;">google.com/settings/ads</a>.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">4. Cookies</h3>
+      <p>O site em si não utiliza cookies próprios. Os cookies presentes são exclusivamente do Google AdSense para fins de publicidade, conforme a política do Google. Ao continuar navegando neste site, você concorda com o uso de cookies do Google AdSense.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">5. Instalação como PWA</h3>
+      <p>Ao instalar o aplicativo no seu dispositivo como PWA (Progressive Web App), nenhum dado adicional é coletado. O aplicativo funciona localmente, sem acesso a câmera, microfone, contatos ou qualquer recurso sensível do dispositivo.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">6. Serviços de terceiros</h3>
+      <p>Este site utiliza os seguintes serviços de terceiros, cada um com sua própria política de privacidade:</p>
+      <ul style="margin:.6rem 0 .6rem 1.2rem;line-height:1.9;">
+        <li><strong style="color:#c9a84c;">Google AdSense</strong> — publicidade contextual</li>
+        <li><strong style="color:#c9a84c;">Google Fonts</strong> — tipografia (Cinzel, EB Garamond)</li>
+        <li><strong style="color:#c9a84c;">GitHub Pages</strong> — hospedagem do site</li>
+      </ul>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">7. Direitos do usuário (LGPD)</h3>
+      <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>, você tem o direito de solicitar informações sobre quaisquer dados que possam ser tratados em relação ao seu uso deste site. Como não coletamos dados pessoais, não há dados a serem excluídos ou corrigidos. Para dúvidas, entre em contato: <a href="mailto:gemeoshoje90@gmail.com" style="color:#c9a84c;">gemeoshoje90@gmail.com</a>.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">8. Contato</h3>
+      <p>Para dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail: <a href="mailto:gemeoshoje90@gmail.com" style="color:#c9a84c;">gemeoshoje90@gmail.com</a>. Respondemos em até 48 horas úteis.</p>
+
+      <h3 style="color:#c9a84c;font-family:'Cinzel',serif;font-size:.85rem;margin-top:1.5rem;">9. Alterações nesta política</h3>
+      <p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise ocasionalmente. A data da última atualização está indicada no topo deste documento.</p>
+
+      <p style="margin-top:1.5rem;padding:.8rem;background:rgba(201,168,76,.08);border-radius:8px;font-size:.82rem;color:rgba(236,226,200,.7);font-style:italic;">Este site é de natureza esotérica e informativa. O conteúdo de horóscopo, tarot, numerologia e palpites é fornecido apenas para entretenimento e reflexão pessoal, não constituindo aconselhamento profissional de qualquer natureza.</p>
+
+    </div>
+  </div>
+</div>
+
+`;
+}
+
+function initVieses(){
+  const todos = document.getElementById('vies-lista-todos');
+  const fraco = document.getElementById('vies-lista-fraco');
+  const forte = document.getElementById('vies-lista-forte');
+  const social = document.getElementById('vies-lista-social');
+  if(!todos) return;
+  let htmlTodos='', htmlFraco='', htmlForte='', htmlSocial='';
+  VIESES.forEach(v=>{
+    const card = renderViesCard(v);
+    htmlTodos += card;
+    if(v.nivel === 'alto') htmlFraco += card;
+    if(v.nivel === 'baixo') htmlForte += card;
+    if(v.cats.includes('social')) htmlSocial += card;
+  });
+  todos.innerHTML = htmlTodos;
+  fraco.innerHTML = htmlFraco;
+  forte.innerHTML = htmlForte;
+  social.innerHTML = htmlSocial;
+}
+
+function filTab(btn, panelId){
+  const page = document.getElementById('page-filosofia');
+  page.querySelectorAll('.fil-tab').forEach(b=>b.classList.remove('active'));
+  page.querySelectorAll('.fil-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById(panelId);
+  if(panel) panel.classList.add('active');
+}
+
+function mitTab(btn, panelId){
+  const page = document.getElementById('page-mitologia');
+  page.querySelectorAll('.fil-tab').forEach(b=>b.classList.remove('active'));
+  page.querySelectorAll('.mit-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById(panelId);
+  if(panel) panel.classList.add('active');
+}
+
+function initStars(){
+  const c = document.getElementById('bg');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  let W, H, stars = [];
+  function resize(){
+    W = c.width = window.innerWidth;
+    H = c.height = window.innerHeight;
+    stars = [];
+    for(let i=0;i<200;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,a:Math.random(),s:Math.random()*.003+.001,g:Math.random()<.05});
+  }
+  function draw(){
+    ctx.fillStyle = 'rgba(2,4,8,.15)';
+    ctx.fillRect(0,0,W,H);
+    stars.forEach(s=>{
+      s.a += s.s;
+      if(s.a>1||s.a<0) s.s *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle = s.g ? `rgba(201,168,76,${s.a})` : `rgba(200,210,255,${s.a*.7})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+}
+
+// ═══ INIT ═══
+document.addEventListener('DOMContentLoaded',()=>{
+  const tb = document.getElementById('tbDate');
+  if(tb){
+    const h = new Date();
+    tb.textContent = h.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  }
+  initStars();
+  initHome();
+  renderLeitura();
+  renderLeis();
+  initShareLinks();
+  initVieses();
+  // Ativa todos os blocos AdSense da página de uma vez
+  try{
+    (window.adsbygoogle = window.adsbygoogle || []);
+    document.querySelectorAll('.adsbygoogle').forEach(()=>{
+      (adsbygoogle).push({});
+    });
+  }catch(e){}
+});
+
+
+// ══ MULTIPAGE NAV OVERRIDE ══
+const PAGE_MAP = {
+  'home':'index.html','leitura':'leitura.html','tarot':'tarot.html',
+  'leis':'hermetismo.html','numerologia':'numerologia.html','palpites':'palpites.html',
+  'meditacoes':'meditacoes.html','sonhos':'sonhos.html','arquetipos':'arquetipos.html',
+  'conhecimento':'conhecimento.html','compatibilidade':'compatibilidade.html',
+  'filosofia':'filosofia.html','mitologia':'mitologia.html','vieses':'vieses.html',
+  'quemsomos':'quemsomos.html','contato':'contato.html','alquimia':'alquimia.html'
+};
+function nav(id){const url=PAGE_MAP[id];if(url)window.location.href=url;}
+function voltar(){if(document.referrer&&document.referrer.includes(location.hostname)){history.back();}else{window.location.href='index.html';}}
+function toggleSharePanel(){const p=document.getElementById('sharePanel');if(p)p.style.display=p.style.display==='none'?'block':'none';}
+function copiarLinkApp(){navigator.clipboard.writeText(location.href).then(()=>alert('Link copiado!'));}
+
+</script>
+
+<script>
+// ── PWA ──
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(e=>console.log('SW erro:',e));
+  });
+}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  const b=document.getElementById('installBanner');if(b)b.style.display='flex';
+});
+function instalarApp(){
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(()=>{deferredPrompt=null;fecharBanner();});
+}
+function fecharBanner(){
+  const b=document.getElementById('installBanner');if(b)b.style.display='none';
+}
+function abrirPrivacidade(){
+  const velho=document.getElementById('overlayPriv');
+  if(velho)velho.remove();
+  const conteudo=document.getElementById('modalPrivacidade').innerHTML;
+  const overlay=document.createElement('div');
+  overlay.id='overlayPriv';
+  overlay.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(2,4,8,.98);z-index:2147483647;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:1.5rem 1rem 5rem;';
+  overlay.innerHTML=conteudo;
+  document.documentElement.appendChild(overlay);
+  overlay.scrollTop=0;
+}
+function fecharPrivacidade(){
+  const overlay=document.getElementById('overlayPriv');
+  if(overlay)overlay.remove();
+}
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',()=>{
+  const tb=document.getElementById('tbDate');
+  if(tb){
+    const h=new Date();
+    tb.textContent=h.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  }
+  // Mark active sidebar link
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.sidebar .ni').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(href && (href===currentPage || (currentPage===''&&href==='index.html') || (currentPage==='index.html'&&href==='index.html'))){
+      a.classList.add('active');
+    }
+  });
+  initStars();
+  initShareLinks();
+  renderArquetipos();
+  try{
+    (window.adsbygoogle=window.adsbygoogle||[]).push({});
+  }catch(e){}
+});
+</script>
+</body>
+</html>
