@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gemeoshoje.com.br/sitemap.xml
