@@ -39,7 +39,7 @@ jobs:
       - name: Init Bubblewrap
         run: |
           mkdir build && cd build
-          bubblewrap init \
+          echo "n" | bubblewrap init \
             --manifest=https://gemeoshoje.com.br/manifest.json \
             --directory=. \
             --packageId=br.com.gemeoshoje \
@@ -49,7 +49,7 @@ jobs:
       - name: Build
         run: |
           cd build
-          bubblewrap build \
+          echo "n" | bubblewrap build \
             --signingKeyPassword=gemeoshoje123 \
             --signingKeyStorePassword=gemeoshoje123
 
