@@ -1,51 +1,30 @@
-name: Gerar APK e AAB - Gemeos Hoje
+name: Gerar APK e AAB
 
 on:
-  workflow_dispatch:  # Você clica um botão para rodar
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Instalar Java (necessário para o Android)
-        uses: actions/setup-java@v3
+      - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Instalar Android SDK
+      - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Instalar Bubblewrap (ferramenta oficial do Google)
+      - name: Install Bubblewrap
         run: npm install -g @bubblewrap/cli
 
-      - name: Inicializar projeto Bubblewrap
-        run: |
-          mkdir apk-build && cd apk-build
-          bubblewrap init --manifest=https://gemeoshoje.com.br/manifest.json \
-            --directory=. \
-            --packageId=br.com.gemeoshoje \
-            --name="Gemeos Hoje" \
-            --shortName="Gemeos Hoje" \
-            --themeColor=#020408 \
-            --backgroundColor=#020408 \
-            --startUrl=/ \
-            --iconUrl=https://gemeoshoje.com.br/icon-512.png \
-            --maskableIconUrl=https://gemeoshoje.com.br/icon-512.png \
-            --display=standalone \
-            --signingKeyPath=../keystore.jks \
-            --signingKeyAlias=gemeoshoje
-
-      - name: Gerar Keystore (assinatura do app)
+      - name: Generate Keystore
         run: |
           keytool -genkey -v \
             -keystore keystore.jks \
@@ -55,11 +34,21 @@ jobs:
             -validity 10000 \
             -storepass gemeoshoje123 \
             -keypass gemeoshoje123 \
-            -dname "CN=Gemeos Hoje, OU=App, O=Gemeos Hoje, L=Brasil, ST=Brasil, C=BR"
+            -dname "CN=Gemeos Hoje, O=Gemeos Hoje, C=BR"
 
-      - name: Build APK e AAB
+      - name: Init Bubblewrap
         run: |
-          cd apk-build
+          mkdir build && cd build
+          bubblewrap init \
+            --manifest=https://gemeoshoje.com.br/manifest.json \
+            --directory=. \
+            --packageId=br.com.gemeoshoje \
+            --signingKeyPath=../keystore.jks \
+            --signingKeyAlias=gemeoshoje
+
+      - name: Build
+        run: |
+          cd build
           bubblewrap build \
             --signingKeyPassword=gemeoshoje123 \
             --signingKeyStorePassword=gemeoshoje123
@@ -68,10 +57,16 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: GemeosHoje-APK
-          path: apk-build/app-release-signed.apk
+          path: build/app-release-signed.apk
 
       - name: Upload AAB
         uses: actions/upload-artifact@v3
         with:
           name: GemeosHoje-AAB
-          path: apk-build/app-release-bundle.aab
+          path: build/app-release-bundle.aab
+
+      - name: Upload Keystore
+        uses: actions/upload-artifact@v3
+        with:
+          name: Keystore-GUARDE-ESTE
+          path: keystore.jks
