@@ -21,52 +21,15 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Bubblewrap
-        run: npm install -g @bubblewrap/cli
+      - name: Install PWABuilder CLI
+        run: npm install -g @pwabuilder/cli
 
-      - name: Generate Keystore
+      - name: Generate Android Package
         run: |
-          keytool -genkey -v \
-            -keystore keystore.jks \
-            -alias gemeoshoje \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -storepass gemeoshoje123 \
-            -keypass gemeoshoje123 \
-            -dname "CN=Gemeos Hoje, O=Gemeos Hoje, C=BR"
-
-      - name: Init Bubblewrap
-        run: |
-          mkdir build && cd build
-          printf "n\n/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64\n" | bubblewrap init \
-            --manifest=https://gemeoshoje.com.br/manifest.json \
-            --directory=. \
-            --packageId=br.com.gemeoshoje \
-            --signingKeyPath=../keystore.jks \
-            --signingKeyAlias=gemeoshoje
-
-      - name: Build
-        run: |
-          cd build
-          printf "n\n/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64\n" | bubblewrap build \
-            --signingKeyPassword=gemeoshoje123 \
-            --signingKeyStorePassword=gemeoshoje123
+          pwabuilder package -u https://gemeoshoje.com.br -p android -d ./output
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: GemeosHoje-APK
-          path: build/app-release-signed.apk
-
-      - name: Upload AAB
-        uses: actions/upload-artifact@v4
-        with:
-          name: GemeosHoje-AAB
-          path: build/app-release-bundle.aab
-
-      - name: Upload Keystore
-        uses: actions/upload-artifact@v4
-        with:
-          name: Keystore-GUARDE-ESTE
-          path: keystore.jks
+          name: GemeosHoje-Android
+          path: ./output
